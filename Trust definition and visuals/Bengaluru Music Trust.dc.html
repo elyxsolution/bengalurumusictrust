@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#F6F6F4; color:#16181C; font-family:'Public Sans', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#2B3A67; text-decoration:none; }
+  a:hover { color:#7A3B2E; }
+  button { font-family:inherit; cursor:pointer; }
+  input, textarea, select { font-family:inherit; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#F6F6F4;">
+
+  <sc-if value="{{ showDonateBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#2B3A67; color:#EDEFF5; font-size:13px; letter-spacing:0.02em;">
+      <div style="max-width:1180px; margin:0 auto; padding:9px 32px; display:flex; justify-content:space-between; align-items:center; gap:24px;">
+        <span>A registered public charitable trust · Bengaluru</span>
+        <span style="display:flex; gap:22px; align-items:center;">
+          <a href="#" style="color:#EDEFF5;">Support the Trust</a>
+          <a href="#" style="color:#EDEFF5;">hello@bengalurumusictrust.org</a>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+
+  <header style="position:sticky; top:0; z-index:20; background:rgba(246,246,244,0.94); backdrop-filter:blur(8px); border-bottom:1px solid #DFDFDA;">
+    <div style="max-width:1180px; margin:0 auto; padding:20px 32px; display:flex; align-items:center; justify-content:space-between; gap:40px;">
+      <button onClick="{{ goHome }}" style="background:none; border:none; padding:0; text-align:left; display:flex; align-items:center; gap:12px;">
+        <span style="width:26px; height:26px; border:1.5px solid #2B3A67; border-radius:50%; display:block; position:relative;">
+          <span style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:8px; height:8px; background:#2B3A67; border-radius:50%; display:block;"></span>
+        </span>
+        <span style="font-family:Spectral, Georgia, serif; font-size:20px; font-weight:500; letter-spacing:-0.01em; color:#16181C; line-height:1;">Bengaluru Music Trust</span>
+      </button>
+
+      <nav style="display:flex; align-items:center; gap:30px;">
+        <button onClick="{{ goHome }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          Home
+          <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goClasses }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          Classes &amp; workshops
+          <sc-if value="{{ isClasses }}" hint-placeholder-val="{{ false }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goEvent }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          Concerts
+          <sc-if value="{{ isEvent }}" hint-placeholder-val="{{ false }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goAbout }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          About
+          <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goVenue }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          Venue
+          <sc-if value="{{ isVenue }}" hint-placeholder-val="{{ false }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goContact }}" style="background:none; border:none; padding:4px 0; font-size:14.5px; color:#16181C;" style-hover="{ color: '#2B3A67' }">
+          Contact
+          <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}"><span style="display:block; height:2px; background:#2B3A67; margin-top:5px;"></span></sc-if>
+        </button>
+        <button onClick="{{ goClasses }}" style="background:#2B3A67; color:#fff; border:none; padding:11px 20px; font-size:14.5px; font-weight:500;" style-hover="{ background: '#1E2A4D' }">Enrol now</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HOME ================= -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <section style="max-width:1180px; margin:0 auto; padding:76px 32px 84px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:end;">
+      <div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7A3B2E; margin:0 0 22px;">Education · Performance · Access</p>
+        <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:64px; line-height:1.06; letter-spacing:-0.02em; margin:0 0 26px; text-wrap:pretty;">A place in Bengaluru to learn music, and to be heard.</h1>
+        <p style="font-size:18px; line-height:1.62; color:#4A4E56; max-width:52ch; margin:0 0 34px;">We teach, we commission, and we put musicians on stage. Classes run six days a week for beginners and advanced students alike, and every term ends with a public concert.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <button onClick="{{ goClasses }}" style="background:#2B3A67; color:#fff; border:none; padding:15px 26px; font-size:15px; font-weight:500;" style-hover="{ background: '#1E2A4D' }">Enrol in a class</button>
+          <button onClick="{{ goEvent }}" style="background:none; color:#16181C; border:1px solid #C9C9C2; padding:15px 26px; font-size:15px; font-weight:500;" style-hover="{ borderColor: '#2B3A67', color: '#2B3A67' }">See upcoming concerts</button>
+        </div>
+      </div>
+      <div style="height:520px; position:relative; min-width:0; overflow:hidden; border:1px solid #DFDFDA;">
+        <image-slot fit="cover" style="width:100%;height:100%;color:#6E7076;font-family:'Public Sans',Helvetica,sans-serif;font-size:12.5px" src="./assets/images/home-hero-rehearsal-room.png" id="bmt-home-hero" shape="rect" placeholder="Students in the rehearsal room — portrait"></image-slot>
+      </div>
+    </section>
+
+    <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+    <section style="border-top:1px solid #DFDFDA; border-bottom:1px solid #DFDFDA; background:#FFFFFF;">
+      <div style="max-width:1180px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:repeat(4,1fr);">
+        <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
+          <div style="padding:38px 30px 40px; border-right:1px solid #EFEFEA;">
+            <div style="font-family:Spectral, Georgia, serif; font-size:42px; line-height:1; color:#2B3A67;">{{ stat.value }}</div>
+            <div style="font-size:14px; color:#5C6068; margin-top:10px;">{{ stat.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <section style="max-width:1180px; margin:0 auto; padding:84px 32px 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #DFDFDA; padding-bottom:18px; margin-bottom:42px;">
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;">What we run</h2>
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076;">Three programmes</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+        <sc-for list="{{ programmes }}" as="prog" hint-placeholder-count="3">
+          <div style="background:#FFFFFF; border:1px solid #DFDFDA; display:flex; flex-direction:column; min-width:0;">
+            <div style="height:170px; position:relative; min-width:0; overflow:hidden; border-bottom:1px solid #DFDFDA;">
+              <image-slot fit="cover" style="width:100%;height:100%;color:#6E7076;font-family:'Public Sans',Helvetica,sans-serif;font-size:12.5px" src="{{ prog.img }}" id="{{ prog.slot }}" shape="rect" placeholder="{{ prog.photo }}"></image-slot>
+            </div>
+            <div style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:12px; flex:1;">
+              <h3 style="font-family:Spectral, Georgia, serif; font-weight:500; font-size:22px; margin:0;">{{ prog.title }}</h3>
+              <p style="font-size:15px; line-height:1.6; color:#5C6068; margin:0; flex:1;">{{ prog.body }}</p>
+              <a href="#" style="font-size:14px; font-weight:500; border-bottom:1px solid #C3C9DA; padding-bottom:2px; align-self:flex-start;">{{ prog.link }}</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="max-width:1180px; margin:0 auto; padding:76px 32px 30px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #DFDFDA; padding-bottom:18px; margin-bottom:8px;">
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:34px; margin:0; letter-spacing:-0.01em;">Coming up</h2>
+        <button onClick="{{ goEvent }}" style="background:none; border:none; padding:0; font-size:14px; font-weight:500; color:#2B3A67;" style-hover="{ color: '#7A3B2E' }">Full calendar →</button>
+      </div>
+      <sc-for list="{{ events }}" as="ev" hint-placeholder-count="3">
+        <button onClick="{{ ev.open }}" style="width:100%; text-align:left; background:none; border:none; border-bottom:1px solid #E6E6E1; padding:26px 4px; display:grid; grid-template-columns:130px 1fr 220px 90px; gap:28px; align-items:center;" style-hover="{ background: '#FFFFFF' }">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.04em; color:#7A3B2E;">{{ ev.date }}</span>
+          <span style="font-family:Spectral, Georgia, serif; font-size:23px; color:#16181C;">{{ ev.title }}</span>
+          <span style="font-size:14.5px; color:#5C6068;">{{ ev.venue }}</span>
+          <span style="font-size:14px; font-weight:500; color:#2B3A67; text-align:right;">{{ ev.cta }}</span>
+        </button>
+      </sc-for>
+    </section>
+
+    <section style="background:#2B3A67; color:#F2F3F7; margin-top:80px;">
+      <div style="max-width:1180px; margin:0 auto; padding:80px 32px; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
+        <blockquote style="margin:0;">
+          <p style="font-family:Spectral, Georgia, serif; font-size:30px; line-height:1.42; margin:0 0 22px; font-weight:300;">“I came for Saturday theory classes and left with a quartet. The Trust gave us the room, the tuning fork and the audience.”</p>
+          <footer style="font-size:14px; color:#B9C1D6;">Ananya R., student since 2023</footer>
+        </blockquote>
+        <div style="border-left:1px solid #4A5680; padding-left:44px;">
+          <h3 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:26px; margin:0 0 14px;">Give a student a year of music</h3>
+          <p style="font-size:15.5px; line-height:1.65; color:#C8CEDF; margin:0 0 26px;">₹18,000 covers one full scholarship — tuition, an instrument on loan, and a seat at every concert we put on.</p>
+          <a href="#" style="display:inline-block; background:#F6F6F4; color:#2B3A67; padding:14px 24px; font-size:15px; font-weight:500;">Support the Trust</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ================= EVENT ================= -->
+  <sc-if value="{{ isEvent }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:1180px; margin:0 auto; padding:56px 32px 90px;">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3B2E; margin:0 0 20px;">Concert · Term-end series</p>
+    <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:56px; line-height:1.08; letter-spacing:-0.02em; margin:0 0 22px; max-width:20ch;">{{ event.title }}</h1>
+    <p style="font-size:18px; color:#4A4E56; margin:0 0 40px;">{{ event.summary }}</p>
+    <div style="height:400px; position:relative; min-width:0; overflow:hidden; border:1px solid #DFDFDA; margin-bottom:56px;">
+      <image-slot fit="cover" style="width:100%;height:100%;color:#6E7076;font-family:'Public Sans',Helvetica,sans-serif;font-size:12.5px" src="./assets/images/concert-term-end-ensembles.png" id="bmt-event-hero" shape="rect" placeholder="Performance photograph — wide, 16:9"></image-slot>
+    </div>
+    <div style="display:grid; grid-template-columns:1.4fr 0.6fr; gap:64px; align-items:start;">
+      <div>
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:28px; margin:0 0 18px;">Programme</h2>
+        <sc-for list="{{ programme }}" as="item" hint-placeholder-count="4">
+          <div style="display:grid; grid-template-columns:1fr 180px; gap:24px; padding:18px 0; border-bottom:1px solid #E6E6E1;">
+            <span style="font-size:16px; line-height:1.5;">{{ item.work }}</span>
+            <span style="font-size:14.5px; color:#5C6068;">{{ item.performer }}</span>
+          </div>
+        </sc-for>
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:28px; margin:46px 0 16px;">About the evening</h2>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0 0 16px; max-width:64ch;">Every term at the Trust ends the same way: the students who have been working in our rooms since June play for whoever wants to come. The programme is chosen by the students with their teachers, and runs for about ninety minutes with one interval.</p>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0; max-width:64ch;">Doors open half an hour before. Children are welcome, and there is no dress code.</p>
+      </div>
+      <aside style="background:#FFFFFF; border:1px solid #DFDFDA; padding:30px;">
+        <sc-for list="{{ eventFacts }}" as="fact" hint-placeholder-count="4">
+          <div style="padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #EFEFEA;">
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; margin-bottom:6px;">{{ fact.label }}</div>
+            <div style="font-size:16px; color:#16181C;">{{ fact.value }}</div>
+          </div>
+        </sc-for>
+        <a href="#" style="display:block; text-align:center; background:#2B3A67; color:#fff; padding:14px 20px; font-size:15px; font-weight:500; margin-top:8px;">Reserve a seat</a>
+        <p style="font-size:13px; color:#6E7076; line-height:1.55; margin:14px 0 0;">Free for enrolled students and their families.</p>
+      </aside>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= CLASSES ================= -->
+  <sc-if value="{{ isClasses }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:1180px; margin:0 auto; padding:64px 32px 90px;">
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:end; margin-bottom:64px;">
+      <div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3B2E; margin:0 0 20px;">Term three · Opens 1 September</p>
+        <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:56px; line-height:1.08; letter-spacing:-0.02em; margin:0 0 22px;">Classes &amp; workshops</h1>
+        <p style="font-size:18px; line-height:1.62; color:#4A4E56; max-width:54ch; margin:0;">Weekly group classes, one-to-one tuition and short weekend workshops. No audition for beginners — we will ask what you have played before, and put you where you will enjoy it most.</p>
+      </div>
+      <div style="height:300px; position:relative; min-width:0; overflow:hidden; border:1px solid #DFDFDA;">
+        <image-slot fit="cover" style="width:100%;height:100%;color:#6E7076;font-family:'Public Sans',Helvetica,sans-serif;font-size:12.5px" src="./assets/images/classes-hero-teacher-and-student.png" id="bmt-classes-hero" shape="rect" placeholder="Teacher with student — landscape"></image-slot>
+      </div>
+    </div>
+
+    <sc-if value="{{ classesAsCards }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:70px;">
+        <sc-for list="{{ classes }}" as="cls" hint-placeholder-count="6">
+          <div style="background:#FFFFFF; border:1px solid #DFDFDA; padding:26px;">
+            <h3 style="font-family:Spectral, Georgia, serif; font-weight:500; font-size:21px; margin:0 0 6px;">{{ cls.name }}</h3>
+            <div style="font-size:14px; color:#5C6068; margin-bottom:18px;">{{ cls.level }}</div>
+            <div style="font-size:14.5px; color:#3E424A; line-height:1.9;">{{ cls.when }}</div>
+            <div style="font-size:14.5px; color:#3E424A; line-height:1.9;">{{ cls.teacher }}</div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:14px; color:#2B3A67; margin-top:14px;">{{ cls.fee }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ classesAsTable }}" hint-placeholder-val="{{ true }}">
+      <div style="border-top:1px solid #16181C; margin-bottom:70px;">
+        <div style="display:grid; grid-template-columns:1.5fr 1fr 1.2fr 1.1fr 0.8fr; gap:24px; padding:14px 4px; border-bottom:1px solid #DFDFDA;">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076;">Class</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076;">Level</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076;">When</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076;">Teacher</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; text-align:right;">Term fee</span>
+        </div>
+        <sc-for list="{{ classes }}" as="cls" hint-placeholder-count="6">
+          <div style="display:grid; grid-template-columns:1.5fr 1fr 1.2fr 1.1fr 0.8fr; gap:24px; padding:20px 4px; border-bottom:1px solid #E6E6E1; align-items:baseline;">
+            <span style="font-family:Spectral, Georgia, serif; font-size:20px;">{{ cls.name }}</span>
+            <span style="font-size:14.5px; color:#5C6068;">{{ cls.level }}</span>
+            <span style="font-size:14.5px; color:#3E424A;">{{ cls.when }}</span>
+            <span style="font-size:14.5px; color:#3E424A;">{{ cls.teacher }}</span>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:14px; color:#2B3A67; text-align:right;">{{ cls.fee }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+      <div>
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:30px; margin:0 0 26px;">How to enrol</h2>
+        <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+          <div style="display:grid; grid-template-columns:38px 1fr; gap:18px; padding-bottom:24px;">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:13px; color:#7A3B2E; padding-top:3px;">{{ step.n }}</span>
+            <div>
+              <div style="font-size:17px; font-weight:500; margin-bottom:6px;">{{ step.title }}</div>
+              <p style="font-size:15px; line-height:1.6; color:#5C6068; margin:0;">{{ step.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #DFDFDA; padding:34px;">
+        <h3 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:24px; margin:0 0 8px;">Register your interest</h3>
+        <p style="font-size:14.5px; color:#5C6068; line-height:1.6; margin:0 0 24px;">We will write back within two working days with a place or a waiting-list date.</p>
+        <div style="display:grid; gap:14px;">
+          <input placeholder="Full name" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px;">
+          <input placeholder="Email" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px;">
+          <select style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px; color:#3E424A;">
+            <option>Which class?</option>
+            <option>Voice — Hindustani</option>
+            <option>Voice — Carnatic</option>
+            <option>Violin</option>
+            <option>Guitar</option>
+            <option>Theory &amp; ear training</option>
+            <option>Weekend percussion workshop</option>
+          </select>
+          <textarea placeholder="Anything you have played before?" rows="3" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px; resize:vertical;"></textarea>
+          <button style="background:#2B3A67; color:#fff; border:none; padding:14px 20px; font-size:15px; font-weight:500;" style-hover="{ background: '#1E2A4D' }">Send</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= ABOUT ================= -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:1180px; margin:0 auto; padding:64px 32px 90px;">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3B2E; margin:0 0 20px;">About the Trust</p>
+    <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:52px; line-height:1.12; letter-spacing:-0.02em; margin:0 0 44px; max-width:22ch;">Music education, performance and access.</h1>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; padding-bottom:64px; border-bottom:1px solid #DFDFDA;">
+      <p style="font-family:Spectral, Georgia, serif; font-size:22px; line-height:1.55; color:#26292F; margin:0;">Bengaluru Music Trust was founded around the belief that music education, performance and access to music can create meaningful opportunities for people and communities.</p>
+      <div>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0 0 16px;">The Trust supports music education, nurtures young and emerging musicians, and creates opportunities for learning and performance. We run classes and workshops through the year, present concerts open to the public, and contribute to the wider musical and cultural life of the city.</p>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0;">Everything we do is paid for by fees, donations and grants. Where fees would keep someone out, we cover them.</p>
+      </div>
+    </div>
+
+    <section style="margin-top:80px; background:#FFFFFF; border:1px solid #DFDFDA; padding:48px;">
+      <div style="display:grid; grid-template-columns:0.7fr 1.3fr; gap:56px;">
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:30px; margin:0;">Governance</h2>
+        <div style="display:grid; gap:22px;">
+          <sc-for list="{{ governance }}" as="g" hint-placeholder-count="3">
+            <div style="display:grid; grid-template-columns:200px 1fr; gap:24px; padding-bottom:20px; border-bottom:1px solid #EFEFEA;">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6E7076; padding-top:3px;">{{ g.label }}</span>
+              <span style="font-size:16px; line-height:1.6; color:#3E424A;">{{ g.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ================= VENUE ================= -->
+  <sc-if value="{{ isVenue }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:1180px; margin:0 auto; padding:64px 32px 90px;">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3B2E; margin:0 0 20px;">Venue &amp; directions</p>
+    <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:52px; line-height:1.1; letter-spacing:-0.02em; margin:0 0 44px;">Finding us</h1>
+    <div style="height:420px; position:relative; min-width:0; overflow:hidden; border:1px solid #DFDFDA; margin-bottom:56px;">
+      <image-slot fit="cover" style="width:100%;height:100%;color:#6E7076;font-family:'Public Sans',Helvetica,sans-serif;font-size:12.5px" src="./assets/images/venue-hall-entrance.png" id="bmt-venue" shape="rect" placeholder="Map of the block, or a photo of the entrance"></image-slot>
+    </div>
+    <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;">
+      <div>
+        <h2 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:28px; margin:0 0 18px;">The music rooms</h2>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0 0 14px;">Two teaching rooms, a small hall that seats a hundred and twenty, and a courtyard where most people end up after a concert. The hall has a tuned upright and a full drum kit; instruments can be borrowed for practice by arrangement.</p>
+        <p style="font-size:16.5px; line-height:1.7; color:#3E424A; margin:0;">The building is step-free from the street, and there is an accessible toilet on the ground floor.</p>
+      </div>
+      <div style="display:grid; gap:0;">
+        <sc-for list="{{ venueFacts }}" as="v" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid #E6E6E1;">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:#6E7076; padding-top:3px;">{{ v.label }}</span>
+            <span style="font-size:16px; line-height:1.65; color:#3E424A;">{{ v.value }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= CONTACT ================= -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:1180px; margin:0 auto; padding:64px 32px 90px;">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3B2E; margin:0 0 20px;">Contact</p>
+    <h1 style="font-family:Spectral, Georgia, serif; font-weight:400; font-size:52px; line-height:1.1; letter-spacing:-0.02em; margin:0 0 44px;">Write to us</h1>
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;">
+      <div style="background:#FFFFFF; border:1px solid #DFDFDA; padding:36px;">
+        <div style="display:grid; gap:14px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <input placeholder="Name" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px;">
+            <input placeholder="Email" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px;">
+          </div>
+          <select style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px; color:#3E424A;">
+            <option>What is this about?</option>
+            <option>Classes and enrolment</option>
+            <option>Concerts and tickets</option>
+            <option>Donating or sponsoring</option>
+            <option>Grants and residencies</option>
+            <option>Hiring the hall</option>
+          </select>
+          <textarea placeholder="Your message" rows="6" style="padding:13px 14px; border:1px solid #D6D6D0; background:#FAFAF8; font-size:15px; resize:vertical;"></textarea>
+          <button style="background:#2B3A67; color:#fff; border:none; padding:14px 20px; font-size:15px; font-weight:500; justify-self:start; padding-left:34px; padding-right:34px;" style-hover="{ background: '#1E2A4D' }">Send message</button>
+        </div>
+      </div>
+      <div>
+        <sc-for list="{{ contactFacts }}" as="c" hint-placeholder-count="4">
+          <div style="padding:20px 0; border-bottom:1px solid #E6E6E1;">
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; margin-bottom:8px;">{{ c.label }}</div>
+            <div style="font-size:16.5px; line-height:1.6; color:#3E424A;">{{ c.value }}</div>
+          </div>
+        </sc-for>
+        <p style="font-size:15px; line-height:1.65; color:#5C6068; margin:26px 0 0;">For press enquiries and photography requests, please write to the office and mark your message for the attention of the administrator.</p>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer style="border-top:1px solid #DFDFDA; background:#FFFFFF; margin-top:0;">
+    <div style="max-width:1180px; margin:0 auto; padding:60px 32px 34px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:44px;">
+      <div>
+        <div style="font-family:Spectral, Georgia, serif; font-size:21px; margin-bottom:12px;">Bengaluru Music Trust</div>
+        <p style="font-size:14.5px; line-height:1.65; color:#5C6068; margin:0; max-width:32ch;">Teaching, commissioning and presenting music in Bengaluru since 2016.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; margin-bottom:4px;">Visit</span>
+        <button onClick="{{ goEvent }}" style="background:none; border:none; padding:0; font-size:14.5px; color:#3E424A;" style-hover="{ color: '#2B3A67' }">Concerts</button>
+        <button onClick="{{ goVenue }}" style="background:none; border:none; padding:0; font-size:14.5px; color:#3E424A;" style-hover="{ color: '#2B3A67' }">Venue &amp; directions</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; margin-bottom:4px;">Learn</span>
+        <button onClick="{{ goClasses }}" style="background:none; border:none; padding:0; font-size:14.5px; color:#3E424A;" style-hover="{ color: '#2B3A67' }">Classes &amp; workshops</button>
+        <button onClick="{{ goContact }}" style="background:none; border:none; padding:0; font-size:14.5px; color:#3E424A;" style-hover="{ color: '#2B3A67' }">Contact</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#6E7076; margin-bottom:4px;">Support</span>
+        <a href="#" style="font-size:14.5px; color:#3E424A;">Donate</a>
+        <a href="#" style="font-size:14.5px; color:#3E424A;">Sponsor a scholarship</a>
+      </div>
+    </div>
+    <div style="max-width:1180px; margin:0 auto; padding:0 32px 44px; display:flex; justify-content:space-between; font-size:13px; color:#7A7D84;">
+      <span>© 2026 Bengaluru Music Trust. Registered public charitable trust.</span>
+      <span>Privacy · Safeguarding</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showDonateBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;classesLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Table&quot;,&quot;Cards&quot;],&quot;default&quot;:&quot;Table&quot;,&quot;tsType&quot;:&quot;'Table' | 'Cards'&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home' };
+
+  go(page) {
+    return () => {
+      this.setState({ page });
+      if (typeof window !== 'undefined') window.scrollTo(0, 0);
+    };
+  }
+
+  renderVals() {
+    const p = this.state.page;
+    const layout = this.props.classesLayout ?? 'Table';
+    const openEvent = this.go('event');
+    return {
+      isHome: p === 'home', isEvent: p === 'event', isAbout: p === 'about',
+      isClasses: p === 'classes', isVenue: p === 'venue', isContact: p === 'contact',
+      goHome: this.go('home'), goEvent: openEvent, goAbout: this.go('about'),
+      goClasses: this.go('classes'), goVenue: this.go('venue'), goContact: this.go('contact'),
+
+      showDonateBar: this.props.showDonateBar ?? true,
+      showStats: this.props.showStats ?? true,
+      classesAsCards: layout === 'Cards',
+      classesAsTable: layout === 'Table',
+
+      stats: [
+        { value: '340', label: 'students enrolled this term' },
+        { value: '26', label: 'teachers and visiting artists' },
+        { value: '48', label: 'concerts and open rehearsals a year' },
+        { value: '1 in 5', label: 'students on a full scholarship' }
+      ],
+
+      programmes: [
+        { title: 'Classes & workshops', body: 'Weekly group classes and one-to-one tuition in voice, strings, guitar and percussion, plus weekend workshops open to anyone.', link: 'See the timetable', photo: 'Group class in progress', slot: 'bmt-prog-classes', img: './assets/images/programme-classes-group-lesson.png' },
+        { title: 'Concert series', body: 'Eight public concerts a year, from student term-ends to visiting ensembles. Most are free; the rest are priced so a student can afford them.', link: 'What is on', photo: 'The hall, mid-concert', slot: 'bmt-prog-concerts', img: './assets/images/programme-concerts-hall-performance.png' },
+        { title: 'Grants & residencies', body: 'Small grants and rehearsal residencies for emerging musicians in the city who need room, time and a modest budget.', link: 'How to apply', photo: 'Rehearsal, empty hall', slot: 'bmt-prog-grants', img: './assets/images/programme-grants-empty-hall-rehearsal.png' }
+      ],
+
+      events: [
+        { date: '12 SEP 2026', title: 'Term-end concert: the student ensembles', venue: 'The Hall, Richmond Town', cta: 'Details', open: openEvent },
+        { date: '27 SEP 2026', title: 'Evening raga with Meera Iyengar', venue: 'The Hall, Richmond Town', cta: 'Details', open: openEvent },
+        { date: '11 OCT 2026', title: 'Open rehearsal: new works for percussion', venue: 'Rehearsal Room 2', cta: 'Details', open: openEvent }
+      ],
+
+      event: {
+        title: 'Term-end concert: the student ensembles',
+        summary: 'Fourteen ensembles, ninety minutes, one interval. Free to attend.'
+      },
+      programme: [
+        { work: 'Raga Yaman — alap and gat', performer: 'Senior voice group' },
+        { work: 'Three pieces for two violins', performer: 'Strings, intermediate' },
+        { work: 'Konnakol and kanjira set', performer: 'Weekend percussion workshop' },
+        { work: 'New work for guitar quartet', performer: 'Guitar ensemble' },
+        { work: 'Closing chorus — all students', performer: 'Everyone' }
+      ],
+      eventFacts: [
+        { label: 'Date', value: 'Saturday 12 September 2026' },
+        { label: 'Time', value: '18:30, doors 18:00' },
+        { label: 'Venue', value: 'The Hall, Richmond Town' },
+        { label: 'Tickets', value: 'Free, reservation advised' }
+      ],
+
+      classes: [
+        { name: 'Voice — Hindustani', level: 'Beginner', when: 'Tue 18:00', teacher: 'Meera Iyengar', fee: '₹6,000' },
+        { name: 'Voice — Carnatic', level: 'All levels', when: 'Wed 18:00', teacher: 'S. Raghavan', fee: '₹6,000' },
+        { name: 'Violin', level: 'Beginner / Grade 3', when: 'Mon & Thu 17:00', teacher: 'Anita Prabhu', fee: '₹8,500' },
+        { name: 'Guitar', level: 'Beginner', when: 'Sat 10:00', teacher: 'Joel Fernandes', fee: '₹5,500' },
+        { name: 'Theory & ear training', level: 'Open', when: 'Sat 12:00', teacher: 'Rotating faculty', fee: '₹3,000' },
+        { name: 'Percussion workshop', level: 'Open', when: 'Sun 09:30, monthly', teacher: 'Visiting artists', fee: '₹900 / session' }
+      ],
+      steps: [
+        { n: '01', title: 'Tell us what you play', body: 'Fill in the form, or call the office. Beginners are welcome and no audition is needed.' },
+        { n: '02', title: 'Come for a trial class', body: 'One free class in the group we think suits you. If it is the wrong fit, we will move you.' },
+        { n: '03', title: 'Confirm your place', body: 'Fees are payable per term and can be split. Scholarships are decided in the first fortnight of each term.' }
+      ],
+
+      governance: [
+        { label: 'Registration', value: 'Registered public charitable trust, Bengaluru. Deed dated 2016; 80G certified.' },
+        { label: 'Board', value: 'Four trustees, meeting quarterly. Minutes are available to donors on request.' },
+        { label: 'Accounts', value: 'Audited annually. The last three annual reports can be downloaded from the office page.' },
+        { label: 'Safeguarding', value: 'All teachers working with under-18s are police-verified. Our policy is available on request.' }
+      ],
+
+      venueFacts: [
+        { label: 'Address', value: 'The Hall, 14 Wellington Street, Richmond Town, Bengaluru 560025' },
+        { label: 'Metro', value: 'Nearest station Trinity, 1.4 km. Autos are easy to find outside the station.' },
+        { label: 'Bus', value: 'Richmond Circle stop, five minutes on foot.' },
+        { label: 'Parking', value: 'Limited street parking on Wellington Street. A paid lot sits behind the church.' },
+        { label: 'Access', value: 'Step-free entrance, accessible toilet, hearing loop in the hall.' }
+      ],
+
+      contactFacts: [
+        { label: 'Office', value: '14 Wellington Street, Richmond Town, Bengaluru 560025' },
+        { label: 'Hours', value: 'Monday to Saturday, 10:00 – 18:00' },
+        { label: 'Email', value: 'hello@bengalurumusictrust.org' },
+        { label: 'Phone', value: '+91 80 4000 0000' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
