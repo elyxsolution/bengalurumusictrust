@@ -1,0 +1,400 @@
+/* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-text: #f5f5f5;
+  --color-accent: #6fd44a;
+  --color-accent-2: #2d5a1e;
+  --color-divider: color-mix(in srgb, #6fd44a 14%, transparent);
+
+  /* Tonal ramps — 100 is the lightest step and 900 the darkest on every ramp.
+     The neutral tail is tuned to the dark grounds the system sits on rather
+     than to an even lightness curve. */
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #d6d6d6;
+  --color-neutral-300: #b8b8b8;
+  --color-neutral-400: #9e9e9e;
+  --color-neutral-500: #888888;
+  --color-neutral-600: #6a6a6a;
+  --color-neutral-700: #4d4d4d;
+  --color-neutral-800: #1a1a1a;
+  --color-neutral-900: #0a0a0a;
+
+  /* Accent — the Trust's leaf green. 500 is the interactive base on the dark
+     ground; 800 is the exact ink of the Bangalore Music Trust logo. */
+  --color-accent-100: #edf9e6;
+  --color-accent-200: #d6f2c4;
+  --color-accent-300: #b4e79a;
+  --color-accent-400: #8fdc6c;
+  --color-accent-500: #6fd44a;
+  --color-accent-600: #55b834;
+  --color-accent-700: #3f8f26;
+  --color-accent-800: #2d5a1e;
+  --color-accent-900: #1b3a11;
+
+  /* Accent-2 — the deep forest half of the same hue, for full-bleed fields. */
+  --color-accent-2-100: #e8f1e3;
+  --color-accent-2-200: #c9dec0;
+  --color-accent-2-300: #a3c596;
+  --color-accent-2-400: #7ba96b;
+  --color-accent-2-500: #578b45;
+  --color-accent-2-600: #3f6b31;
+  --color-accent-2-700: #2d5a1e;
+  --color-accent-2-800: #1e3f14;
+  --color-accent-2-900: #12280c;
+
+  --font-heading: "Outfit", system-ui, sans-serif;
+  --font-heading-weight: 700;
+  --font-body: "Lato", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation — ambient darkness on a black ground, plus an accent glow for
+     the one lifted state the system uses. */
+  --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.35);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.55);
+  --shadow-glow: 0 8px 25px color-mix(in srgb, var(--color-accent) 32%, transparent);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.2s var(--ease);
+  --t-base: 0.3s var(--ease);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Base — plain CSS on plain HTML: no JavaScript, no build step. Each class is
+   documented in readme.md.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-4);
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+h1 { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
+h3 { font-size: clamp(1.375rem, 3vw, 2rem); font-weight: 600; }
+h4 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); font-weight: 600; }
+h5 { font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 600; }
+h6 {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem); font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent);
+}
+p { margin: 0 0 var(--space-4); }
+
+a { color: inherit; text-decoration: none; transition: color var(--t-base); }
+a:hover { color: var(--color-accent); }
+
+button { font-family: var(--font-body); cursor: pointer; border: none; }
+
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption { font-size: 0.85rem; margin-top: var(--space-2); color: var(--color-neutral-400); }
+
+.text-muted { color: var(--color-neutral-300); }
+.text-dim { color: var(--color-neutral-500); }
+.text-accent { color: var(--color-accent); }
+/* The one gradient in the system: the accent, used on a word of a heading. */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+::selection { background: var(--color-accent); color: var(--color-bg); }
+
+/* — layout — */
+.container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.section { padding: 100px 0; position: relative; }
+.section + .section { border-top: 1px solid var(--color-divider); }
+.section-header { margin-bottom: 64px; text-align: center; }
+.section-header h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: var(--space-4); }
+/* Section openings fade from paper white into the muted step — the system's
+   one piece of type colour that is not flat. An accent heading opts out. */
+.section-header h2:not(.text-accent) {
+  background: linear-gradient(135deg, var(--color-neutral-100), var(--color-neutral-300));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.section-header p { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--color-neutral-300); max-width: 62ch; margin: 0 auto; }
+.section-separator {
+  width: 80px; height: 4px; margin: var(--space-6) auto 0; border-radius: 2px;
+  background: var(--color-accent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 50%, transparent);
+}
+.section-title { position: relative; display: inline-block; padding-bottom: var(--space-3); margin-bottom: var(--space-6); }
+.section-title::after {
+  content: ""; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+.hr { height: 1px; border: 0; margin: var(--space-6) 0; background: var(--color-divider); }
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 48px; padding: 14px 32px;
+  font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2;
+  color: var(--color-text); background: transparent;
+  border: 2px solid transparent; border-radius: var(--radius-pill);
+  cursor: pointer; text-decoration: none;
+  transition: background var(--t-base), color var(--t-base), border-color var(--t-base),
+              transform var(--t-base), box-shadow var(--t-base);
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn svg { display: block; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-600));
+  color: var(--color-bg); border-color: transparent; box-shadow: var(--shadow-md);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-accent-600), var(--color-accent-700));
+  color: var(--color-bg); transform: translateY(-2px); box-shadow: var(--shadow-glow);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary { border-color: var(--color-accent); color: var(--color-accent); background: transparent; }
+.btn-secondary:hover { background: var(--color-accent); color: var(--color-bg); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.btn-secondary:active { transform: translateY(0); }
+
+.btn-outline { border-color: var(--color-neutral-100); color: var(--color-neutral-100); background: transparent; }
+.btn-outline:hover { background: color-mix(in srgb, var(--color-neutral-100) 12%, transparent); color: var(--color-neutral-100); transform: translateY(-2px); }
+.btn-outline:active { transform: translateY(0); }
+
+.btn-ghost {
+  padding: var(--space-2) 0; min-height: 40px; border-radius: var(--radius-sm);
+  color: var(--color-accent); background: transparent; border-color: transparent;
+}
+.btn-ghost:hover { color: var(--color-accent-300); }
+
+.btn-block { width: 100%; }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.tag-accent { background: color-mix(in srgb, var(--color-accent) 16%, transparent); color: var(--color-accent-300); }
+.tag-accent-2 { background: var(--color-accent-2-800); color: var(--color-accent-200); }
+.tag-neutral { background: var(--color-neutral-800); color: var(--color-neutral-200); }
+.tag-outline { border: 1px solid var(--color-divider); color: var(--color-neutral-200); }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column;
+  background: linear-gradient(135deg, var(--color-surface), rgb(0 0 0 / 0.9));
+  border: 1px solid var(--color-divider);
+  border-radius: 20px; overflow: hidden; height: 100%;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+}
+.card::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0; transition: opacity var(--t-base);
+}
+.card { position: relative; }
+a.card, button.card, .card[role="button"] { cursor: pointer; text-align: left; }
+.card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--color-accent) 32%, transparent); }
+.card:hover::before { opacity: 1; }
+
+.card-media { position: relative; overflow: hidden; background: var(--color-neutral-900); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.card:hover .card-media img { transform: scale(1.06); }
+.card-media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 45%, rgb(0 0 0 / 0.65) 100%);
+}
+/* The designed stand-in for a card whose subject has no photograph yet —
+   an accent plate, never an empty box. */
+.card-plate {
+  position: relative; display: grid; place-items: center; overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 62%),
+    linear-gradient(135deg, var(--color-accent-2-900), var(--color-surface));
+}
+.card-plate img { width: auto; height: 46%; opacity: 0.28; }
+
+.card-badge {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-600));
+  color: var(--color-bg);
+  font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.card-content { flex: 1; display: flex; flex-direction: column; padding: 32px; }
+.card-kicker {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent);
+}
+.card-title { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.25; margin: 0 0 var(--space-3); transition: color var(--t-base); }
+.card:hover .card-title { color: var(--color-accent); }
+.card-body { flex: 1; margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-neutral-300); }
+.card-meta { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4); font-size: 0.85rem; color: var(--color-neutral-500); }
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — forms — */
+.field { display: block; }
+.field > label {
+  display: block; margin-bottom: var(--space-2);
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--color-neutral-200);
+}
+.input {
+  width: 100%; min-height: 52px; padding: 14px 16px;
+  font: inherit; font-size: 1rem; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-sm);
+  transition: border-color var(--t-base), background var(--t-base);
+}
+.input::placeholder { color: var(--color-neutral-600); }
+.input:hover { border-color: color-mix(in srgb, var(--color-accent) 32%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 140px; resize: vertical; }
+
+.radio { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; font-size: 1rem; }
+.radio input, .seg-opt input { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.radio .dot { width: 18px; height: 18px; flex: none; border-radius: 50%; border: 2px solid var(--color-neutral-600); transition: border-color var(--t-base); }
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot { border-color: var(--color-accent); background: var(--color-accent); box-shadow: inset 0 0 0 4px var(--color-bg); }
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+.seg { display: inline-flex; overflow: hidden; border: 1px solid var(--color-divider); border-radius: var(--radius-pill); }
+.seg-opt { display: inline-flex; align-items: center; gap: var(--space-2); padding: 10px 18px; font-size: 0.9rem; cursor: pointer; }
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: var(--color-neutral-800); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — navigation — */
+.nav { display: flex; align-items: center; gap: var(--space-6); padding: var(--space-4) 0; }
+.nav-brand { display: flex; align-items: center; gap: var(--space-3); margin-right: auto; font-family: var(--font-heading); font-weight: 800; }
+.nav a { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.table th {
+  text-align: left; padding: var(--space-3);
+  font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent);
+  border-bottom: 1px solid var(--color-divider);
+}
+.table td { padding: var(--space-3); border-bottom: 1px solid var(--color-neutral-800); color: var(--color-neutral-200); }
+.table tbody tr:hover { background: var(--color-neutral-900); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center;
+  padding: var(--space-6); background: rgb(0 0 0 / 0.85);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.dialog {
+  width: min(560px, 100%); display: flex; flex-direction: column; gap: var(--space-4);
+  padding: var(--space-8); border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-neutral-800), var(--color-surface));
+  border: 1px solid var(--color-divider); box-shadow: var(--shadow-lg);
+}
+.dialog-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; margin: 0; }
+.dialog-body { color: var(--color-neutral-300); }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-3); }
+
+/* — media — every photograph in the system goes through this wrapper, which
+     owns the aspect ratio so nothing shifts while the file loads — */
+.media { display: block; position: relative; overflow: hidden; border-radius: var(--radius-md); background: var(--color-neutral-900); }
+.media > img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.media-ring { box-shadow: 0 0 0 1px var(--color-divider); }
+
+/* — accessibility — */
+.skip-link {
+  position: fixed; top: -100px; left: var(--space-4); z-index: 2000;
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm);
+  background: var(--color-accent); color: var(--color-bg);
+  font-family: var(--font-heading); font-weight: 700;
+  transition: top var(--t-base);
+}
+.skip-link:focus { top: var(--space-4); color: var(--color-bg); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* — scroll-reveal: opt-in, and inert when the reader asks for less motion — */
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+[data-reveal].in-view { opacity: 1; transform: none; }
+
+@media print {
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* — responsive — the system's three steps — */
+@media (max-width: 900px) {
+  .section { padding: 72px 0; }
+  .section-header { margin-bottom: 44px; }
+  .card-content { padding: 24px; }
+}
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  .container { padding: 0 20px; }
+  .section { padding: 60px 0; }
+  .section-separator { width: 60px; height: 3px; }
+}
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .container { padding: 0 16px; }
+  .card { border-radius: 16px; }
+  .card-content { padding: 20px; }
+  .btn { padding: 13px 24px; font-size: 0.85rem; }
+}
