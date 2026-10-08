@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Get Involved — Bengaluru Music Trust</title>
+<meta name="description" content="Learn, support, volunteer or collaborate with Bengaluru Music Trust to help music education reach more learners in Bengaluru.">
+<meta property="og:title" content="Get Involved — Bengaluru Music Trust">
+<meta property="og:description" content="Be part of the next generation of music.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1771238113736-5954f174156b?auto=format&amp;fit=crop&amp;q=72&amp;w=1200">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<script src="site-content.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f3f2f2;color:#201f1d;font-family:'Lora',Georgia,serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:#163D12;text-decoration:none;text-underline-offset:3px}
+a:hover{color:#315A29}
+img{display:block;max-width:100%}
+button,input,textarea,select{font-family:inherit}
+section[id]{scroll-margin-top:80px}
+::selection{background:rgba(182,130,53,.3)}
+:focus{outline:none}
+:focus-visible{outline:2px solid #b68235;outline-offset:2px}
+</style>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ nav.bg }};color:{{ nav.fg }};border-bottom:1px solid {{ nav.border }};backdrop-filter:{{ nav.blur }};-webkit-backdrop-filter:{{ nav.blur }};transition:background .5s,color .5s,border-color .5s">
+  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:{{ nav.pad }} clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .5s">
+    <a href="Bengaluru%20Music%20Trust.dc.html" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
+      <span style="position:relative;display:block;height:44px;flex:none"><img src="assets/logo-mark-ivory.png" alt="" style="height:44px;width:auto;opacity:{{ nav.ivoryOp }};transition:opacity .5s"><img src="assets/logo-mark-green.png" alt="" style="position:absolute;left:0;top:0;height:44px;width:auto;opacity:{{ nav.greenOp }};transition:opacity .5s"></span>
+      <span style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:17px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
+        <span style="font-style:italic;font-size:11px;line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
+      </span>
+    </a>
+    <div style="display:{{ desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
+      <a href="Bengaluru%20Music%20Trust.dc.html#who" style="color:inherit">About</a>
+      <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
+      <a href="Bengaluru%20Music%20Trust.dc.html#work" style="color:inherit">Our Work</a>
+      <a href="Bengaluru%20Music%20Trust.dc.html#impact" style="color:inherit">Impact</a>
+      <a href="Bengaluru%20Music%20Trust.dc.html#stories" style="color:inherit">Stories</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="#contact" aria-current="page" style="display:{{ desk }};align-items:center;white-space:nowrap;padding:11px 22px;border-radius:4px;border:1px solid currentColor;color:inherit;font-size:14px" style-hover="background:rgba(182,130,53,.16)">Contact</a>
+      <button type="button" aria-label="Open menu" onClick="{{ openMenu }}" style="display:{{ mob }};flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;padding:0 12px;border:1px solid currentColor;border-radius:4px;background:transparent;color:inherit;cursor:pointer">
+        <span style="display:block;height:1px;background:currentColor"></span><span style="display:block;height:1px;background:currentColor"></span><span style="display:block;height:1px;background:currentColor;width:60%"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed;inset:0;z-index:60;background:#163D12;color:#f3f2f2;display:flex;flex-direction:column;padding:22px clamp(20px,5vw,72px) 40px;overflow:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust" style="height:44px;width:auto">
+      <button type="button" aria-label="Close menu" onClick="{{ closeMenu }}" style="width:46px;height:46px;border:1px solid rgba(243,242,242,.5);border-radius:4px;background:transparent;color:#f3f2f2;font-size:22px;cursor:pointer">×</button>
+    </div>
+    <div style="display:flex;flex-direction:column;margin-top:auto;padding-top:40px">
+      <sc-for list="{{ menuLinks }}" as="l" hint-placeholder-count="6">
+        <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:18px;color:#f3f2f2;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,9vw,60px);line-height:1.15;border-bottom:1px solid rgba(243,242,242,.16);padding:8px 0"><span style="font-family:'Lora',serif;font-size:11px;letter-spacing:.18em;color:#e1ad66">{{ l.n }}</span>{{ l.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<main>
+
+<section aria-labelledby="page-title" data-screen-label="01 Get Involved Hero" style="position:relative;min-height:max(640px,88vh);overflow:hidden;background:#0f1d0c;color:#f3f2f2;display:flex;align-items:flex-end">
+  <img src="https://images.unsplash.com/photo-1771238113736-5954f174156b?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.hero.set }}" sizes="100vw" alt="{{ img.hero.alt }}" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ img.hero.pos }};filter:sepia(.22) saturate(.82) contrast(1.05)">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,29,12,.55) 0%,rgba(15,29,12,.3) 35%,rgba(15,29,12,.94) 100%)"></div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;padding:160px clamp(20px,5vw,72px) clamp(48px,6vw,80px);display:flex;flex-direction:column;gap:32px">
+    <p style="margin:0;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#facb8d"><a href="Bengaluru%20Music%20Trust.dc.html" style="color:#facb8d">Home</a><span aria-hidden="true">/</span><span>Get Involved</span></p>
+    <h1 id="page-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(52px,7.6vw,124px);line-height:.92;letter-spacing:-.02em;max-width:15ch">Be Part of the Next Generation <em>of Music.</em></h1>
+    <nav aria-label="Ways to get involved" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid rgba(243,242,242,.28)">
+      <sc-for list="{{ paths }}" as="p" hint-placeholder-count="4">
+        <a href="{{ p.href }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 20px 20px 0;border-bottom:1px solid rgba(243,242,242,.28);color:#f3f2f2" style-hover="color:#facb8d">
+          <span style="display:flex;align-items:baseline;gap:14px"><span style="font-size:11px;letter-spacing:.18em;color:#e1ad66">{{ p.n }}</span><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;letter-spacing:.05em;text-transform:uppercase">{{ p.title }}</span></span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+        </a>
+      </sc-for>
+    </nav>
+  </div>
+</section>
+
+<section id="learn" aria-labelledby="learn-title" data-screen-label="02 Learn" style="padding:clamp(88px,10vw,150px) clamp(20px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px clamp(48px,7vw,120px);align-items:end">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>01</span><span style="width:40px;height:1px;background:currentColor"></span><span>Learn</span></div>
+      <h2 id="learn-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Discover Music <em>Education Opportunities</em></h2>
+    </div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto">For children, young people and adults who want to begin or deepen a relationship with music. Explore the stages of learning and the areas of study the Trust intends to offer, and register your interest.</p>
+      <a href="Music%20Education.dc.html" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px" style-hover="background:rgba(22,61,18,.07)">Explore Music Education
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title" data-screen-label="03 Support" style="background:#163D12;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:start">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span>02</span><span style="width:40px;height:1px;background:currentColor"></span><span>Support</span></div>
+      <h2 id="support-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.02em">Help Music <em>Reach Further.</em></h2>
+      <p style="margin:0;max-width:460px;font-size:17px;line-height:1.75;color:rgba(243,242,242,.88)">Your support can help create more opportunities for learning, expression and musical growth.</p>
+      <dl style="margin:12px 0 0;border-top:1px solid rgba(243,242,242,.22);max-width:520px">
+        <sc-for list="{{ giving }}" as="g" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px;padding:16px 0;border-bottom:1px solid rgba(243,242,242,.22)">
+            <dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e1ad66;padding-top:3px">{{ g.label }}</dt>
+            <dd style="margin:0;font-size:15px;line-height:1.55;color:{{ g.color }};font-style:{{ g.style }}">{{ g.value }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+    </div>
+    <div data-reveal="" style="border:1px solid rgba(243,242,242,.25);border-radius:4px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px">
+      <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px">Choose how you'd like to help</h3>
+      <div role="radiogroup" aria-label="Ways to give" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+        <sc-for list="{{ giveOpts }}" as="o" hint-placeholder-count="4">
+          <button type="button" role="radio" aria-checked="{{ o.on }}" onClick="{{ o.select }}" style="text-align:left;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:4px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#f3f2f2;cursor:pointer;transition:background .3s,border-color .3s">
+            <span style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1.05">{{ o.title }}</span><span style="flex:none;width:16px;height:16px;border-radius:50%;border:1px solid #e1ad66;display:grid;place-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#e1ad66;opacity:{{ o.dot }}"></span></span></span>
+            <span style="font-size:13.5px;line-height:1.55;color:rgba(243,242,242,.78)">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <a href="#contact" onClick="{{ enquireGive }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #e1ad66;color:#facb8d;font-size:15px" style-hover="background:rgba(225,173,102,.14);color:#facb8d">Support the Trust
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(243,242,242,.65)">Online giving will be enabled once the Trust's payment and registration details are confirmed. Until then, send an enquiry and the Trust will respond directly.</p>
+    </div>
+  </div>
+</section>
+
+<section id="volunteer" aria-labelledby="vol-title" data-screen-label="04 Volunteer" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:center">
+    <figure data-reveal="" style="margin:0;aspect-ratio:4/5;max-height:720px;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16)">
+      <img src="https://images.unsplash.com/photo-1653246458437-fd78a9265711?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.vol.set }}" alt="{{ img.vol.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:45% 30%;filter:sepia(.22) saturate(.82) contrast(1.05)">
+    </figure>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>03</span><span style="width:40px;height:1px;background:currentColor"></span><span>Volunteer</span></div>
+      <h2 id="vol-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Share Your Time, <em>Knowledge or Expertise</em></h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto">Musicians, educators and professionals from every field can help the Trust grow. Tell us where your strengths lie.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;max-width:560px">
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="8">
+          <button type="button" aria-pressed="{{ s.on }}" onClick="{{ s.toggle }}" style="padding:10px 16px;border-radius:4px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ s.label }}</button>
+        </sc-for>
+      </div>
+      <a href="#contact" onClick="{{ enquireVol }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px" style-hover="background:rgba(22,61,18,.07)">Volunteer with us
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="collaborate" aria-labelledby="col-title" data-screen-label="05 Collaborate" style="background:#eae9e9;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:clamp(48px,6vw,80px)">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>04</span><span style="width:40px;height:1px;background:currentColor"></span><span>Collaborate</span></div>
+        <h2 id="col-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Partner <em>With the Trust</em></h2>
+      </div>
+      <p style="margin:0;max-width:400px;font-size:15px;line-height:1.7;color:#55534e">Partner with the Trust as an artist, educator, institution or organisation.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+      <sc-for list="{{ partners }}" as="p" hint-placeholder-count="4">
+        <a data-reveal="" href="#contact" onClick="{{ p.enquire }}" style="display:flex;flex-direction:column;gap:18px;min-height:300px;padding:30px 26px;border:1px solid rgba(32,31,29,.2);border-radius:4px;background:#f3f2f2;color:#201f1d;transition:border-color .4s" style-hover="border-color:#163D12;color:#201f1d">
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:44px;line-height:.8;color:#b68235">{{ p.n }}</span>
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,2.4vw,38px);line-height:1;color:#163D12">{{ p.title }}</span>
+          <span style="font-size:15px;line-height:1.65;color:#44423d">{{ p.text }}</span>
+          <span style="margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#163D12;border-bottom:1px solid #b68235;align-self:flex-start;padding-bottom:4px">Start a conversation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title" data-screen-label="06 Contact" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px clamp(48px,6vw,100px);align-items:start">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>Contact</span></div>
+      <h2 id="contact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Write to <em>the Trust</em></h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:440px">Whether you would like to learn, support, volunteer or collaborate, send a note and the Trust will respond.</p>
+      <dl style="margin:0;border-top:1px solid rgba(32,31,29,.16);max-width:440px">
+        <sc-for list="{{ contactRows }}" as="c" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid rgba(32,31,29,.16)">
+            <dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7d5411;padding-top:2px">{{ c.label }}</dt>
+            <dd style="margin:0;font-size:15px;color:{{ c.color }};font-style:{{ c.style }}">{{ c.value }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form data-reveal="" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:22px;border:1px solid rgba(32,31,29,.16);border-radius:4px;padding:clamp(24px,3vw,40px)">
+        <fieldset style="border:0;margin:0;padding:0">
+          <legend style="font-size:13px;color:#44423d;margin-bottom:10px;padding:0">I'm writing about</legend>
+          <div role="radiogroup" style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
+              <button type="button" role="radio" aria-checked="{{ t.on }}" onClick="{{ t.select }}" style="padding:10px 16px;border-radius:4px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ t.label }}</button>
+            </sc-for>
+          </div>
+        </fieldset>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Your name
+            <input type="text" required="" autocomplete="name" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Email
+            <input type="email" required="" autocomplete="email" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+          </label>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Organisation (optional)
+          <input type="text" autocomplete="organization" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Message
+          <textarea rows="5" required="" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d;resize:vertical"></textarea>
+        </label>
+        <button type="submit" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:4px;border:1px solid #163D12;background:transparent;color:#163D12;font-size:15px;cursor:pointer" style-hover="background:rgba(22,61,18,.07)">Send message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="border:1px solid #163D12;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px">
+        <img src="assets/logo-mark-green.png" alt="" style="height:64px;width:auto;align-self:flex-start">
+        <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:40px;line-height:1;color:#163D12">Thank you.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#44423d">Your message about <em>{{ topicLower }}</em> has been received. The Trust will respond soon.</p>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:#1d1c1a;color:#f3f2f2;padding:clamp(64px,7vw,100px) clamp(20px,5vw,72px) 32px">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:36px">
+      <div style="display:flex;align-items:center;gap:20px">
+        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" style="height:88px;width:auto">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bengaluru Music Trust</span>
+          <span style="font-style:italic;font-size:14px;color:#facb8d">Supporting Talent • Inspiring Generations</span>
+        </div>
+      </div>
+      <nav aria-label="Footer" style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px">
+        <sc-for list="{{ footerLinks }}" as="f" hint-placeholder-count="8"><a href="{{ f.href }}" style="color:rgba(243,242,242,.85)">{{ f.label }}</a></sc-for>
+      </nav>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(243,242,242,.16);padding-top:22px;font-size:12.5px;color:rgba(243,242,242,.55)">
+      <span>© 2026 Bengaluru Music Trust</span>
+      <span>Prototype imagery courtesy of Unsplash photographers</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const IMG0 = { src: '', set: '', alt: '', pos: '50% 50%' };
+const H = 'Bengaluru%20Music%20Trust.dc.html', E = 'Music%20Education.dc.html', G = 'Get%20Involved.dc.html';
+const TOPICS = ['Learning', 'Support', 'Volunteering', 'Collaboration', 'Something else'];
+
+class Component extends DCLogic {
+  state = { w: window.innerWidth, menuOpen: false, scrolled: false, give: 0, skills: [], topic: 0, sent: false, ready: !!window.BMT };
+  componentDidMount() {
+    this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    if (!window.BMT) this.poll = setInterval(() => { if (window.BMT) { clearInterval(this.poll); this.setState({ ready: true }); } }, 50);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(() => this.setupReveal(), 80);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    clearInterval(this.poll);
+    if (this.io) this.io.disconnect();
+  }
+  setupReveal() {
+    const vh = window.innerHeight;
+    this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.getBoundingClientRect().top < vh * 0.92) return;
+      el.style.opacity = '0'; el.style.transform = 'translateY(32px)';
+      el.style.transition = 'opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      this.io.observe(el);
+    });
+  }
+  placeholder(v) { return v ? { value: v, color: 'inherit', style: 'normal' } : { value: 'To be added by the Trust', color: 'rgba(128,128,128,.95)', style: 'italic' }; }
+  renderVals() {
+    const B = window.BMT;
+    const img = (k, w) => (B ? B.img(k, w) : IMG0);
+    const { w, scrolled, give, skills, topic } = this.state;
+    const mobile = w < 1180;
+    const gv = (B && B.giving) || {}, ct = (B && B.contact) || {};
+    const g = this.placeholder.bind(this);
+    return {
+      desk: mobile ? 'none' : 'flex', mob: mobile ? 'flex' : 'none',
+      nav: {
+        bg: scrolled ? 'rgba(243,242,242,.94)' : 'transparent', fg: scrolled ? '#163D12' : '#f3f2f2',
+        border: scrolled ? 'rgba(32,31,29,.12)' : 'transparent', blur: scrolled ? 'blur(10px)' : 'none',
+        pad: scrolled ? '12px' : '24px', ivoryOp: scrolled ? 0 : 1, greenOp: scrolled ? 1 : 0
+      },
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      img: { hero: img('giHero'), vol: img('giVolunteer', 1000) },
+      paths: [['Learn', '#learn'], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Collaborate', '#collaborate']].map(([title, href], i) => ({ title, href, n: '0' + (i + 1) })),
+      giving: [['Registration', gv.registration], ['Tax benefits', gv.taxBenefits], ['Payment methods', gv.paymentMethods]].map(([label, v]) => Object.assign({ label }, g(v))),
+      giveOpts: [
+        ['One-time gift', 'A single contribution towards learning opportunities.'],
+        ['Regular support', 'Ongoing giving that helps the Trust plan ahead.'],
+        ['Support a learner', "Help make one learner's musical journey possible."],
+        ['Instruments & resources', 'Contribute instruments, materials or spaces.']
+      ].map(([title, text], i) => ({ title, text, on: give === i, border: give === i ? '#e1ad66' : 'rgba(243,242,242,.25)', bg: give === i ? 'rgba(225,173,102,.1)' : 'transparent', dot: give === i ? 1 : 0, select: () => this.setState({ give: i }) })),
+      enquireGive: () => this.setState({ topic: 1, sent: false }),
+      enquireVol: () => this.setState({ topic: 2, sent: false }),
+      skills: ['Teaching music', 'Performing', 'Event support', 'Photography & film', 'Writing & communications', 'Design', 'Fundraising', 'Administration'].map(label => { const on = skills.includes(label); return { label, on, border: on ? '#163D12' : 'rgba(32,31,29,.25)', bg: on ? '#163D12' : 'transparent', fg: on ? '#f3f2f2' : '#201f1d', toggle: () => this.setState(s => ({ skills: on ? s.skills.filter(x => x !== label) : s.skills.concat(label) })) }; }),
+      partners: [
+        ['Artists', 'Perform, mentor or lead masterclasses for emerging musicians.'],
+        ['Educators', 'Share teaching experience and help shape learning.'],
+        ['Institutions & Schools', 'Bring music education to students and campuses.'],
+        ['Organisations', 'Partner on programmes, events and cultural initiatives.']
+      ].map(([title, text], i) => ({ title, text, n: 'i ii iii iv'.split(' ')[i], enquire: () => this.setState({ topic: 3, sent: false }) })),
+      contactRows: [['Email', ct.email], ['Phone', ct.phone], ['Address', ct.address]].map(([label, v]) => Object.assign({ label }, g(v))),
+      topics: TOPICS.map((label, i) => ({ label, on: topic === i, border: topic === i ? '#163D12' : 'rgba(32,31,29,.25)', bg: topic === i ? '#163D12' : 'transparent', fg: topic === i ? '#f3f2f2' : '#201f1d', select: () => this.setState({ topic: i }) })),
+      topicLower: TOPICS[topic].toLowerCase(),
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      sent: this.state.sent, notSent: !this.state.sent,
+      footerLinks: [['About', H + '#who'], ['Music Education', E], ['Programs', E + '#areas'], ['Impact', H + '#impact'], ['Stories', H + '#stories'], ['Events', H + '#events'], ['Get Involved', G], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
+    };
+  }
+}
+</script>
+</body>
+</html>
