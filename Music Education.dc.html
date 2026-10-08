@@ -29,16 +29,25 @@ button,input,textarea,select{font-family:inherit}
 ::selection{background:rgba(182,130,53,.3)}
 :focus{outline:none}
 :focus-visible{outline:2px solid #b68235;outline-offset:2px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:640px){
+  input,textarea,select{font-size:16px!important}
+  .m-nav{gap:12px!important}
+  .m-left{text-align:left!important;hyphens:manual!important}
+  .m-hide{display:none!important}
+  .m-logo{height:72px!important}
+  .m-2col{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
 </style>
 </helmet>
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(243,242,242,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#163D12;border-bottom:1px solid {{ navBorder }};transition:border-color .4s">
-  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:14px clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+  <nav aria-label="Primary" class="m-nav" style="max-width:1440px;margin:0 auto;padding:14px clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px">
     <a href="index.html" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
       <img src="assets/logo-mark-green.png" alt="" style="height:44px;width:auto">
       <span style="display:flex;flex-direction:column;gap:4px">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:17px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
-        <span style="font-style:italic;font-size:11px;line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
+        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(13px,4.2vw,17px);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
+        <span style="font-style:italic;font-size:clamp(9px,2.9vw,11px);line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
       </span>
     </a>
     <div style="display:{{ desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
@@ -126,7 +135,7 @@ button,input,textarea,select{font-family:inherit}
               <span style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(56px,6vw,96px);line-height:.8;color:#b68235;font-variant-numeric:tabular-nums">{{ s.n }}</span>
               <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,4.6vw,72px);line-height:.95;color:#163D12">{{ s.title }}</h3>
             </div>
-            <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto">{{ s.text }}</p>
+            <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto" class="m-left">{{ s.text }}</p>
             <ul style="list-style:none;margin:6px 0 0;padding:0;border-top:1px solid rgba(32,31,29,.16);max-width:520px">
               <sc-for list="{{ s.points }}" as="p" hint-placeholder-count="3">
                 <li style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(32,31,29,.16);font-size:15px;line-height:1.55;color:#44423d"><span aria-hidden="true" style="color:#b68235">—</span>{{ p }}</li>
@@ -172,7 +181,7 @@ button,input,textarea,select{font-family:inherit}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:24px;position:sticky;top:120px">
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>Approach</span><span style="width:40px;height:1px;background:currentColor"></span><span>Principles</span></div>
       <h2 id="approach-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.4vw,84px);line-height:.95;letter-spacing:-.02em;color:#163D12">How Learning <em>Is Shaped</em></h2>
-      <p style="margin:0;font-size:16px;line-height:1.75;color:#44423d;max-width:440px;text-align:justify;hyphens:auto">Four ideas guide how the Trust thinks about music education, whatever the instrument, style or age of the learner.</p>
+      <p style="margin:0;font-size:16px;line-height:1.75;color:#44423d;max-width:440px;text-align:justify;hyphens:auto" class="m-left">Four ideas guide how the Trust thinks about music education, whatever the instrument, style or age of the learner.</p>
     </div>
     <div style="display:flex;flex-direction:column;border-top:1px solid #163D12">
       <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
@@ -180,7 +189,7 @@ button,input,textarea,select{font-family:inherit}
           <span style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:34px;line-height:1;color:#b68235">{{ p.n }}</span>
           <div style="display:flex;flex-direction:column;gap:10px">
             <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.4vw,38px);line-height:1.05;color:#201f1d">{{ p.t }}</h3>
-            <p style="margin:0;font-size:15.5px;line-height:1.7;color:#44423d;text-align:justify;hyphens:auto">{{ p.d }}</p>
+            <p style="margin:0;font-size:15.5px;line-height:1.7;color:#44423d;text-align:justify;hyphens:auto" class="m-left">{{ p.d }}</p>
           </div>
         </div>
       </sc-for>
@@ -255,7 +264,7 @@ button,input,textarea,select{font-family:inherit}
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:36px">
       <div style="display:flex;align-items:center;gap:20px">
-        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" style="height:88px;width:auto">
+        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" class="m-logo" style="height:88px;width:auto">
         <div style="display:flex;flex-direction:column;gap:10px">
           <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bengaluru Music Trust</span>
           <span style="font-style:italic;font-size:14px;color:#facb8d">Supporting Talent • Inspiring Generations</span>

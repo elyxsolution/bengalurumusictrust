@@ -30,16 +30,25 @@ section[id]{scroll-margin-top:80px}
 ::selection{background:rgba(182,130,53,.3)}
 :focus{outline:none}
 :focus-visible{outline:2px solid #b68235;outline-offset:2px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:640px){
+  input,textarea,select{font-size:16px!important}
+  .m-nav{gap:12px!important}
+  .m-left{text-align:left!important;hyphens:manual!important}
+  .m-hide{display:none!important}
+  .m-logo{height:72px!important}
+  .m-2col{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
 </style>
 </helmet>
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ nav.bg }};color:{{ nav.fg }};border-bottom:1px solid {{ nav.border }};backdrop-filter:{{ nav.blur }};-webkit-backdrop-filter:{{ nav.blur }};transition:background .5s,color .5s,border-color .5s">
-  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:{{ nav.pad }} clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .5s">
+  <nav aria-label="Primary" class="m-nav" style="max-width:1440px;margin:0 auto;padding:{{ nav.pad }} clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .5s">
     <a href="index.html" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
       <span style="position:relative;display:block;height:44px;flex:none"><img src="assets/logo-mark-ivory.png" alt="" style="height:44px;width:auto;opacity:{{ nav.ivoryOp }};transition:opacity .5s"><img src="assets/logo-mark-green.png" alt="" style="position:absolute;left:0;top:0;height:44px;width:auto;opacity:{{ nav.greenOp }};transition:opacity .5s"></span>
       <span style="display:flex;flex-direction:column;gap:4px">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:17px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
-        <span style="font-style:italic;font-size:11px;line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
+        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(13px,4.2vw,17px);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
+        <span style="font-style:italic;font-size:clamp(9px,2.9vw,11px);line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
       </span>
     </a>
     <div style="display:{{ desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
@@ -98,7 +107,7 @@ section[id]{scroll-margin-top:80px}
       <h2 id="learn-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Discover Music <em>Education Opportunities</em></h2>
     </div>
     <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <p style="margin:0;font-size:17px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto">For children, young people and adults who want to begin or deepen a relationship with music. Explore the stages of learning and the areas of study the Trust intends to offer, and register your interest.</p>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto" class="m-left">For children, young people and adults who want to begin or deepen a relationship with music. Explore the stages of learning and the areas of study the Trust intends to offer, and register your interest.</p>
       <a href="Music%20Education.dc.html" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px" style-hover="background:rgba(22,61,18,.07)">Explore Music Education
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
       </a>
@@ -122,7 +131,7 @@ section[id]{scroll-margin-top:80px}
       </dl>
     </div>
     <div data-reveal="" style="border:1px solid rgba(243,242,242,.25);border-radius:4px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px">
-      <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px">Choose how you'd like to help</h3>
+      <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px;line-height:1.15">Choose how you'd like to help</h3>
       <div role="radiogroup" aria-label="Ways to give" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
         <sc-for list="{{ giveOpts }}" as="o" hint-placeholder-count="4">
           <button type="button" role="radio" aria-checked="{{ o.on }}" onClick="{{ o.select }}" style="text-align:left;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:4px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#f3f2f2;cursor:pointer;transition:background .3s,border-color .3s">
@@ -147,7 +156,7 @@ section[id]{scroll-margin-top:80px}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>03</span><span style="width:40px;height:1px;background:currentColor"></span><span>Volunteer</span></div>
       <h2 id="vol-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Share Your Time, <em>Knowledge or Expertise</em></h2>
-      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto">Musicians, educators and professionals from every field can help the Trust grow. Tell us where your strengths lie.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto" class="m-left">Musicians, educators and professionals from every field can help the Trust grow. Tell us where your strengths lie.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;max-width:560px">
         <sc-for list="{{ skills }}" as="s" hint-placeholder-count="8">
           <button type="button" aria-pressed="{{ s.on }}" onClick="{{ s.toggle }}" style="padding:10px 16px;border-radius:4px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ s.label }}</button>
@@ -244,7 +253,7 @@ section[id]{scroll-margin-top:80px}
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:36px">
       <div style="display:flex;align-items:center;gap:20px">
-        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" style="height:88px;width:auto">
+        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" class="m-logo" style="height:88px;width:auto">
         <div style="display:flex;flex-direction:column;gap:10px">
           <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bengaluru Music Trust</span>
           <span style="font-style:italic;font-size:14px;color:#facb8d">Supporting Talent • Inspiring Generations</span>
