@@ -66,7 +66,7 @@
       markGreen: 'assets/logo-mark-green.png',
       markIvory: 'assets/logo-mark-ivory.png'
     },
-    pages: { home: 'Bengaluru Music Trust.dc.html', education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' },
+    pages: { home: 'index.html', education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' },
     // Social URLs: add real links when confirmed. null = shown as plain text, not a link.
     socials: [
       { label: 'Instagram', url: null },

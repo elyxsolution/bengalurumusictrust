@@ -35,7 +35,7 @@ section[id]{scroll-margin-top:80px}
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ nav.bg }};color:{{ nav.fg }};border-bottom:1px solid {{ nav.border }};backdrop-filter:{{ nav.blur }};-webkit-backdrop-filter:{{ nav.blur }};transition:background .5s,color .5s,border-color .5s">
   <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:{{ nav.pad }} clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .5s">
-    <a href="Bengaluru%20Music%20Trust.dc.html" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
+    <a href="index.html" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
       <span style="position:relative;display:block;height:44px;flex:none"><img src="assets/logo-mark-ivory.png" alt="" style="height:44px;width:auto;opacity:{{ nav.ivoryOp }};transition:opacity .5s"><img src="assets/logo-mark-green.png" alt="" style="position:absolute;left:0;top:0;height:44px;width:auto;opacity:{{ nav.greenOp }};transition:opacity .5s"></span>
       <span style="display:flex;flex-direction:column;gap:4px">
         <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:17px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
@@ -43,11 +43,11 @@ section[id]{scroll-margin-top:80px}
       </span>
     </a>
     <div style="display:{{ desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
-      <a href="Bengaluru%20Music%20Trust.dc.html#who" style="color:inherit">About</a>
+      <a href="index.html#who" style="color:inherit">About</a>
       <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
-      <a href="Bengaluru%20Music%20Trust.dc.html#work" style="color:inherit">Our Work</a>
-      <a href="Bengaluru%20Music%20Trust.dc.html#impact" style="color:inherit">Impact</a>
-      <a href="Bengaluru%20Music%20Trust.dc.html#stories" style="color:inherit">Stories</a>
+      <a href="index.html#work" style="color:inherit">Our Work</a>
+      <a href="index.html#impact" style="color:inherit">Impact</a>
+      <a href="index.html#stories" style="color:inherit">Stories</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
       <a href="#contact" aria-current="page" style="display:{{ desk }};align-items:center;white-space:nowrap;padding:11px 22px;border-radius:4px;border:1px solid currentColor;color:inherit;font-size:14px" style-hover="background:rgba(182,130,53,.16)">Contact</a>
@@ -78,7 +78,7 @@ section[id]{scroll-margin-top:80px}
   <img src="https://images.unsplash.com/photo-1771238113736-5954f174156b?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.hero.set }}" sizes="100vw" alt="{{ img.hero.alt }}" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ img.hero.pos }};filter:sepia(.22) saturate(.82) contrast(1.05)">
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,29,12,.55) 0%,rgba(15,29,12,.3) 35%,rgba(15,29,12,.94) 100%)"></div>
   <div style="position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;padding:160px clamp(20px,5vw,72px) clamp(48px,6vw,80px);display:flex;flex-direction:column;gap:32px">
-    <p style="margin:0;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#facb8d"><a href="Bengaluru%20Music%20Trust.dc.html" style="color:#facb8d">Home</a><span aria-hidden="true">/</span><span>Get Involved</span></p>
+    <p style="margin:0;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#facb8d"><a href="index.html" style="color:#facb8d">Home</a><span aria-hidden="true">/</span><span>Get Involved</span></p>
     <h1 id="page-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(52px,7.6vw,124px);line-height:.92;letter-spacing:-.02em;max-width:15ch">Be Part of the Next Generation <em>of Music.</em></h1>
     <nav aria-label="Ways to get involved" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid rgba(243,242,242,.28)">
       <sc-for list="{{ paths }}" as="p" hint-placeholder-count="4">
@@ -263,7 +263,7 @@ section[id]{scroll-margin-top:80px}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const IMG0 = { src: '', set: '', alt: '', pos: '50% 50%' };
-const H = 'Bengaluru%20Music%20Trust.dc.html', E = 'Music%20Education.dc.html', G = 'Get%20Involved.dc.html';
+const H = 'index.html', E = 'Music%20Education.dc.html', G = 'Get%20Involved.dc.html';
 const TOPICS = ['Learning', 'Support', 'Volunteering', 'Collaboration', 'Something else'];
 
 class Component extends DCLogic {
