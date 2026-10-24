@@ -1,4 +1,4 @@
-/* Bengaluru Music Trust — central content config.
+/* Bangalore Music Trust — central content config.
    Swap any photo by replacing its `id` (Unsplash photo id) or setting `src` to your own file path.
    Fields set to null are rendered as non-linked / "to be added" placeholders — never as fake data. */
 (function () {
@@ -61,7 +61,7 @@
   }
   window.BMT = {
     brand: {
-      name: 'Bengaluru Music Trust',
+      name: 'Bangalore Music Trust',
       tagline: 'Supporting Talent • Inspiring Generations',
       markGreen: 'assets/logo-mark-green.png',
       markIvory: 'assets/logo-mark-ivory.png'

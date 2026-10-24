@@ -8,10 +8,10 @@
 <body>
 <x-dc>
 <helmet>
-<title>Bengaluru Music Trust — Music Education in Bengaluru</title>
-<meta name="description" content="Bengaluru Music Trust nurtures musical talent, expands access to music education and creates opportunities for the next generation of musicians in Bengaluru.">
-<meta name="keywords" content="Bengaluru Music Trust, music education Bengaluru, music education in Bangalore, Indian classical music education, music workshops Bengaluru">
-<meta property="og:title" content="Bengaluru Music Trust — Supporting Talent • Inspiring Generations">
+<title>Bangalore Music Trust — Music Education in Bengaluru</title>
+<meta name="description" content="Bangalore Music Trust nurtures musical talent, expands access to music education and creates opportunities for the next generation of musicians in Bengaluru.">
+<meta name="keywords" content="Bangalore Music Trust, music education Bengaluru, music education in Bangalore, Indian classical music education, Hindustani music, Western vocals, Western instruments, music workshops Bengaluru">
+<meta property="og:title" content="Bangalore Music Trust — Supporting Talent • Inspiring Generations">
 <meta property="og:description" content="Music education, talent development and cultural continuity in Bengaluru.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://images.unsplash.com/photo-1764176269321-6d14f4af09c7?auto=format&amp;fit=crop&amp;q=72&amp;w=1200">
@@ -49,10 +49,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ nav.bg }};color:{{ nav.fg }};border-bottom:1px solid {{ nav.border }};backdrop-filter:{{ nav.blur }};-webkit-backdrop-filter:{{ nav.blur }};transition:background .5s ease,color .5s ease,border-color .5s ease">
   <nav aria-label="Primary" class="m-nav" style="max-width:1440px;margin:0 auto;padding:{{ nav.pad }} clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .5s ease">
-    <a href="#top" aria-label="Bengaluru Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
+    <a href="#top" aria-label="Bangalore Music Trust — home" style="display:flex;align-items:center;gap:12px;color:inherit">
       <span style="position:relative;display:block;height:44px;flex:none"><img src="assets/logo-mark-ivory.png" alt="" style="height:44px;width:auto;opacity:{{ nav.ivoryOp }};transition:opacity .5s"><img src="assets/logo-mark-green.png" alt="" style="position:absolute;left:0;top:0;height:44px;width:auto;opacity:{{ nav.greenOp }};transition:opacity .5s"></span>
       <span style="display:flex;flex-direction:column;gap:4px">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(13px,4.2vw,17px);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bengaluru Music Trust</span>
+        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(13px,4.2vw,17px);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Bangalore Music Trust</span>
         <span style="font-style:italic;font-size:clamp(9px,2.9vw,11px);line-height:1;opacity:.85;white-space:nowrap">Supporting Talent • Inspiring Generations</span>
       </span>
     </a>
@@ -77,7 +77,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
   <div role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed;inset:0;z-index:60;background:#163D12;color:#f3f2f2;display:flex;flex-direction:column;padding:22px clamp(20px,5vw,72px) 40px;overflow:auto">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust" style="height:44px;width:auto">
+      <img src="assets/logo-mark-ivory.png" alt="Bangalore Music Trust" style="height:44px;width:auto">
       <button type="button" aria-label="Close menu" onClick="{{ closeMenu }}" style="width:46px;height:46px;border:1px solid rgba(243,242,242,.5);border-radius:4px;background:transparent;color:#f3f2f2;font-size:22px;cursor:pointer">×</button>
     </div>
     <div style="display:flex;flex-direction:column;margin-top:auto;padding-top:40px">
@@ -108,7 +108,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </svg>
   <div style="position:relative;z-index:2;flex:1;width:100%;max-width:1440px;margin:0 auto;padding:140px clamp(20px,5vw,72px) clamp(40px,7vh,80px);display:flex;flex-direction:column;justify-content:flex-end;gap:34px">
     <p style="margin:0;display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#facb8d">
-      <span style="width:44px;height:1px;background:currentColor"></span>Bengaluru Music Trust · Music Education &amp; Culture
+      <span style="width:44px;height:1px;background:currentColor"></span>Bangalore Music Trust · Music Education &amp; Culture
     </p>
     <h1 id="hero-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(54px,8.6vw,140px);line-height:.92;letter-spacing:-.02em;max-width:13ch">
       <sc-for list="{{ heroLines }}" as="line" hint-placeholder-count="2">
@@ -116,7 +116,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       </sc-for>
     </h1>
     <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 48px;border-top:1px solid rgba(243,242,242,.24);padding-top:28px">
-      <p style="margin:0;max-width:540px;font-size:clamp(15px,1.2vw,17px);line-height:1.7;color:rgba(243,242,242,.92);text-wrap:pretty">Bengaluru Music Trust works to nurture musical talent, expand access to music education, and create opportunities for the next generation of musicians.</p>
+      <p style="margin:0;max-width:540px;font-size:clamp(15px,1.2vw,17px);line-height:1.7;color:rgba(243,242,242,.92);text-wrap:pretty">Bangalore Music Trust works to nurture musical talent, expand access to music education, and create opportunities for the next generation of musicians.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px">
         <a href="#work" style="display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:4px;border:1px solid #f3f2f2;color:#f3f2f2;font-size:15px;transition:background .3s" style-hover="background:rgba(243,242,242,.14);color:#f3f2f2">Discover Our Work
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -160,7 +160,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div data-reveal="" style="max-width:820px;display:flex;flex-direction:column;gap:34px">
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span>03</span><span style="width:40px;height:1px;background:currentColor"></span><h2 id="m-title" style="margin:0;font:inherit;letter-spacing:inherit">Why We Exist</h2></div>
       <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(40px,5.2vw,86px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Every generation deserves the opportunity to discover the <em>power of music.</em></p>
-      <p style="margin:0;max-width:520px;font-size:clamp(15px,1.2vw,17px);line-height:1.75;color:rgba(243,242,242,.88);text-align:justify;hyphens:auto" class="m-left">Bengaluru Music Trust seeks to create pathways for musical learning, nurture emerging talent and contribute to a culture where music continues to be valued, practiced and shared.</p>
+      <p style="margin:0;max-width:520px;font-size:clamp(15px,1.2vw,17px);line-height:1.75;color:rgba(243,242,242,.88);text-align:justify;hyphens:auto" class="m-left">Bangalore Music Trust seeks to create pathways for musical learning, nurture emerging talent and contribute to a culture where music continues to be valued, practiced and shared.</p>
     </div>
   </div>
   <p aria-hidden="true" class="m-cap" style="position:absolute;right:clamp(20px,5vw,72px);bottom:28px;margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,242,.55)">From learning → to expression → to confidence → to culture → to generations</p>
@@ -180,13 +180,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:32px">
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>04</span><span style="width:40px;height:1px;background:currentColor"></span><span>Who We Are</span></div>
       <div style="display:flex;align-items:center;gap:22px">
-        <img src="assets/logo-mark-green.png" alt="Bengaluru Music Trust treble-clef mark" class="m-logo" style="height:96px;width:auto;flex:none">
+        <img src="assets/logo-mark-green.png" alt="Bangalore Music Trust treble-clef mark" class="m-logo" style="height:96px;width:auto;flex:none">
         <div style="display:flex;flex-direction:column;gap:10px">
-          <h2 id="who-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,3vw,46px);line-height:1;letter-spacing:.04em;text-transform:uppercase;color:#163D12">Bengaluru Music Trust</h2>
+          <h2 id="who-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,3vw,46px);line-height:1;letter-spacing:.04em;text-transform:uppercase;color:#163D12">Bangalore Music Trust</h2>
           <p style="margin:0;display:flex;align-items:center;gap:12px;font-style:italic;font-size:15px;color:#163D12"><span class="m-hide" style="width:36px;height:2px;background:#163D12"></span>Supporting Talent • Inspiring Generations<span class="m-hide" style="width:36px;height:2px;background:#163D12"></span></p>
         </div>
       </div>
-      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,2.1vw,32px);line-height:1.3;text-wrap:pretty">Bengaluru Music Trust is envisioned as a platform that brings together learners, educators, artists and supporters of music to create meaningful opportunities for musical education and expression.</p>
+      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,2.1vw,32px);line-height:1.3;text-wrap:pretty">Bangalore Music Trust is envisioned as a platform that brings together learners, educators, artists and supporters of music to create meaningful opportunities for musical education and expression.</p>
       <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));column-gap:28px;border-top:1px solid rgba(32,31,29,.16)">
         <sc-for list="{{ community }}" as="c" hint-placeholder-count="4">
           <div style="padding:20px 0;border-bottom:1px solid rgba(32,31,29,.16);display:flex;flex-direction:column;gap:6px">
@@ -278,6 +278,30 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <a href="Music%20Education.dc.html" style="align-self:flex-start;margin-top:28px;display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px;transition:background .3s" style-hover="background:rgba(22,61,18,.07)">Explore Music Education
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="western-music" aria-labelledby="western-title" data-screen-label="06b Western Music" style="background:#eae9e9;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:36px 80px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Indian &amp; Western Traditions</span></div>
+        <h2 id="western-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Western Music <em>Education</em></h2>
+      </div>
+      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,30px);line-height:1.35;max-width:600px;text-wrap:pretty">Alongside Hindustani classical music, Bangalore Music Trust also offers training and education in Western vocals and Western musical instruments.</p>
+    </div>
+    <div data-reveal="" style="margin-top:clamp(56px,6vw,90px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px 80px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(34px,4vw,60px);line-height:1;letter-spacing:-.01em;color:#163D12">Western Vocals</h3>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:#44423d;max-width:520px">Vocal training in the Western tradition builds a strong foundation in breath control, pitch, tone and singing technique. Learners develop musical expression and the confidence to perform, whether solo or in a group.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px"><div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&amp;fit=crop&amp;q=72&amp;w=800" srcset="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&amp;fit=crop&amp;q=72&amp;w=480 480w, https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&amp;fit=crop&amp;q=72&amp;w=800 800w, https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&amp;fit=crop&amp;q=72&amp;w=1200 1200w" sizes="(max-width:700px) 92vw, 44vw" alt="A vintage-style microphone against softly lit stage lights, representing vocal performance" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)"></div><div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9"><img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&amp;fit=crop&amp;q=72&amp;w=800" srcset="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&amp;fit=crop&amp;q=72&amp;w=480 480w, https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&amp;fit=crop&amp;q=72&amp;w=800 800w, https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&amp;fit=crop&amp;q=72&amp;w=1200 1200w" sizes="(max-width:700px) 92vw, 44vw" alt="A stage microphone in warm, low light, representing singing practice and performance" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)"></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(34px,4vw,60px);line-height:1;letter-spacing:-.01em;color:#163D12">Western Instruments</h3>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:#44423d;max-width:520px">Instrumental learning in the Western tradition combines hands-on practice with an understanding of musical technique, reading and ensemble playing. The Trust brings this training together with performance experience across keyboard, string and percussion instruments.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px"><div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9"><img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&amp;fit=crop&amp;q=72&amp;w=800" srcset="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&amp;fit=crop&amp;q=72&amp;w=480 480w, https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&amp;fit=crop&amp;q=72&amp;w=800 800w, https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&amp;fit=crop&amp;q=72&amp;w=1200 1200w" sizes="(max-width:700px) 92vw, 44vw" alt="Close-up of piano keys on an upright piano" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)"></div><div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9"><img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&amp;fit=crop&amp;q=72&amp;w=800" srcset="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&amp;fit=crop&amp;q=72&amp;w=480 480w, https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&amp;fit=crop&amp;q=72&amp;w=800 800w, https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&amp;fit=crop&amp;q=72&amp;w=1200 1200w" sizes="(max-width:700px) 92vw, 44vw" alt="A musician playing an acoustic guitar by a window" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)"></div><div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9"><img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&amp;fit=crop&amp;q=72&amp;w=800" srcset="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&amp;fit=crop&amp;q=72&amp;w=480 480w, https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&amp;fit=crop&amp;q=72&amp;w=800 800w, https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&amp;fit=crop&amp;q=72&amp;w=1200 1200w" sizes="(max-width:700px) 92vw, 44vw" alt="Drumsticks resting on a snare drum" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)"></div></div>
       </div>
     </div>
   </div>
@@ -483,14 +507,14 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,6vw,90px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px 80px;align-items:end">
       <div style="display:flex;align-items:center;gap:24px">
-        <img src="assets/logo-mark-ivory.png" alt="Bengaluru Music Trust treble-clef mark" class="m-logo" style="height:110px;width:auto;flex:none">
+        <img src="assets/logo-mark-ivory.png" alt="Bangalore Music Trust treble-clef mark" class="m-logo" style="height:110px;width:auto;flex:none">
         <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.8vw,42px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bengaluru Music Trust</span>
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.8vw,42px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bangalore Music Trust</span>
           <span style="display:flex;align-items:center;gap:12px;font-style:italic;font-size:15px;color:#facb8d"><span class="m-hide" style="width:32px;height:2px;background:currentColor"></span>Supporting Talent • Inspiring Generations<span class="m-hide" style="width:32px;height:2px;background:currentColor"></span></span>
         </div>
       </div>
       <form onSubmit="{{ subscribe }}" style="display:flex;flex-direction:column;gap:14px">
-        <label for="nl-email" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;line-height:1.2">Stay connected with Bengaluru Music Trust.</label>
+        <label for="nl-email" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;line-height:1.2">Stay connected with Bangalore Music Trust.</label>
         <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-wrap:wrap;gap:10px">
             <input id="nl-email" type="email" required="" placeholder="Your email address" value="{{ email }}" onChange="{{ setEmail }}" style="flex:1 1 240px;min-width:0;padding:15px 16px;border-radius:4px;border:1px solid rgba(243,242,242,.3);background:transparent;color:#f3f2f2;font-size:15px">
@@ -525,7 +549,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       </div>
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(243,242,242,.16);padding-top:22px;font-size:12.5px;color:rgba(243,242,242,.55)">
-      <span>© 2026 Bengaluru Music Trust</span>
+      <span>© 2026 Bangalore Music Trust</span>
       <span>Prototype imagery courtesy of Unsplash photographers</span>
     </div>
   </div>
