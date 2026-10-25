@@ -42,7 +42,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .m-cap{left:clamp(20px,5vw,72px)!important}
   .m-svh{height:100svh!important}
   .m-card{min-height:0!important;padding:28px 24px!important}
-  .m-card-title{font-size:clamp(28px,9vw,40px)!important}
+  .gi-grid{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (min-width:641px) and (max-width:1199px){
+  .gi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .m-card{min-height:300px!important}
 }
 </style>
 </helmet>
@@ -439,14 +443,14 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>11</span><span style="width:40px;height:1px;background:currentColor"></span><span>Get Involved</span></div>
       <h2 id="gi-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.95;letter-spacing:-.02em;color:#163D12">Be Part of the Next Generation <em>of Music.</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid #163D12;border-left:1px solid rgba(32,31,29,.16)">
+    <div class="gi-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #163D12;border-left:1px solid rgba(32,31,29,.16)">
       <sc-for list="{{ pathways }}" as="p" hint-placeholder-count="4">
-        <a href="{{ p.href }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" onFocus="{{ p.enter }}" onBlur="{{ p.leave }}" class="m-card" style="display:flex;flex-direction:column;gap:22px;min-height:400px;padding:34px 30px 30px;border-right:1px solid rgba(32,31,29,.16);border-bottom:1px solid rgba(32,31,29,.16);background:{{ p.bg }};color:{{ p.fg }};transition:background .5s,color .5s">
+        <a href="{{ p.href }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" onFocus="{{ p.enter }}" onBlur="{{ p.leave }}" class="m-card" style="min-width:0;container-type:inline-size;display:flex;flex-direction:column;gap:22px;min-height:360px;padding:34px 30px 30px;border-right:1px solid rgba(32,31,29,.16);border-bottom:1px solid rgba(32,31,29,.16);background:{{ p.bg }};color:{{ p.fg }};transition:background .5s,color .5s">
           <span style="font-size:11px;letter-spacing:.2em;color:{{ p.numColor }};font-variant-numeric:tabular-nums;transition:color .5s">{{ p.n }}</span>
-          <span class="m-card-title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,3.4vw,56px);line-height:1;letter-spacing:.04em;text-transform:uppercase">{{ p.title }}</span>
+          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,2.2vw,34px);font-size:clamp(24px,12.5cqi,44px);line-height:1;letter-spacing:.04em;text-transform:uppercase;overflow-wrap:break-word">{{ p.title }}</span>
           <span style="font-size:15.5px;line-height:1.65;max-width:280px;opacity:.9">{{ p.text }}</span>
-          <span style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:13px 20px;border-radius:4px;border:1px solid currentColor;font-size:14px">{{ p.cta }}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="transform:translateX({{ p.arrowX }});transition:transform .5s"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          <span style="margin-top:auto;align-self:flex-start;max-width:100%;display:inline-flex;align-items:center;gap:12px;padding:13px 20px;border-radius:4px;border:1px solid currentColor;font-size:14px">{{ p.cta }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="flex:none;transform:translateX({{ p.arrowX }});transition:transform .5s"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </span>
         </a>
       </sc-for>
