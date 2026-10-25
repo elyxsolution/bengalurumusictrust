@@ -509,26 +509,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <footer data-screen-label="14 Footer" style="background:#1d1c1a;color:#f3f2f2;padding:clamp(72px,8vw,120px) clamp(20px,5vw,72px) 36px">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,6vw,90px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px 80px;align-items:end">
-      <div style="display:flex;align-items:center;gap:24px">
-        <img src="assets/logo-mark-ivory.png" alt="Bangalore Music Trust treble-clef mark" class="m-logo" style="height:110px;width:auto;flex:none">
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.8vw,42px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bangalore Music Trust</span>
-          <span style="display:flex;align-items:center;gap:12px;font-style:italic;font-size:15px;color:#facb8d"><span class="m-hide" style="width:32px;height:2px;background:currentColor"></span>Supporting Talent • Inspiring Generations<span class="m-hide" style="width:32px;height:2px;background:currentColor"></span></span>
-        </div>
+    <div style="display:flex;align-items:center;gap:24px">
+      <img src="assets/logo-mark-ivory.png" alt="Bangalore Music Trust treble-clef mark" class="m-logo" style="height:110px;width:auto;flex:none">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.8vw,42px);line-height:1;letter-spacing:.05em;text-transform:uppercase">Bangalore Music Trust</span>
+        <span style="display:flex;align-items:center;gap:12px;font-style:italic;font-size:15px;color:#facb8d"><span class="m-hide" style="width:32px;height:2px;background:currentColor"></span>Supporting Talent • Inspiring Generations<span class="m-hide" style="width:32px;height:2px;background:currentColor"></span></span>
       </div>
-      <form onSubmit="{{ subscribe }}" style="display:flex;flex-direction:column;gap:14px">
-        <label for="nl-email" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;line-height:1.2">Stay connected with Bangalore Music Trust.</label>
-        <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-wrap:wrap;gap:10px">
-            <input id="nl-email" type="email" required="" placeholder="Your email address" value="{{ email }}" onChange="{{ setEmail }}" style="flex:1 1 240px;min-width:0;padding:15px 16px;border-radius:4px;border:1px solid rgba(243,242,242,.3);background:transparent;color:#f3f2f2;font-size:15px">
-            <button type="submit" style="padding:15px 26px;border-radius:4px;border:1px solid #e1ad66;background:transparent;color:#facb8d;font-size:15px;cursor:pointer" style-hover="background:rgba(225,173,102,.14)">Subscribe</button>
-          </div>
-        </sc-if>
-        <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
-          <p role="status" style="margin:0;padding:15px 0;border-top:1px solid rgba(243,242,242,.2);border-bottom:1px solid rgba(243,242,242,.2);font-style:italic;color:#facb8d">Thank you. We'll be in touch with news from the Trust.</p>
-        </sc-if>
-      </form>
     </div>
     <div class="m-2col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:36px;border-top:1px solid rgba(243,242,242,.16);padding-top:36px">
       <nav aria-label="Footer" style="display:flex;flex-direction:column;gap:12px">
@@ -569,7 +555,7 @@ const HEADLINES = {
 };
 
 class Component extends DCLogic {
-  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, step: 0, stHover: -1, eHover: -1, giHover: -1, email: '', subscribed: false, ready: !!window.BMT };
+  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, step: 0, stHover: -1, eHover: -1, giHover: -1, ready: !!window.BMT };
   heroImgRef = React.createRef();
   staffRef = React.createRef();
   journeyRef = React.createRef();
@@ -781,11 +767,6 @@ class Component extends DCLogic {
       footerB: [['Events', '#events'], ['Get Involved', inv], ['Support', inv + '#support'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
       socials,
       ct: B ? B.contactVars : {},
-      email: this.state.email,
-      setEmail: e => this.setState({ email: e.target.value }),
-      subscribe: e => { e.preventDefault(); if (this.state.email) this.setState({ subscribed: true }); },
-      subscribed: this.state.subscribed,
-      notSubscribed: !this.state.subscribed,
       heroImgRef: this.heroImgRef, staffRef: this.staffRef, journeyRef: this.journeyRef, trackRef: this.trackRef, barRef: this.barRef
     };
   }
