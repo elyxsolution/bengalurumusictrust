@@ -158,7 +158,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <p style="margin:0;max-width:400px;font-size:15px;line-height:1.7;color:rgba(243,242,242,.85)">Areas the Trust intends to explore with learners and educators. Offerings will be confirmed as programmes are developed.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px 28px">
-      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="7">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="9">
         <article data-reveal="" onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" style="display:flex;flex-direction:column;gap:18px">
           <div style="aspect-ratio:4/3;overflow:hidden;border:6px solid #1f4a1a;outline:1px solid rgba(243,242,242,.16)">
             <img src="{{ a.img }}" alt="{{ a.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;transform:scale({{ a.scale }});filter:sepia(.22) saturate(.82) contrast(1.05);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)">
@@ -319,6 +319,8 @@ class Component extends DCLogic {
       ['Vocal Music', 'Training the voice in pitch, breath, expression and repertoire.', 'vocal'],
       ['Instrumental Music', 'Learning instruments from strings and keys to percussion and wind.', 'instrumental'],
       ['Indian Classical Music', 'Study rooted in the Hindustani and Carnatic traditions.', 'classical'],
+      ['Western Vocals', 'Breath control, pitch, tone and singing technique in the Western tradition.', 'westernVocal'],
+      ['Western Instruments', 'Keyboard, string and percussion instruments, with reading and ensemble playing.', 'westernInstr'],
       ['Contemporary Music', 'Modern forms, composition and new ways of making music.', 'contemporary'],
       ['Music Appreciation', 'Learning to listen deeply, and to understand what we hear.', 'appreciation'],
       ['Performance & Stage Experience', 'Preparing learners to share music with confidence.', 'stage'],
@@ -336,7 +338,7 @@ class Component extends DCLogic {
       stages,
       areas,
       whoOpts: ['Myself', 'My child', 'A group or school', 'Not sure yet'].map(l => this.chip('who', l)),
-      areaOpts: ['Vocal', 'Instrumental', 'Indian Classical', 'Contemporary', 'Appreciation', 'Performance', 'Workshops'].map(l => this.chip('interests', l)),
+      areaOpts: ['Vocal', 'Instrumental', 'Indian Classical', 'Contemporary', 'Appreciation', 'Performance', 'Workshops', 'Marketing', 'Social Media'].map(l => this.chip('interests', l)),
       submit: e => { e.preventDefault(); this.setState({ sent: true }); },
       sent: this.state.sent, notSent: !this.state.sent,
       ct: B ? B.contactVars : {},

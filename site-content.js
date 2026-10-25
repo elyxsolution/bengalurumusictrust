@@ -38,6 +38,8 @@
     vocal:       { id: '1764176269321-6d14f4af09c7', alt: 'Young women singing together' },
     instrumental:{ id: '1465821185615-20b3c2fbf41b', alt: 'A violinist practising' },
     classical:   { id: '1646765495885-8a61595cb9cf', alt: 'Sitar and tabla performance' },
+    westernVocal:{ id: '1514119412350-e174d90d280e', alt: 'Sheet music resting on a piano' },
+    westernInstr:{ id: '1551696785-927d4ac2d35b', alt: 'An ensemble of young string players seen from above' },
     contemporary:{ id: '1513745405825-efaf9a49315f', alt: 'A young woman playing piano' },
     appreciation:{ id: '1534643960519-11ad79bc19df', alt: 'A young learner listening on headphones' },
     stage:       { id: '1570797803365-c6eb43b1f040', alt: 'A stage set for performance' },
