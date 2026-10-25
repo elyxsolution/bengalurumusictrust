@@ -192,6 +192,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <input type="hidden" name="formType" value="{{ formType }}">
         <input type="hidden" name="topic" value="{{ topicLabel }}">
         <input type="hidden" name="supportOption" value="{{ supportOption }}">
+        <input type="hidden" name="volunteerSkills" value="{{ volunteerSkills }}">
         <fieldset style="border:0;margin:0;padding:0;min-width:0">
           <legend style="font-size:13px;color:#44423d;margin-bottom:10px;padding:0">I'm writing about</legend>
           <div role="radiogroup" aria-label="Enquiry topic" style="display:flex;flex-wrap:wrap;gap:8px">
@@ -200,6 +201,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
             </sc-for>
           </div>
         </fieldset>
+        <sc-if value="{{ showSkills }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding-top:18px;border-top:1px solid rgba(32,31,29,.12);font-size:14px;line-height:1.6;color:#44423d"><span style="font-size:13px;color:#7d5411">Volunteer skills: </span>{{ skillsText }} <button type="button" onClick="{{ editSkills }}" style="margin-left:6px;padding:0 0 2px;border:0;border-bottom:1px solid #b68235;background:transparent;color:#163D12;font-size:13px;cursor:pointer">Change</button></p>
+        </sc-if>
         <sc-if value="{{ isSupport }}" hint-placeholder-val="{{ false }}">
           <div style="border-top:1px solid rgba(32,31,29,.12);padding-top:22px;display:flex;flex-direction:column;gap:12px">
           <fieldset style="border:0;margin:0;padding:0;min-width:0">
@@ -328,21 +332,22 @@ class Component extends DCLogic {
       this.io.observe(el);
     });
   }
-  // Posts the enquiry to the endpoint in site-content.js (BMT.forms.enquiry, e.g. a Google Apps Script web app).
-  // Sent as text/plain JSON so the request stays a "simple" CORS request with no preflight.
+  // Posts the enquiry to the Google Apps Script web app in site-content.js (BMT.forms.enquiry).
+  // The JSON body is sent as text/plain so the request stays a "simple" CORS request with no preflight;
+  // Apps Script reads it from e.postData.contents. Its /exec URL redirects to script.googleusercontent.com,
+  // which allows cross-origin reads, so the JSON reply can be checked before showing success.
   async sendEnquiry(form) {
-    if (this.state.status === 'sending') return;
+    if (this.inFlight) return;
     const { topic, give, skills } = this.state;
     const f = new FormData(form);
     const val = k => String(f.get(k) || '').trim();
     const isSupport = topic === 1;
     const data = {
-      formType: isSupport ? 'support' : 'general',
+      formType: 'enquiry',
       topic: TOPICS[topic],
       supportOption: isSupport && give >= 0 ? GIVE[give][0] : '',
       volunteerSkills: topic === 2 ? skills.join(', ') : '',
-      name: val('name'), email: val('email'), organisation: val('organisation'), message: val('message'),
-      page: 'Get Involved', submittedAt: new Date().toISOString()
+      name: val('name'), email: val('email'), organisation: val('organisation'), message: val('message')
     };
     const errors = {};
     if (!data.name) errors.name = 'Please enter your name.';
@@ -360,15 +365,25 @@ class Component extends DCLogic {
       this.setState({ errors: {}, status: 'error', errorText: 'Online enquiries are not connected yet, so your message was not sent.' });
       return;
     }
+    this.inFlight = true;
     this.setState({ errors: {}, status: 'sending' });
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 20000);
     try {
-      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data), signal: ctrl.signal });
       if (!res.ok) throw new Error('HTTP ' + res.status);
+      // Only an explicit success flag counts; an HTML page (e.g. a Google sign-in redirect) or an empty reply is a failure.
       const out = await res.json().catch(() => null);
-      if (out && (out.ok === false || out.result === 'error')) throw new Error(out.error || 'Rejected');
+      const accepted = !!out && (out.ok === true || out.success === true || out.result === 'success' || out.status === 'success');
+      if (!accepted) throw new Error((out && (out.error || out.message)) || 'No success response');
       this.setState({ status: 'sent', sentTopic: topic, sentGive: isSupport ? give : -1 });
     } catch (err) {
-      this.setState({ status: 'error', errorText: 'Something went wrong and your message was not sent. Please try again.' });
+      this.setState({ status: 'error', errorText: err.name === 'AbortError'
+        ? 'The request took too long and your message may not have been sent. Please try again.'
+        : 'Something went wrong and your message was not sent. Please try again.' });
+    } finally {
+      clearTimeout(timer);
+      this.inFlight = false;
     }
   }
   placeholder(v) { return v ? { value: v, color: 'inherit', style: 'normal' } : { value: 'To be added by the Trust', color: 'rgba(128,128,128,.95)', style: 'italic' }; }
@@ -404,7 +419,11 @@ class Component extends DCLogic {
       contactRows: [['Email', ct.email, ct.email && 'mailto:' + ct.email], ['Phone', ct.phone, ct.phoneHref], ['Address', ct.address, ct.mapsHref], ['WhatsApp', ct.phone && 'Chat on WhatsApp', ct.whatsapp]].map(([label, v, href]) => Object.assign({ label, href: href || '', hasHref: !!(v && href), noHref: !(v && href), target: /^https/.test(href || '') ? '_blank' : '_self' }, g(v))),
       topics: TOPICS.map((label, i) => ({ label, on: topic === i, border: topic === i ? '#163D12' : 'rgba(32,31,29,.25)', bg: topic === i ? '#163D12' : 'transparent', fg: topic === i ? '#f3f2f2' : '#201f1d', select: () => this.setState(s => ({ topic: i, errors: Object.assign({}, s.errors, { message: '' }) })) })),
       isSupport: topic === 1,
-      formType: topic === 1 ? 'support' : 'general',
+      formType: 'enquiry',
+      showSkills: topic === 2 && skills.length > 0,
+      skillsText: skills.join(', '),
+      volunteerSkills: topic === 2 ? skills.join(', ') : '',
+      editSkills: () => { const el = document.getElementById('volunteer'); if (el) el.scrollIntoView({ behavior: 'smooth' }); },
       topicLabel: TOPICS[topic],
       supportOption: topic === 1 && give >= 0 ? GIVE[give][0] : '',
       messageLabel: topic === 1 ? 'Message (optional)' : 'Message',

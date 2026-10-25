@@ -85,9 +85,11 @@
       address: '59/6, 1st Floor, Deepika Layout (Gubbalala Main Road / 80 Feet Road), Banashankari 6th Stage, Gubbalala, Subramanyapura, Bengaluru, Karnataka 560061',
       whatsapp: 'https://wa.me/918971168006?text=' + encodeURIComponent('Hello Bangalore Music Trust, I would like to know more about your music classes and programs.')
     },
-    // Enquiry form endpoint (e.g. a Google Apps Script web app URL). null = the form reports
-    // that online enquiries are not connected yet, rather than pretending to send.
-    forms: { enquiry: null },
+    // Enquiry form endpoint: the deployed Google Apps Script web app URL, ending in /exec
+    // (Deploy > Manage deployments; "Who has access" must be "Anyone"). The script replies
+    // with JSON {"success": true|false, "message": "..."}. null = the form reports that online enquiries are not
+    // connected yet, rather than pretending to send.
+    forms: { enquiry: 'https://script.google.com/macros/s/AKfycbxHN4Wb_owJBQMxAaB9dIJ1qGF3CUOFpNngLF0gjWFVdVenqB8f9rdXPxnTxuuxrqjNBw/exec' },
     images: images,
     img: get
   };
