@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/logo-mark-green.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -66,7 +67,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <a href="index.html#stories" style="color:inherit">Stories</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="#contact" aria-current="page" style="display:{{ desk }};align-items:center;white-space:nowrap;padding:11px 22px;border-radius:4px;border:1px solid currentColor;color:inherit;font-size:14px" style-hover="background:rgba(182,130,53,.16)">Contact</a>
+      <a href="#contact" style="display:{{ desk }};align-items:center;white-space:nowrap;padding:11px 22px;border-radius:4px;border:1px solid currentColor;color:inherit;font-size:14px" style-hover="background:rgba(182,130,53,.16)">Contact</a>
       <button type="button" aria-label="Open menu" onClick="{{ openMenu }}" style="display:{{ mob }};flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;padding:0 12px;border:1px solid currentColor;border-radius:4px;background:transparent;color:inherit;cursor:pointer">
         <span style="display:block;height:1px;background:currentColor"></span><span style="display:block;height:1px;background:currentColor"></span><span style="display:block;height:1px;background:currentColor;width:60%"></span>
       </button>
@@ -307,6 +308,8 @@ class Component extends DCLogic {
     this.onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.closeMenu(); };
+    window.addEventListener('keydown', this.onKey);
     // Links to #support (e.g. from the homepage) open the form with Support preselected.
     this.onHash = () => { if (window.location.hash === '#support') this.setState({ topic: 1 }); };
     window.addEventListener('hashchange', this.onHash);
@@ -318,9 +321,19 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
     window.removeEventListener('hashchange', this.onHash);
     clearInterval(this.poll);
     if (this.io) this.io.disconnect();
+  }
+  openMenu() {
+    this.setState({ menuOpen: true });
+    setTimeout(() => { const b = document.querySelector('[role="dialog"] button[aria-label="Close menu"]'); if (b) b.focus(); }, 0);
+  }
+  closeMenu() {
+    if (!this.state.menuOpen) return;
+    this.setState({ menuOpen: false });
+    setTimeout(() => { const b = document.querySelector('button[aria-label="Open menu"]'); if (b) b.focus({ preventScroll: true }); }, 0);
   }
   setupReveal() {
     const vh = window.innerHeight;
@@ -402,8 +415,8 @@ class Component extends DCLogic {
         pad: scrolled ? '12px' : '24px', ivoryOp: scrolled ? 0 : 1, greenOp: scrolled ? 1 : 0
       },
       menuOpen: this.state.menuOpen,
-      openMenu: () => this.setState({ menuOpen: true }),
-      closeMenu: () => this.setState({ menuOpen: false }),
+      openMenu: () => this.openMenu(),
+      closeMenu: () => this.closeMenu(),
       menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       img: { hero: img('giHero'), vol: img('giVolunteer', 1000) },
       paths: [['Learn', '#learn'], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Collaborate', '#collaborate']].map(([title, href], i) => ({ title, href, n: '0' + (i + 1) })),

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/logo-mark-green.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -42,6 +43,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .m-cap{left:clamp(20px,5vw,72px)!important}
   .m-svh{height:100svh!important}
   .m-card{min-height:0!important;padding:28px 24px!important}
+  .m-span{grid-column:1/-1!important}
   .gi-grid{grid-template-columns:minmax(0,1fr)!important}
 }
 @media (min-width:641px) and (max-width:1199px){
@@ -136,7 +138,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px 80px;align-items:end">
       <div style="display:flex;flex-direction:column;gap:26px">
         <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411;font-variant-numeric:tabular-nums"><span style="width:40px;height:1px;background:currentColor"></span><span>The Question</span></div>
-        <h2 id="q-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(46px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Why Music Education <em>Matters??</em></h2>
+        <h2 id="q-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(46px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Why Music Education <em>Matters?</em></h2>
       </div>
       <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,30px);line-height:1.35;max-width:620px;text-wrap:pretty">Music gives children more than the ability to perform. It teaches listening, discipline, patience, expression and collaboration. Yet access to meaningful music education can often depend on circumstance.</p>
     </div>
@@ -531,7 +533,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg>
         </a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="m-span" style="min-width:0;display:flex;flex-direction:column;gap:12px;overflow-wrap:anywhere">
         <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e1ad66">Contact</span>
         <a href="{{ ct.mapsHref }}" target="_blank" rel="noopener" aria-label="Open the Trust's address in Google Maps" style="display:flex;gap:10px;align-items:flex-start;color:rgba(243,242,242,.85);font-size:15px;line-height:1.6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.5"/></svg><span>{{ ct.address }}</span></a>
         <a href="{{ ct.phoneHref }}" style="display:flex;gap:10px;align-items:flex-start;color:rgba(243,242,242,.85);font-size:15px;line-height:1.6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>{{ ct.phone }}</span></a>
@@ -564,12 +566,15 @@ class Component extends DCLogic {
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.closeMenu(); };
+    window.addEventListener('keydown', this.onKey);
     if (window.BMT) this.initFx();
     else this.poll = setInterval(() => { if (window.BMT) { clearInterval(this.poll); this.setState({ ready: true }, () => this.initFx()); } }, 50);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
     clearInterval(this.poll);
     if (this.io) this.io.disconnect();
     (this.anims || []).forEach(a => a.cancel());
@@ -593,6 +598,15 @@ class Component extends DCLogic {
       setTimeout(() => this.setupReveal(), 60);
     }
     this.onScroll();
+  }
+  openMenu() {
+    this.setState({ menuOpen: true });
+    setTimeout(() => { const b = document.querySelector('[role="dialog"] button[aria-label="Close menu"]'); if (b) b.focus(); }, 0);
+  }
+  closeMenu() {
+    if (!this.state.menuOpen) return;
+    this.setState({ menuOpen: false });
+    setTimeout(() => { const b = document.querySelector('button[aria-label="Open menu"]'); if (b) b.focus({ preventScroll: true }); }, 0);
   }
   setupReveal() {
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
@@ -701,8 +715,8 @@ class Component extends DCLogic {
 
     return {
       menuOpen: this.state.menuOpen,
-      openMenu: () => this.setState({ menuOpen: true }),
-      closeMenu: () => this.setState({ menuOpen: false }),
+      openMenu: () => this.openMenu(),
+      closeMenu: () => this.closeMenu(),
       nav: {
         bg: scrolled ? 'rgba(243,242,242,.94)' : 'transparent',
         fg: scrolled ? '#163D12' : '#f3f2f2',
