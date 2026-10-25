@@ -527,10 +527,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       </nav>
       <div style="display:flex;flex-direction:column;gap:12px">
         <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e1ad66">Follow</span>
-        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
-          <sc-if value="{{ s.hasUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ s.url }}" rel="noopener" target="_blank" style="color:rgba(243,242,242,.85);font-size:15px">{{ s.label }}</a></sc-if>
-          <sc-if value="{{ s.noUrl }}" hint-placeholder-val="{{ true }}"><span style="color:rgba(243,242,242,.5);font-size:15px">{{ s.label }}</span></sc-if>
-        </sc-for>
+        <a href="{{ instagram }}" target="_blank" rel="noopener" aria-label="Bangalore Music Trust on Instagram" title="Instagram" style="align-self:flex-start;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(243,242,242,.3);border-radius:4px;color:rgba(243,242,242,.85);transition:color .3s,border-color .3s" style-hover="color:#facb8d;border-color:#e1ad66">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg>
+        </a>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
         <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e1ad66">Contact</span>
@@ -698,7 +697,7 @@ class Component extends DCLogic {
       ['Collaborate', 'Partner with the Trust as an artist, educator, institution or organisation.', 'Start a conversation', inv + '#collaborate']
     ].map(([title, text, cta, href], i) => { const on = giHover === i; return { n: '0' + (i + 1), title, text, cta, href, bg: on ? '#163D12' : 'transparent', fg: on ? '#f3f2f2' : '#163D12', numColor: on ? '#e1ad66' : '#7d5411', arrowX: on ? '4px' : '0px', enter: () => this.setState({ giHover: i }), leave: () => this.setState({ giHover: -1 }) }; });
 
-    const socials = (B ? B.socials : []).map(s => ({ label: s.label, url: s.url || '', hasUrl: !!s.url, noUrl: !s.url }));
+    const instagram = ((B ? B.socials : []).find(s => s.label === 'Instagram') || {}).url || '';
 
     return {
       menuOpen: this.state.menuOpen,
@@ -765,7 +764,7 @@ class Component extends DCLogic {
       ].map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
       footerA: [['About', '#who'], ['Music Education', edu], ['Programs', edu + '#areas'], ['Impact', '#impact'], ['Stories', '#stories']].map(([label, href]) => ({ label, href })),
       footerB: [['Events', '#events'], ['Get Involved', inv], ['Support', inv + '#support'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
-      socials,
+      instagram,
       ct: B ? B.contactVars : {},
       heroImgRef: this.heroImgRef, staffRef: this.staffRef, journeyRef: this.journeyRef, trackRef: this.trackRef, barRef: this.barRef
     };

@@ -69,17 +69,13 @@
       markIvory: 'assets/logo-mark-ivory.png'
     },
     pages: { home: 'index.html', education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' },
-    // Social URLs: add real links when confirmed. null = shown as plain text, not a link.
+    // Instagram is the Trust's only social account; the homepage footer shows it as an icon.
     socials: [
-      { label: 'Instagram', url: 'https://www.instagram.com/bangalore_music_trust/' },
-      { label: 'Facebook', url: null },
-      { label: 'YouTube', url: null },
-      { label: 'LinkedIn', url: null }
+      { label: 'Instagram', url: 'https://www.instagram.com/bangalore_music_trust/' }
     ],
-    // Contact details: null until supplied by the Trust.
-    // email stays null until the Trust supplies its verified address; set it here and every page picks it up.
+    // Contact details: set here and every page picks them up.
     contact: {
-      email: null,
+      email: 'bangaloremusictrust@gmail.com',
       phone: '+91 89711 68006',
       phoneHref: 'tel:+918971168006',
       address: '59/6, 1st Floor, Deepika Layout (Gubbalala Main Road / 80 Feet Road), Banashankari 6th Stage, Gubbalala, Subramanyapura, Bengaluru, Karnataka 560061',
