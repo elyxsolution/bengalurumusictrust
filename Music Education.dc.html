@@ -316,8 +316,8 @@ class Component extends DCLogic {
       ['Grow', 'sGrow', 'Over years, learners deepen their practice, find their own voice, and many eventually return to teach, carrying music forward to the next generation.', ['Advanced study and masterclasses', 'Opportunities for emerging talent', 'Mentoring younger learners']]
     ].map(([title, k, text, points], i) => { const im = img(k, 1400); return { n: '0' + (i + 1), title, text, points, img: im.src, alt: im.alt, dir: i % 2 ? 'row-reverse' : 'row' }; });
     const areas = [
-      ['Vocal Music', 'Training the voice in pitch, breath, expression and repertoire.', 'vocal'],
       ['Instrumental Music', 'Learning instruments from strings and keys to percussion and wind.', 'instrumental'],
+      ['Vocal Music', 'Training the voice in pitch, breath, expression and repertoire.', 'vocal'],
       ['Indian Classical Music', 'Study rooted in the Hindustani and Carnatic traditions.', 'classical'],
       ['Western Vocals', 'Breath control, pitch, tone and singing technique in the Western tradition.', 'westernVocal'],
       ['Western Instruments', 'Keyboard, string and percussion instruments, with reading and ensemble playing.', 'westernInstr'],

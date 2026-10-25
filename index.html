@@ -657,10 +657,10 @@ class Component extends DCLogic {
     const edu = enc(P.education), inv = enc(P.involved);
 
     const work = [
-      ['01', 'Music Education', 'Creating meaningful opportunities for children and learners to discover, learn and grow through music.', 'wEducation', edu],
+      ['01', 'Music Education', 'Creating environments and opportunities for learners of all ages to discover, learn and grow through music.', 'wEducation', edu],
       ['02', 'Talent Development', 'Nurturing emerging musicians and helping promising talent find opportunities to develop their abilities.', 'wTalent', '#journey'],
-      ['03', 'Cultural Preservation', 'Supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#impact'],
-      ['04', 'Community & Access', 'Bringing people together through music, learning and shared cultural experiences.', 'wCommunity', '#events']
+      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#impact'],
+      ['04', 'Community & Access', 'Bringing people together through music, learning, cultural values and shared experiences.', 'wCommunity', '#events']
     ].map(([n, title, text, k, href], i) => {
       const on = mobile || wHover === i;
       const im = img(k, 1200);
@@ -672,7 +672,7 @@ class Component extends DCLogic {
       ['Learn', 'Guided teaching that builds technique, theory and a musical vocabulary.', 'sLearn'],
       ['Practice', 'The daily discipline where real progress quietly happens.', 'sPractice'],
       ['Perform', 'Sharing music with others, on stage and in the community.', 'sPerform'],
-      ['Grow', 'Deepening practice over years, and in time, teaching others.', 'sGrow']
+      ['Grow', 'Deepening skills over years, and in time, teaching others.', 'sGrow']
     ];
     const steps = stepData.map(([title, text], i) => ({ n: '0' + (i + 1), title, text, active: step === i, dotBg: step === i ? '#163D12' : '#f3f2f2', dotFg: step === i ? '#f3f2f2' : '#163D12', titleColor: step === i ? '#163D12' : '#605d5d', titleStyle: step === i ? 'italic' : 'normal', select: () => this.setState({ step: i }) }));
     const as = img(stepData[step][2], 1400);
@@ -745,7 +745,7 @@ class Component extends DCLogic {
         ['Continuity', 'Traditions survive when each generation learns, practises and passes them on.']
       ].map(([title, text], i) => ({ n: 'i ii iii iv'.split(' ')[i], title, text })),
       community: [
-        ['Learners', 'Children, young people and adults beginning or deepening their practice.'],
+        ['Learners', 'Children, young people and adults beginning or deepening their skills and understanding of music.'],
         ['Educators', 'Teachers and gurus who carry knowledge from one generation to the next.'],
         ['Artists', 'Performing musicians who inspire, mentor and share the stage.'],
         ['Supporters', 'Patrons, families and institutions who make learning possible.']
@@ -753,7 +753,7 @@ class Component extends DCLogic {
       work,
       steps,
       activeStep: { img: as.src, alt: as.alt, n: '0' + (step + 1), title: stepData[step][0] },
-      areas: ['Vocal Music', 'Instrumental Music', 'Indian Classical Music', 'Contemporary Music', 'Music Appreciation', 'Performance & Stage Experience', 'Workshops & Masterclasses'].map((title, i) => ({ n: '0' + (i + 1), title })),
+      areas: ['Instrumental Music', 'Vocal Music', 'Indian Classical Music', 'Contemporary Music', 'Music Appreciation', 'Performance & Stage Experience', 'Workshops & Masterclasses'].map((title, i) => ({ n: '0' + (i + 1), title })),
       journey,
       showQualitative: !figures,
       showFigures: figures,
