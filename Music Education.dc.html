@@ -176,27 +176,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section aria-labelledby="approach-title" data-screen-label="05 Approach" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px clamp(48px,7vw,120px);align-items:start">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px;position:sticky;top:120px">
-      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>Approach</span><span style="width:40px;height:1px;background:currentColor"></span><span>Principles</span></div>
-      <h2 id="approach-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.4vw,84px);line-height:.95;letter-spacing:-.02em;color:#163D12">How Learning <em>Is Shaped</em></h2>
-      <p style="margin:0;font-size:16px;line-height:1.75;color:#44423d;max-width:440px;text-align:justify;hyphens:auto" class="m-left">Four ideas guide how the Trust thinks about music education, whatever the instrument, style or age of the learner.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;border-top:1px solid #163D12">
-      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
-        <div data-reveal="" style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:32px 0;border-bottom:1px solid rgba(32,31,29,.16)">
-          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:34px;line-height:1;color:#b68235">{{ p.n }}</span>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.4vw,38px);line-height:1.05;color:#201f1d">{{ p.t }}</h3>
-            <p style="margin:0;font-size:15.5px;line-height:1.7;color:#44423d;text-align:justify;hyphens:auto" class="m-left">{{ p.d }}</p>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-</section>
-
 <section id="interest" aria-labelledby="interest-title" data-screen-label="06 Register Interest" style="background:#eae9e9;padding:clamp(96px,11vw,160px) clamp(20px,5vw,72px)">
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px clamp(48px,6vw,100px);align-items:start">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
@@ -356,12 +335,6 @@ class Component extends DCLogic {
       qualities: [['Listening', 'Hearing closely and responding.'], ['Discipline', 'The rhythm of regular practice.'], ['Patience', 'Progress measured in seasons.'], ['Expression', 'A language beyond words.'], ['Collaboration', 'Making music with others.']].map(([t, d]) => ({ t, d })),
       stages,
       areas,
-      principles: [
-        ['Listening first', 'Before technique comes attention. Learners are encouraged to listen widely, to teachers, to recordings, to each other, and to themselves.'],
-        ['Practice as habit', 'Progress in music is built from small, regular effort. Learning is designed to help practice become part of daily life.'],
-        ['Performance as part of learning', 'Sharing music is treated as a natural stage of learning, not a final exam, so that confidence grows alongside skill.'],
-        ['Mentorship across generations', 'Music has always passed from teacher to student. The Trust hopes to keep that relationship at the centre of learning.']
-      ].map(([t, d], i) => ({ n: 'i ii iii iv'.split(' ')[i], t, d })),
       whoOpts: ['Myself', 'My child', 'A group or school', 'Not sure yet'].map(l => this.chip('who', l)),
       areaOpts: ['Vocal', 'Instrumental', 'Indian Classical', 'Contemporary', 'Appreciation', 'Performance', 'Workshops'].map(l => this.chip('interests', l)),
       submit: e => { e.preventDefault(); this.setState({ sent: true }); },
