@@ -38,6 +38,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .m-hide{display:none!important}
   .m-logo{height:72px!important}
   .m-2col{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .cx-submit{align-self:stretch!important}
+}
+@media (max-width:1023px){
+  .cx-grid{grid-template-columns:minmax(0,1fr)!important;gap:48px!important}
+}
+@media (max-width:480px){
+  .cx-opts{grid-template-columns:minmax(0,1fr)!important}
 }
 </style>
 </helmet>
@@ -115,40 +122,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="support" aria-labelledby="support-title" data-screen-label="03 Support" style="background:#163D12;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:start">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:28px">
-      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span style="width:40px;height:1px;background:currentColor"></span><span>Support</span></div>
-      <h2 id="support-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.02em">Help Music <em>Reach Further.</em></h2>
-      <p style="margin:0;max-width:460px;font-size:17px;line-height:1.75;color:rgba(243,242,242,.88)">Your support can help create more opportunities for learning, expression and musical growth.</p>
-      <dl style="margin:12px 0 0;border-top:1px solid rgba(243,242,242,.22);max-width:520px">
-        <sc-for list="{{ giving }}" as="g" hint-placeholder-count="3">
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px;padding:16px 0;border-bottom:1px solid rgba(243,242,242,.22)">
-            <dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e1ad66;padding-top:3px">{{ g.label }}</dt>
-            <dd style="margin:0;font-size:15px;line-height:1.55;color:{{ g.color }};font-style:{{ g.style }}">{{ g.value }}</dd>
-          </div>
-        </sc-for>
-      </dl>
-    </div>
-    <div data-reveal="" style="border:1px solid rgba(243,242,242,.25);border-radius:4px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px">
-      <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px;line-height:1.15">Choose how you'd like to help</h3>
-      <div role="radiogroup" aria-label="Ways to give" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
-        <sc-for list="{{ giveOpts }}" as="o" hint-placeholder-count="4">
-          <button type="button" role="radio" aria-checked="{{ o.on }}" onClick="{{ o.select }}" style="text-align:left;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:4px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#f3f2f2;cursor:pointer;transition:background .3s,border-color .3s">
-            <span style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1.05">{{ o.title }}</span><span style="flex:none;width:16px;height:16px;border-radius:50%;border:1px solid #e1ad66;display:grid;place-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#e1ad66;opacity:{{ o.dot }}"></span></span></span>
-            <span style="font-size:13.5px;line-height:1.55;color:rgba(243,242,242,.78)">{{ o.text }}</span>
-          </button>
-        </sc-for>
-      </div>
-      <a href="#contact" onClick="{{ enquireGive }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #e1ad66;color:#facb8d;font-size:15px" style-hover="background:rgba(225,173,102,.14);color:#facb8d">Support the Trust
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
-      <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(243,242,242,.65)">Online giving will be enabled once the Trust's payment and registration details are confirmed. Until then, send an enquiry and the Trust will respond directly.</p>
-    </div>
-  </div>
-</section>
-
-<section id="volunteer" aria-labelledby="vol-title" data-screen-label="04 Volunteer" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+<section id="volunteer" aria-labelledby="vol-title" data-screen-label="04 Volunteer" style="border-top:1px solid rgba(32,31,29,.12);padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
   <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:center">
     <figure data-reveal="" style="margin:0;aspect-ratio:4/5;max-height:720px;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16)">
       <img src="https://images.unsplash.com/photo-1653246458437-fd78a9265711?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.vol.set }}" alt="{{ img.vol.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:45% 30%;filter:sepia(.22) saturate(.82) contrast(1.05)">
@@ -193,17 +167,18 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="contact" aria-labelledby="contact-title" data-screen-label="06 Contact" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px clamp(48px,6vw,100px);align-items:start">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
-      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span>Contact</span></div>
-      <h2 id="contact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Write to <em>the Trust</em></h2>
-      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:440px">Whether you would like to learn, support, volunteer or collaborate, send a note and the Trust will respond.</p>
+<section id="contact" aria-labelledby="contact-title" data-screen-label="06 Contact & Support" style="padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+  <div id="support" style="scroll-margin-top:96px"></div>
+  <div class="cx-grid" style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px clamp(48px,6vw,100px);align-items:start">
+    <div data-reveal="" style="min-width:0;display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Contact &amp; Support</span></div>
+      <h2 id="contact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Connect <em>with the Trust</em></h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:440px">Whether you would like to learn, volunteer, collaborate or support music education, send a note and the Trust will respond directly.</p>
       <dl style="margin:0;border-top:1px solid rgba(32,31,29,.16);max-width:440px">
-        <sc-for list="{{ contactRows }}" as="c" hint-placeholder-count="3">
-          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid rgba(32,31,29,.16)">
+        <sc-for list="{{ contactRows }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid rgba(32,31,29,.16)">
             <dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7d5411;padding-top:2px">{{ c.label }}</dt>
-            <dd style="margin:0;font-size:15px;color:{{ c.color }};font-style:{{ c.style }}">
+            <dd style="margin:0;font-size:15px;line-height:1.6;overflow-wrap:anywhere;color:{{ c.color }};font-style:{{ c.style }}">
               <sc-if value="{{ c.hasHref }}" hint-placeholder-val="{{ false }}"><a href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="border-bottom:1px solid rgba(22,61,18,.35)">{{ c.value }}</a></sc-if>
               <sc-if value="{{ c.noHref }}" hint-placeholder-val="{{ true }}">{{ c.value }}</sc-if>
             </dd>
@@ -212,39 +187,66 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       </dl>
     </div>
     <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-      <form data-reveal="" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:22px;border:1px solid rgba(32,31,29,.16);border-radius:4px;padding:clamp(24px,3vw,40px)">
-        <fieldset style="border:0;margin:0;padding:0">
+      <form data-reveal="" noValidate="{{ true }}" onSubmit="{{ submit }}" onInput="{{ clearErrors }}" aria-labelledby="form-title" style="min-width:0;display:flex;flex-direction:column;gap:24px;border:1px solid rgba(32,31,29,.16);border-radius:4px;padding:clamp(22px,3vw,44px)">
+        <h3 id="form-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,2.6vw,36px);line-height:1.1;color:#163D12">How can <em>we help?</em></h3>
+        <input type="hidden" name="formType" value="{{ formType }}">
+        <input type="hidden" name="topic" value="{{ topicLabel }}">
+        <input type="hidden" name="supportOption" value="{{ supportOption }}">
+        <fieldset style="border:0;margin:0;padding:0;min-width:0">
           <legend style="font-size:13px;color:#44423d;margin-bottom:10px;padding:0">I'm writing about</legend>
-          <div role="radiogroup" style="display:flex;flex-wrap:wrap;gap:8px">
+          <div role="radiogroup" aria-label="Enquiry topic" style="display:flex;flex-wrap:wrap;gap:8px">
             <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
-              <button type="button" role="radio" aria-checked="{{ t.on }}" onClick="{{ t.select }}" style="padding:10px 16px;border-radius:4px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ t.label }}</button>
+              <button type="button" role="radio" aria-checked="{{ t.on }}" onClick="{{ t.select }}" style="min-height:44px;padding:10px 16px;border-radius:4px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ t.label }}</button>
             </sc-for>
           </div>
         </fieldset>
+        <sc-if value="{{ isSupport }}" hint-placeholder-val="{{ false }}">
+          <div style="border-top:1px solid rgba(32,31,29,.12);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+          <fieldset style="border:0;margin:0;padding:0;min-width:0">
+            <legend style="padding:0;margin-bottom:10px;font-size:13px;color:#44423d">Choose how you'd like to help <span style="color:#7a776f">(optional)</span></legend>
+            <div role="radiogroup" aria-label="Ways to support" class="cx-opts" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+              <sc-for list="{{ giveOpts }}" as="o" hint-placeholder-count="4">
+                <button type="button" role="radio" aria-checked="{{ o.on }}" onClick="{{ o.select }}" style="min-width:0;text-align:left;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:4px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#201f1d;cursor:pointer;transition:background .3s,border-color .3s">
+                  <span style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;line-height:1.1;color:#163D12">{{ o.title }}</span><span style="flex:none;margin-top:3px;width:16px;height:16px;border-radius:50%;border:1px solid #b68235;display:grid;place-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#b68235;opacity:{{ o.dot }}"></span></span></span>
+                  <span style="font-size:13px;line-height:1.5;color:#55534e">{{ o.text }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </fieldset>
+            <p style="margin:0;font-size:13px;line-height:1.6;color:#55534e;font-style:italic">This sends a support enquiry, not a donation. No payment is taken here; the Trust will respond directly about how you can help.</p>
+          </div>
+        </sc-if>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
           <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Your name
-            <input type="text" required="" autocomplete="name" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+            <input type="text" name="name" aria-required="true" autocomplete="name" aria-invalid="{{ err.nameOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ err.nameBorder }};border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+            <sc-if value="{{ err.nameOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#9b2c1f">{{ err.name }}</span></sc-if>
           </label>
           <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Email
-            <input type="email" required="" autocomplete="email" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+            <input type="email" name="email" aria-required="true" autocomplete="email" aria-invalid="{{ err.emailOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ err.emailBorder }};border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+            <sc-if value="{{ err.emailOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#9b2c1f">{{ err.email }}</span></sc-if>
           </label>
         </div>
         <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Organisation (optional)
-          <input type="text" autocomplete="organization" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
+          <input type="text" name="organisation" autocomplete="organization" style="min-width:0;padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d">
         </label>
-        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">Message
-          <textarea rows="5" required="" style="padding:13px 14px;border:1px solid rgba(32,31,29,.25);border-radius:4px;background:transparent;font-size:15px;color:#201f1d;resize:vertical"></textarea>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#44423d">{{ messageLabel }}
+          <textarea name="message" rows="5" aria-invalid="{{ err.messageOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ err.messageBorder }};border-radius:4px;background:transparent;font-size:15px;color:#201f1d;resize:vertical"></textarea>
+          <sc-if value="{{ err.messageOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#9b2c1f">{{ err.message }}</span></sc-if>
         </label>
-        <button type="submit" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:4px;border:1px solid #163D12;background:transparent;color:#163D12;font-size:15px;cursor:pointer" style-hover="background:rgba(22,61,18,.07)">Send message
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        <sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+          <div role="alert" style="padding:14px 16px;border-left:2px solid #9b2c1f;background:rgba(155,44,31,.06);font-size:14px;line-height:1.6;color:#44423d">{{ errorText }} You can also call <a href="{{ ct.phoneHref }}" style="border-bottom:1px solid rgba(22,61,18,.35)">{{ ct.phone }}</a> or <a href="{{ ct.whatsapp }}" target="_blank" rel="noopener" style="border-bottom:1px solid rgba(22,61,18,.35)">message on WhatsApp</a>.</div>
+        </sc-if>
+        <button type="submit" aria-disabled="{{ sending }}" class="cx-submit" style="align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:15px 30px;border-radius:4px;border:1px solid #163D12;background:#163D12;color:#f3f2f2;font-size:15px;cursor:{{ submitCursor }};opacity:{{ submitOp }};transition:background .3s" style-hover="background:#315A29">{{ submitLabel }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="flex:none"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </button>
       </form>
     </sc-if>
     <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-      <div role="status" style="border:1px solid #163D12;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px">
+      <div role="status" style="min-width:0;border:1px solid #163D12;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px">
         <img src="assets/logo-mark-green.png" alt="" style="height:64px;width:auto;align-self:flex-start">
         <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:40px;line-height:1;color:#163D12">Thank you.</h3>
-        <p style="margin:0;font-size:16px;line-height:1.7;color:#44423d">Your message about <em>{{ topicLower }}</em> has been received. The Trust will respond soon.</p>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#44423d">{{ sentText }}</p>
+        <button type="button" onClick="{{ reset }}" style="align-self:flex-start;padding:0 0 4px;border:0;border-bottom:1px solid #b68235;background:transparent;color:#163D12;font-size:14px;cursor:pointer">Send another message</button>
       </div>
     </sc-if>
   </div>
@@ -286,14 +288,25 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 const IMG0 = { src: '', set: '', alt: '', pos: '50% 50%' };
 const H = 'index.html', E = 'Music%20Education.dc.html', G = 'Get%20Involved.dc.html';
 const TOPICS = ['Learning', 'Support', 'Volunteering', 'Collaboration', 'Something else'];
+const GIVE = [
+  ['One-time gift', 'A single contribution towards learning opportunities.'],
+  ['Regular support', 'Ongoing giving that helps the Trust plan ahead.'],
+  ['Support a learner', "Help make one learner's musical journey possible."],
+  ['Instruments & resources', 'Contribute instruments, materials or spaces.']
+];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 class Component extends DCLogic {
-  state = { w: window.innerWidth, menuOpen: false, scrolled: false, give: 0, skills: [], topic: 0, sent: false, ready: !!window.BMT };
+  state = { w: window.innerWidth, menuOpen: false, scrolled: false, give: -1, skills: [], topic: 0, status: 'idle', errors: {}, errorText: '', sentTopic: 0, sentGive: -1, ready: !!window.BMT };
   componentDidMount() {
     this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
     this.onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onResize);
+    // Links to #support (e.g. from the homepage) open the form with Support preselected.
+    this.onHash = () => { if (window.location.hash === '#support') this.setState({ topic: 1 }); };
+    window.addEventListener('hashchange', this.onHash);
+    this.onHash();
     if (!window.BMT) this.poll = setInterval(() => { if (window.BMT) { clearInterval(this.poll); this.setState({ ready: true }); } }, 50);
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(() => this.setupReveal(), 80);
     this.onScroll();
@@ -301,6 +314,7 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('hashchange', this.onHash);
     clearInterval(this.poll);
     if (this.io) this.io.disconnect();
   }
@@ -314,13 +328,56 @@ class Component extends DCLogic {
       this.io.observe(el);
     });
   }
+  // Posts the enquiry to the endpoint in site-content.js (BMT.forms.enquiry, e.g. a Google Apps Script web app).
+  // Sent as text/plain JSON so the request stays a "simple" CORS request with no preflight.
+  async sendEnquiry(form) {
+    if (this.state.status === 'sending') return;
+    const { topic, give, skills } = this.state;
+    const f = new FormData(form);
+    const val = k => String(f.get(k) || '').trim();
+    const isSupport = topic === 1;
+    const data = {
+      formType: isSupport ? 'support' : 'general',
+      topic: TOPICS[topic],
+      supportOption: isSupport && give >= 0 ? GIVE[give][0] : '',
+      volunteerSkills: topic === 2 ? skills.join(', ') : '',
+      name: val('name'), email: val('email'), organisation: val('organisation'), message: val('message'),
+      page: 'Get Involved', submittedAt: new Date().toISOString()
+    };
+    const errors = {};
+    if (!data.name) errors.name = 'Please enter your name.';
+    if (!data.email) errors.email = 'Please enter your email address.';
+    else if (!EMAIL_RE.test(data.email)) errors.email = 'Please enter a valid email address.';
+    if (!isSupport && !data.message) errors.message = 'Please write a short message.';
+    const bad = Object.keys(errors);
+    if (bad.length) {
+      this.setState({ errors, status: 'idle' });
+      setTimeout(() => { const el = form.querySelector('[name="' + bad[0] + '"]'); if (el) el.focus(); }, 0);
+      return;
+    }
+    const url = window.BMT && window.BMT.forms && window.BMT.forms.enquiry;
+    if (!url) {
+      this.setState({ errors: {}, status: 'error', errorText: 'Online enquiries are not connected yet, so your message was not sent.' });
+      return;
+    }
+    this.setState({ errors: {}, status: 'sending' });
+    try {
+      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const out = await res.json().catch(() => null);
+      if (out && (out.ok === false || out.result === 'error')) throw new Error(out.error || 'Rejected');
+      this.setState({ status: 'sent', sentTopic: topic, sentGive: isSupport ? give : -1 });
+    } catch (err) {
+      this.setState({ status: 'error', errorText: 'Something went wrong and your message was not sent. Please try again.' });
+    }
+  }
   placeholder(v) { return v ? { value: v, color: 'inherit', style: 'normal' } : { value: 'To be added by the Trust', color: 'rgba(128,128,128,.95)', style: 'italic' }; }
   renderVals() {
     const B = window.BMT;
     const img = (k, w) => (B ? B.img(k, w) : IMG0);
-    const { w, scrolled, give, skills, topic } = this.state;
+    const { w, scrolled, give, skills, topic, status, errors, sentTopic, sentGive } = this.state;
     const mobile = w < 1180;
-    const gv = (B && B.giving) || {}, ct = (B && B.contact) || {};
+    const ct = (B && B.contact) || {};
     const g = this.placeholder.bind(this);
     return {
       desk: mobile ? 'none' : 'flex', mob: mobile ? 'flex' : 'none',
@@ -335,27 +392,35 @@ class Component extends DCLogic {
       menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       img: { hero: img('giHero'), vol: img('giVolunteer', 1000) },
       paths: [['Learn', '#learn'], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Collaborate', '#collaborate']].map(([title, href], i) => ({ title, href, n: '0' + (i + 1) })),
-      giving: [['Registration', gv.registration], ['Tax benefits', gv.taxBenefits], ['Payment methods', gv.paymentMethods]].map(([label, v]) => Object.assign({ label }, g(v))),
-      giveOpts: [
-        ['One-time gift', 'A single contribution towards learning opportunities.'],
-        ['Regular support', 'Ongoing giving that helps the Trust plan ahead.'],
-        ['Support a learner', "Help make one learner's musical journey possible."],
-        ['Instruments & resources', 'Contribute instruments, materials or spaces.']
-      ].map(([title, text], i) => ({ title, text, on: give === i, border: give === i ? '#e1ad66' : 'rgba(243,242,242,.25)', bg: give === i ? 'rgba(225,173,102,.1)' : 'transparent', dot: give === i ? 1 : 0, select: () => this.setState({ give: i }) })),
-      enquireGive: () => this.setState({ topic: 1, sent: false }),
-      enquireVol: () => this.setState({ topic: 2, sent: false }),
+      giveOpts: GIVE.map(([title, text], i) => ({ title, text, on: give === i, border: give === i ? '#b68235' : 'rgba(32,31,29,.2)', bg: give === i ? 'rgba(182,130,53,.08)' : 'transparent', dot: give === i ? 1 : 0, select: () => this.setState({ give: give === i ? -1 : i }) })),
+      enquireVol: () => this.setState({ topic: 2, status: 'idle' }),
       skills: ['Teaching music', 'Performing', 'Event support', 'Photography & film', 'Writing & communications', 'Design', 'Fundraising', 'Administration'].map(label => { const on = skills.includes(label); return { label, on, border: on ? '#163D12' : 'rgba(32,31,29,.25)', bg: on ? '#163D12' : 'transparent', fg: on ? '#f3f2f2' : '#201f1d', toggle: () => this.setState(s => ({ skills: on ? s.skills.filter(x => x !== label) : s.skills.concat(label) })) }; }),
       partners: [
         ['Artists', 'Perform, mentor or lead masterclasses for emerging musicians.'],
         ['Educators', 'Share teaching experience and help shape learning.'],
         ['Institutions & Schools', 'Bring music education to students and campuses.'],
         ['Organisations', 'Partner on programmes, events and cultural initiatives.']
-      ].map(([title, text], i) => ({ title, text, n: 'i ii iii iv'.split(' ')[i], enquire: () => this.setState({ topic: 3, sent: false }) })),
+      ].map(([title, text], i) => ({ title, text, n: 'i ii iii iv'.split(' ')[i], enquire: () => this.setState({ topic: 3, status: 'idle' }) })),
       contactRows: [['Email', ct.email, ct.email && 'mailto:' + ct.email], ['Phone', ct.phone, ct.phoneHref], ['Address', ct.address, ct.mapsHref], ['WhatsApp', ct.phone && 'Chat on WhatsApp', ct.whatsapp]].map(([label, v, href]) => Object.assign({ label, href: href || '', hasHref: !!(v && href), noHref: !(v && href), target: /^https/.test(href || '') ? '_blank' : '_self' }, g(v))),
-      topics: TOPICS.map((label, i) => ({ label, on: topic === i, border: topic === i ? '#163D12' : 'rgba(32,31,29,.25)', bg: topic === i ? '#163D12' : 'transparent', fg: topic === i ? '#f3f2f2' : '#201f1d', select: () => this.setState({ topic: i }) })),
-      topicLower: TOPICS[topic].toLowerCase(),
-      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
-      sent: this.state.sent, notSent: !this.state.sent,
+      topics: TOPICS.map((label, i) => ({ label, on: topic === i, border: topic === i ? '#163D12' : 'rgba(32,31,29,.25)', bg: topic === i ? '#163D12' : 'transparent', fg: topic === i ? '#f3f2f2' : '#201f1d', select: () => this.setState(s => ({ topic: i, errors: Object.assign({}, s.errors, { message: '' }) })) })),
+      isSupport: topic === 1,
+      formType: topic === 1 ? 'support' : 'general',
+      topicLabel: TOPICS[topic],
+      supportOption: topic === 1 && give >= 0 ? GIVE[give][0] : '',
+      messageLabel: topic === 1 ? 'Message (optional)' : 'Message',
+      err: ['name', 'email', 'message'].reduce((o, k) => Object.assign(o, { [k]: errors[k] || '', [k + 'On']: !!errors[k], [k + 'Border']: errors[k] ? '#9b2c1f' : 'rgba(32,31,29,.25)' }), {}),
+      clearErrors: e => { const n = e.target && e.target.name; if (n && errors[n]) this.setState(s => ({ errors: Object.assign({}, s.errors, { [n]: '' }) })); },
+      submit: e => { e.preventDefault(); this.sendEnquiry(e.currentTarget); },
+      sending: status === 'sending',
+      submitLabel: status === 'sending' ? 'Sending…' : 'Send message',
+      submitCursor: status === 'sending' ? 'progress' : 'pointer',
+      submitOp: status === 'sending' ? 0.7 : 1,
+      isError: status === 'error', errorText: this.state.errorText,
+      sent: status === 'sent', notSent: status !== 'sent',
+      sentText: sentTopic === 1
+        ? 'Your support enquiry' + (sentGive >= 0 ? ' about ' + GIVE[sentGive][0].toLowerCase() : '') + ' has been sent. No payment has been taken; the Trust will be in touch directly.'
+        : 'Your message about ' + TOPICS[sentTopic].toLowerCase() + ' has been sent. The Trust will respond soon.',
+      reset: () => this.setState({ status: 'idle', errors: {}, give: -1 }),
       ct: B ? B.contactVars : {},
       footerLinks: [['About', H + '#who'], ['Music Education', E], ['Programs', E + '#areas'], ['Impact', H + '#impact'], ['Stories', H + '#stories'], ['Events', H + '#events'], ['Get Involved', G], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
     };

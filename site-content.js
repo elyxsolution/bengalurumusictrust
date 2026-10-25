@@ -76,7 +76,7 @@
       { label: 'YouTube', url: null },
       { label: 'LinkedIn', url: null }
     ],
-    // Contact + giving details: null until supplied by the Trust.
+    // Contact details: null until supplied by the Trust.
     // email stays null until the Trust supplies its verified address; set it here and every page picks it up.
     contact: {
       email: null,
@@ -85,7 +85,9 @@
       address: '59/6, 1st Floor, Deepika Layout (Gubbalala Main Road / 80 Feet Road), Banashankari 6th Stage, Gubbalala, Subramanyapura, Bengaluru, Karnataka 560061',
       whatsapp: 'https://wa.me/918971168006?text=' + encodeURIComponent('Hello Bangalore Music Trust, I would like to know more about your music classes and programs.')
     },
-    giving: { registration: null, taxBenefits: null, paymentMethods: null },
+    // Enquiry form endpoint (e.g. a Google Apps Script web app URL). null = the form reports
+    // that online enquiries are not connected yet, rather than pretending to send.
+    forms: { enquiry: null },
     images: images,
     img: get
   };
