@@ -4,7 +4,7 @@
 (function () {
   var U = 'https://images.unsplash.com/photo-';
   var images = {
-    hero:        { id: '1764176269321-6d14f4af09c7', alt: 'Young women in traditional dress singing together on stage', pos: '50% 40%' },
+    hero:        { src: 'assets/hero.jpg', alt: 'Children singing into microphones during a music class while a teacher plays drums', pos: '50% 40%' },
     mission:     { id: '1653246676297-98517bec8a52', alt: 'An elder musician playing the bansuri flute in low light', pos: '62% 30%' },
     who:         { id: '1653246458437-fd78a9265711', alt: 'A senior musician seated with a tanpura, smiling', pos: '45% 30%' },
     whoDetail:   { id: '1646765566496-8744ce5e7738', alt: 'Close-up of a hand on the strings of a sitar' },
