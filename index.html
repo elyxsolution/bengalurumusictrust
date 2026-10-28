@@ -136,7 +136,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .m-logo{height:72px!important}
   .m-2col{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   .m-cap{left:clamp(20px,5vw,72px)!important}
-  .m-svh{height:100svh!important}
   .m-card{min-height:0!important;padding:28px 24px!important}
   .m-span{grid-column:1/-1!important}
   .gi-grid{grid-template-columns:minmax(0,1fr)!important}
@@ -372,67 +371,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="journey" ref="{{ journeyRef }}" aria-labelledby="journey-title" data-screen-label="07 Every Voice Has a Beginning" style="position:relative;height:{{ layout.journeyH }};background:#1d1c1a;color:#f3f2f2">
-  <div class="m-svh" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center">
-    <div ref="{{ trackRef }}" style="display:flex;align-items:center;gap:clamp(24px,3vw,48px);padding:0 clamp(20px,5vw,72px);will-change:transform;width:max-content">
-      <div style="flex:none;width:{{ layout.journeyIntroW }};display:flex;flex-direction:column;gap:28px;padding-right:clamp(10px,3vw,60px)">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span style="width:40px;height:1px;background:currentColor"></span><span>Music as a Journey</span></div>
-        <h2 id="journey-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6vw,100px);line-height:.92;letter-spacing:-.02em">Every Voice Has a <em>Beginning.</em></h2>
-        <p style="margin:0;max-width:380px;font-size:16px;line-height:1.7;color:rgba(243,242,242,.8)">Every musician's story passes through the same small, decisive moments.</p>
-        <p style="margin:0;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,242,.6)">Scroll to follow <svg width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"></path></svg></p>
-      </div>
-      <sc-for list="{{ journey }}" as="j" hint-placeholder-count="5">
-        <article style="flex:none;width:{{ layout.journeyCardW }};display:flex;flex-direction:column;gap:22px">
-          <div style="position:relative;height:{{ layout.journeyImgH }};overflow:hidden;border:6px solid #2d2b2b;outline:1px solid rgba(243,242,242,.14)">
-            <img src="{{ j.img }}" alt="{{ j.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)">
-            <span style="position:absolute;top:16px;left:18px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:64px;line-height:.8;color:#f3f2f2;text-shadow:0 2px 30px rgba(0,0,0,.4)">{{ j.n }}</span>
-          </div>
-          <div style="display:grid;grid-template-columns:{{ layout.journeyCols }};gap:{{ layout.journeyGap }};align-items:start;border-top:1px solid rgba(243,242,242,.22);padding-top:20px">
-            <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(28px,2.5vw,40px);line-height:1">{{ j.title }}</h3>
-            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(243,242,242,.82)">{{ j.text }}</p>
-          </div>
-        </article>
-      </sc-for>
-      <div style="flex:none;width:clamp(40px,8vw,140px)"></div>
-    </div>
-    <div aria-hidden="true" style="position:absolute;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);bottom:clamp(24px,5vh,48px);height:1px;background:rgba(243,242,242,.16)">
-      <div ref="{{ barRef }}" style="height:1px;width:0%;background:#e1ad66"></div>
-    </div>
-  </div>
-</section>
-
-<section id="stories" aria-labelledby="stories-title" data-screen-label="09 Stories" style="background:#eae9e9;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto">
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:clamp(48px,6vw,80px)">
-      <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Stories</span></div>
-        <h2 id="stories-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Stories That <em>Stay With Us</em></h2>
-      </div>
-      <p style="margin:0;max-width:360px;font-size:14px;line-height:1.65;color:#55534e">Illustrative story formats. Real accounts from the Trust's community will be shared here, with the consent of those featured.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(28px,3vw,44px);align-items:start">
-      <sc-for list="{{ stories }}" as="st" hint-placeholder-count="3">
-        <article data-reveal="" style="display:flex;flex-direction:column;gap:22px;margin-top:{{ st.offset }}">
-          <div onMouseEnter="{{ st.enter }}" onMouseLeave="{{ st.leave }}" style="display:block;position:relative;aspect-ratio:4/5;overflow:hidden;border:6px solid #f3f2f2;outline:1px solid rgba(32,31,29,.16)">
-            <img src="{{ st.img }}" alt="{{ st.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;transform:scale({{ st.scale }});filter:sepia(.22) saturate(.82) contrast(1.05);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)">
-            <span style="position:absolute;top:14px;left:14px;padding:6px 10px;border:1px solid #f3f2f2;border-radius:2px;background:rgba(29,28,26,.35);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#f3f2f2">{{ st.kicker }}</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(32px,2.8vw,44px);line-height:1;color:#201f1d">{{ st.title }}</h3>
-            <p style="margin:0;font-size:15px;line-height:1.65;color:#44423d;max-width:420px;text-align:justify;hyphens:auto" class="m-left">{{ st.text }}</p>
-          </div>
-        </article>
-      </sc-for>
-    </div>
-    <div data-reveal="" style="margin-top:clamp(56px,6vw,90px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid #163D12;padding-top:28px">
-      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,2.4vw,36px);line-height:1.15;color:#163D12;max-width:720px">Learned with the Trust, or taught alongside it? <em>Share your story.</em></p>
-      <a href="Get%20Involved.dc.html#contact" style="display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px;transition:background .3s" style-hover="background:rgba(22,61,18,.07)">Get in touch
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="events" aria-labelledby="events-title" data-screen-label="10 Events" style="background:#163D12;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
   <div style="max-width:1440px;margin:0 auto">
     <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:clamp(48px,6vw,80px)">
@@ -640,12 +578,9 @@ const HEADLINES = {
 };
 
 class Component extends DCLogic {
-  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, stHover: -1, eHover: -1, giHover: -1, ready: !!window.BMT };
+  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, eHover: -1, giHover: -1, ready: !!window.BMT };
   heroImgRef = React.createRef();
   staffRef = React.createRef();
-  journeyRef = React.createRef();
-  trackRef = React.createRef();
-  barRef = React.createRef();
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, { passive: true });
@@ -720,21 +655,13 @@ class Component extends DCLogic {
         el.style.transform = 'translate3d(0,' + ((r.top + r.height / 2 - vh / 2) * -sp).toFixed(1) + 'px,0)';
       });
     }
-    const sec = this.journeyRef.current, tr = this.trackRef.current;
-    if (sec && tr) {
-      const r = sec.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - vh)));
-      const dist = Math.max(0, tr.scrollWidth - window.innerWidth);
-      tr.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
-      if (this.barRef.current) this.barRef.current.style.width = (p * 100).toFixed(2) + '%';
-    }
   };
   onResize = () => { this.setState({ w: window.innerWidth }, this.onScroll); };
 
   renderVals() {
     const B = window.BMT;
     const img = (k, w) => (B ? B.img(k, w) : IMG0);
-    const { w, scrolled, wHover, stHover, eHover, giHover } = this.state;
+    const { w, scrolled, wHover, eHover, giHover } = this.state;
     const mobile = w < 1180;
     const phone = w < 640;
     const headline = this.props.heroHeadline ?? 'Supporting Talent. Inspiring Generations.';
@@ -744,29 +671,14 @@ class Component extends DCLogic {
 
     const work = [
       ['01', 'Music Education', 'Creating environments and opportunities for learners of all ages to discover, learn and grow through music.', 'wEducation', edu],
-      ['02', 'Talent Development', 'Nurturing emerging musicians and helping promising talent find opportunities to develop their abilities.', 'wTalent', '#journey'],
-      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#stories'],
+      ['02', 'Talent Development', 'Nurturing emerging musicians and helping promising talent find opportunities to develop their abilities.', 'wTalent', '#classes'],
+      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#mission'],
       ['04', 'Community & Access', 'Bringing people together through music, learning, cultural values and shared experiences.', 'wCommunity', '#events']
     ].map(([n, title, text, k, href], i) => {
       const on = mobile || wHover === i;
       const im = img(k, 1200);
       return { n, title, text, href, img: im.src, alt: im.alt, flex: mobile ? '0 0 auto' : (wHover === i ? '2.3 1 0' : '1 1 0'), scale: wHover === i && !mobile ? 1.06 : 1, descOp: on ? 1 : 0, descY: on ? '0px' : '12px', arrowX: wHover === i ? '3px' : '0px', arrowBorder: wHover === i ? '#e1ad66' : 'rgba(243,242,242,.55)', arrowFg: wHover === i ? '#facb8d' : '#f3f2f2', enter: () => this.setState({ wHover: i }) };
     });
-
-    const jd = [
-      ['First Note', 'A sound made on purpose for the first time. Curiosity turns into attention.', 'jNote'],
-      ['First Lesson', 'A teacher, a learner and a shared vocabulary of rhythm and pitch.', 'jLesson'],
-      ['First Performance', 'Months of practice meet a room full of listeners.', 'jPerformance'],
-      ['First Applause', 'The moment effort is seen, and heard, by others.', 'jApplause'],
-      ['A Lifelong Relationship with Music', 'Music stays: as a profession, a practice, or a quiet companion.', 'jLifelong']
-    ];
-    const journey = jd.map(([title, text, k], i) => { const im = img(k, 1400); return { n: 'i ii iii iv v'.split(' ')[i], title, text, img: im.src, alt: im.alt }; });
-
-    const stories = [
-      ['Learner', 'A First Note', 'A young learner hears an instrument up close for the first time, and asks to hear it again. The beginning of a story about curiosity, and the adults who make room for it.', 'stFirstNote', '0px'],
-      ['Student', 'Finding Her Voice', 'A quiet student discovers that singing in front of others is possible. A story of confidence built one rehearsal at a time.', 'stVoice', mobile ? '0px' : '90px'],
-      ['Mentor', 'Passing It Forward', 'A musician who once learned from a teacher now sits across from a student of their own. A story about how traditions continue.', 'stForward', mobile ? '0px' : '30px']
-    ].map(([kicker, title, text, k, offset], i) => { const im = img(k, 1000); return { kicker, title, text, offset, img: im.src, alt: im.alt, scale: stHover === i ? 1.05 : 1, enter: () => this.setState({ stHover: i }), leave: () => this.setState({ stHover: -1 }) }; });
 
     const events = [
       ['Concerts', 'Evenings of performance by established and emerging artists.', 'eConcerts'],
@@ -818,14 +730,8 @@ class Component extends DCLogic {
       layout: {
         desk: mobile ? 'none' : 'flex', mob: mobile ? 'flex' : 'none',
         wdDir: mobile ? 'column' : 'row', wdH: phone ? '380px' : mobile ? '440px' : '600px',
-        journeyH: mobile ? '520vh' : '480vh',
-        journeyIntroW: mobile ? '82vw' : '34vw',
-        journeyCardW: mobile ? '80vw' : 'min(44vw,680px)',
-        journeyImgH: phone ? 'min(42svh,540px)' : 'min(56vh,540px)',
-        journeyCols: phone ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.1fr)',
-        journeyGap: phone ? '10px' : '24px'
       },
-      menuLinks: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Our Work', '#work'], ['Stories', '#stories'], ['Events', '#events'], ['Get Involved', inv], ['Donate', '#support'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      menuLinks: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Our Work', '#work'], ['Events', '#events'], ['Get Involved', inv], ['Donate', '#support'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       heroLines: (HEADLINES[headline] || HEADLINES['Supporting Talent. Inspiring Generations.']).map(([text, style]) => ({ text, style })),
       img: {
         hero: img('hero'), mission: img('mission'), who: img('who', 1000), whoDetail: img('whoDetail', 600),
@@ -838,8 +744,6 @@ class Component extends DCLogic {
         ['Supporters', 'Patrons, families and institutions who make learning possible.']
       ].map(([t, d]) => ({ t, d })),
       work,
-      journey,
-      stories,
       classes,
       joinSteps: [
         ['Enquire', 'Register your interest online, call the Trust or send a message on WhatsApp.'],
@@ -861,11 +765,11 @@ class Component extends DCLogic {
         ['Instruments & resources', 'Making instruments and learning materials available.'],
         ['Performances & gatherings', 'Creating stages where learners and artists can be heard.']
       ].map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
-      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Stories', '#stories'], ['Events', '#events']].map(([label, href]) => ({ label, href })),
+      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Events', '#events']].map(([label, href]) => ({ label, href })),
       footerB: [['Get Involved', inv], ['Volunteer', inv + '#volunteer'], ['Donate', '#support'], ['Corporate & CSR', '#csr'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
       instagram,
       ct: B ? B.contactVars : {},
-      heroImgRef: this.heroImgRef, staffRef: this.staffRef, journeyRef: this.journeyRef, trackRef: this.trackRef, barRef: this.barRef
+      heroImgRef: this.heroImgRef, staffRef: this.staffRef
     };
   }
 }

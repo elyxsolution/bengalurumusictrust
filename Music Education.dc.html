@@ -518,7 +518,7 @@ class Component extends DCLogic {
       isError: this.state.status === 'error', errorText: this.state.errorText,
       sent: this.state.status === 'sent', notSent: this.state.status !== 'sent',
       ct: B ? B.contactVars : {},
-      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Stories', H + '#stories'], ['Events', H + '#events'], ['Get Involved', G], ['Volunteer', G + '#volunteer'], ['Donate', H + '#support'], ['Corporate & CSR', G + '#csr'], ['Contact', G + '#contact']].map(([label, href]) => ({ label, href }))
+      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', H + '#events'], ['Get Involved', G], ['Volunteer', G + '#volunteer'], ['Donate', H + '#support'], ['Corporate & CSR', G + '#csr'], ['Contact', G + '#contact']].map(([label, href]) => ({ label, href }))
     };
   }
 }
