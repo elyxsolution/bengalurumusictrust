@@ -128,7 +128,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
       <a href="index.html#work" style="color:inherit">Our Work</a>
       <a href="index.html#events" style="color:inherit">Events</a>
-      <a href="#support" style="color:inherit">Donate</a>
+      <a href="#donate" style="color:inherit">Donate</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
       <a href="#contact" style="display:{{ desk }};align-items:center;white-space:nowrap;padding:11px 22px;border-radius:4px;border:1px solid currentColor;color:inherit;font-size:14px" style-hover="background:rgba(182,130,53,.16)">Contact</a>
@@ -187,29 +187,109 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="support" aria-labelledby="support-title" data-screen-label="03 Support" style="background:#1d1c1a;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
+<section id="donate" aria-labelledby="donate-title" data-screen-label="03 Donate" style="scroll-margin-top:96px;background:#1d1c1a;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
   <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:start">
     <div data-reveal="" style="min-width:0;display:flex;flex-direction:column;gap:26px">
       <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span style="width:40px;height:1px;background:currentColor"></span><span>Support &amp; Donate</span></div>
-      <h2 id="support-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;font-variant-numeric:lining-nums">Support the Trust, <em>From ₹1</em></h2>
-      <p style="margin:0;font-size:16.5px;line-height:1.75;color:rgba(243,242,242,.88);max-width:520px">Your support keeps music education within reach in Bengaluru, helping more learners meet a teacher, find an instrument and share their music. Every contribution counts, however small.</p>
-      <p role="note" style="margin:0;max-width:520px;padding:14px 16px;border-left:2px solid #e1ad66;background:rgba(225,173,102,.08);font-size:14px;line-height:1.6;color:rgba(243,242,242,.85)"><strong style="font-weight:600;color:#facb8d">Online contributions will be enabled soon.</strong> No payment is taken on this website yet. Choose an amount and send a support enquiry, and the Trust will contact you directly about how to give.</p>
-      <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(243,242,242,.65);max-width:520px">Registration, tax and payment details will be published here once confirmed by the Trust. No tax benefit should be assumed until then.</p>
-    </div>
-    <div data-reveal="" style="min-width:0;border:1px solid rgba(243,242,242,.22);border-radius:4px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:20px">
-      <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:26px;line-height:1.15">Choose an amount</h3>
-      <div class="cx-opts" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-        <sc-for list="{{ amountCards }}" as="a" hint-placeholder-count="4">
-          <a href="#contact" onClick="{{ a.select }}" style="min-width:0;display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid rgba(243,242,242,.3);border-radius:4px;color:#f3f2f2;transition:border-color .3s,background .3s" style-hover="border-color:#e1ad66;background:rgba(225,173,102,.1);color:#f3f2f2">
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1;color:#facb8d;font-variant-numeric:lining-nums tabular-nums">{{ a.label }}</span>
-            <span style="font-size:13px;line-height:1.45;color:rgba(243,242,242,.78)">{{ a.text }}</span>
-          </a>
-        </sc-for>
+      <h2 id="donate-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(40px,4.8vw,76px);line-height:.98;letter-spacing:-.02em;font-variant-numeric:lining-nums">Support the Next Generation <em>of Musicians</em></h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:rgba(243,242,242,.88);max-width:520px">Your support keeps music education within reach in Bengaluru, helping more learners meet a teacher, find an instrument and share their music. Every contribution counts, however small, from ₹1.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:560px">
+        <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:26px;line-height:1.15">Ways your support could help</h3>
+        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(243,242,242,.18)">
+          <sc-for list="{{ giveWays }}" as="g" hint-placeholder-count="4">
+            <li style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid rgba(243,242,242,.18)">
+              <span style="font-size:11px;letter-spacing:.14em;color:#e1ad66;padding-top:4px;font-variant-numeric:tabular-nums">{{ g.n }}</span>
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;line-height:1.1">{{ g.title }}</span>
+                <span style="font-size:14px;line-height:1.55;color:rgba(243,242,242,.75)">{{ g.text }}</span>
+              </span>
+            </li>
+          </sc-for>
+        </ul>
       </div>
-      <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(243,242,242,.6)">Suggested amounts only. Contributions support the Trust's music education work as a whole and are not tied to a specific lesson, instrument or programme.</p>
-      <a href="#contact" onClick="{{ enquireSupport }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #e1ad66;color:#facb8d;font-size:15px;transition:background .3s" style-hover="background:rgba(225,173,102,.14);color:#facb8d">Send a support enquiry
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(243,242,242,.65);max-width:560px">Registration, tax and payment details will be published here once confirmed by the Trust. No tax benefit should be assumed until then.</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(243,242,242,.8)">Prefer to give your time? <a href="#volunteer" style="color:#facb8d;border-bottom:1px solid rgba(225,173,102,.5)">Volunteer with the Trust</a>.</p>
+    </div>
+    <div data-reveal="" style="min-width:0">
+      <sc-if value="{{ dn.formOn }}" hint-placeholder-val="{{ true }}">
+        <form noValidate="{{ true }}" onSubmit="{{ dn.submit }}" onInput="{{ dn.clearErrors }}" aria-labelledby="donate-form-title" style="min-width:0;border:1px solid rgba(243,242,242,.22);border-radius:4px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px;background:rgba(29,28,26,.6)">
+          <h3 id="donate-form-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px;line-height:1.15">Make a donation</h3>
+          <sc-if value="{{ dn.setupNoticeOn }}" hint-placeholder-val="{{ false }}">
+            <p role="status" style="margin:0;padding:14px 16px;border-left:2px solid #e1ad66;background:rgba(225,173,102,.08);font-size:14px;line-height:1.6;color:rgba(243,242,242,.88)"><strong style="font-weight:600;color:#facb8d">Online donations are not available yet.</strong> Secure online payment is still being set up, so no payment can be taken here right now. You can <a href="#contact" onClick="{{ enquireSupport }}" style="color:#facb8d;border-bottom:1px solid rgba(225,173,102,.5)">send a support enquiry</a> or contact the Trust directly about how to give.</p>
+          </sc-if>
+          <sc-if value="{{ dn.testNoticeOn }}" hint-placeholder-val="{{ false }}">
+            <p role="note" style="margin:0;padding:12px 16px;border-left:2px solid #e1ad66;background:rgba(225,173,102,.08);font-size:13.5px;line-height:1.6;color:rgba(243,242,242,.88)"><strong style="font-weight:600;color:#facb8d">Test mode.</strong> Payments are running in Razorpay's test environment and no real money is charged.</p>
+          </sc-if>
+          <fieldset style="border:0;margin:0;padding:0;min-width:0">
+            <legend style="padding:0;margin-bottom:10px;font-size:13px;color:rgba(243,242,242,.85)">Choose an amount <span style="color:rgba(243,242,242,.6)">(INR)</span></legend>
+            <div role="radiogroup" aria-label="Donation amount in rupees" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px">
+              <sc-for list="{{ dn.presets }}" as="a" hint-placeholder-count="4">
+                <button type="button" role="radio" aria-checked="{{ a.on }}" onClick="{{ a.select }}" style="min-width:0;min-height:56px;padding:12px 10px;border-radius:4px;border:1px solid {{ a.border }};background:{{ a.bg }};color:{{ a.fg }};font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;line-height:1;cursor:pointer;font-variant-numeric:lining-nums tabular-nums;transition:border-color .3s,background .3s" style-hover="border-color:#e1ad66">{{ a.label }}</button>
+              </sc-for>
+            </div>
+          </fieldset>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(243,242,242,.85)">Or enter another amount
+            <span style="display:flex;align-items:center;gap:8px;padding:0 14px;border:1px solid {{ dn.customBorder }};border-radius:4px;background:transparent">
+              <span aria-hidden="true" style="font-size:17px;color:#facb8d">₹</span>
+              <input type="text" name="customAmount" inputMode="numeric" autoComplete="off" value="{{ dn.customValue }}" onChange="{{ dn.onCustom }}" placeholder="Any amount from ₹1" aria-describedby="dn-total" aria-invalid="{{ dn.totalInvalid }}" style="flex:1;min-width:0;padding:13px 0;border:0;background:transparent;font-size:16px;color:#f3f2f2">
+            </span>
+          </label>
+          <p id="dn-total" aria-live="polite" style="margin:-6px 0 0;font-size:15px;line-height:1.5;color:{{ dn.totalColor }};font-variant-numeric:lining-nums tabular-nums">{{ dn.totalText }}</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(243,242,242,.85)">Your name
+              <input type="text" name="name" aria-required="true" autoComplete="name" aria-invalid="{{ dn.err.nameOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ dn.err.nameBorder }};border-radius:4px;background:transparent;font-size:16px;color:#f3f2f2">
+              <sc-if value="{{ dn.err.nameOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#f6b3aa">{{ dn.err.name }}</span></sc-if>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(243,242,242,.85)">Email
+              <input type="email" name="email" aria-required="true" autoComplete="email" aria-invalid="{{ dn.err.emailOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ dn.err.emailBorder }};border-radius:4px;background:transparent;font-size:16px;color:#f3f2f2">
+              <sc-if value="{{ dn.err.emailOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#f6b3aa">{{ dn.err.email }}</span></sc-if>
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(243,242,242,.85)">Phone (optional)
+            <input type="tel" name="phone" autoComplete="tel" aria-invalid="{{ dn.err.phoneOn }}" style="min-width:0;padding:13px 14px;border:1px solid {{ dn.err.phoneBorder }};border-radius:4px;background:transparent;font-size:16px;color:#f3f2f2">
+            <sc-if value="{{ dn.err.phoneOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#f6b3aa">{{ dn.err.phone }}</span></sc-if>
+          </label>
+          <sc-if value="{{ dn.alertOn }}" hint-placeholder-val="{{ false }}">
+            <div id="donate-result" role="{{ dn.alertRole }}" tabIndex="-1" style="padding:14px 16px;border-left:2px solid {{ dn.alertColor }};background:{{ dn.alertBg }};font-size:14px;line-height:1.6;color:rgba(243,242,242,.9)"><strong style="font-weight:600;color:{{ dn.alertColor }}">{{ dn.alertTitle }}</strong> {{ dn.alertText }}
+              <sc-if value="{{ dn.refOn }}" hint-placeholder-val="{{ false }}"><span style="display:block;margin-top:6px;font-size:13px;color:rgba(243,242,242,.75)">Razorpay payment reference: <span style="color:#f3f2f2;overflow-wrap:anywhere">{{ dn.reference }}</span></span></sc-if>
+            </div>
+          </sc-if>
+          <button type="submit" aria-disabled="{{ dn.blocked }}" style="align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:15px 30px;border-radius:4px;border:1px solid #e1ad66;background:#e1ad66;color:#1d1c1a;font-size:16px;font-weight:500;cursor:{{ dn.cursor }};opacity:{{ dn.opacity }};transition:background .3s" style-hover="background:#facb8d">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" style="flex:none"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>{{ dn.buttonLabel }}
+          </button>
+          <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(243,242,242,.6)">Payments are processed by Razorpay. Card, UPI and bank details are entered with Razorpay and are never handled by this website. Suggested amounts only: contributions support the Trust's music education work as a whole and are not tied to a specific lesson, instrument or programme.</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(243,242,242,.8)">Prefer to talk first? <a href="#contact" onClick="{{ enquireSupport }}" style="color:#facb8d;border-bottom:1px solid rgba(225,173,102,.5)">Send a support enquiry</a>.</p>
+        </form>
+      </sc-if>
+      <sc-if value="{{ dn.paidOn }}" hint-placeholder-val="{{ false }}">
+        <div id="donate-result" role="status" tabIndex="-1" style="min-width:0;border:1px solid #e1ad66;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px;background:rgba(29,28,26,.6)">
+          <img width="236" height="568" src="assets/logo-mark-ivory.png" alt="" style="height:64px;width:auto;align-self:flex-start">
+          <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:40px;line-height:1;color:#facb8d">Thank you.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:rgba(243,242,242,.9)">{{ dn.paidText }}</p>
+          <sc-if value="{{ dn.testNoticeOn }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14px;line-height:1.6;color:rgba(243,242,242,.8)">This was a test payment, so no real money was charged.</p></sc-if>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(243,242,242,.75)">Razorpay payment reference: <span style="color:#f3f2f2;overflow-wrap:anywhere">{{ dn.reference }}</span></p>
+          <button type="button" onClick="{{ dn.reset }}" style="align-self:flex-start;padding:0 0 4px;border:0;border-bottom:1px solid #e1ad66;background:transparent;color:#facb8d;font-size:14px;cursor:pointer">Make another donation</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ dn.authOn }}" hint-placeholder-val="{{ false }}">
+        <div id="donate-result" role="status" tabIndex="-1" style="min-width:0;border:1px solid #e1ad66;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px;background:rgba(29,28,26,.6)">
+          <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:36px;line-height:1.05;color:#facb8d">Payment authorised, not yet confirmed.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:rgba(243,242,242,.9)">{{ dn.authText }}</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(243,242,242,.75)">Razorpay payment reference: <span style="color:#f3f2f2;overflow-wrap:anywhere">{{ dn.reference }}</span></p>
+          <button type="button" onClick="{{ dn.reset }}" style="align-self:flex-start;padding:0 0 4px;border:0;border-bottom:1px solid #e1ad66;background:transparent;color:#facb8d;font-size:14px;cursor:pointer">Start a new donation</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ dn.pendingOn }}" hint-placeholder-val="{{ false }}">
+        <div id="donate-result" role="status" tabIndex="-1" style="min-width:0;border:1px solid #e1ad66;border-radius:4px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:14px;background:rgba(29,28,26,.6)">
+          <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:36px;line-height:1.05;color:#facb8d">We are confirming your payment.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:rgba(243,242,242,.9)">{{ dn.pendingText }}</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(243,242,242,.75)">Razorpay payment reference: <span style="color:#f3f2f2;overflow-wrap:anywhere">{{ dn.reference }}</span></p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center">
+            <button type="button" aria-disabled="{{ dn.checking }}" onClick="{{ dn.checkAgain }}" style="padding:12px 22px;border-radius:4px;border:1px solid #e1ad66;background:transparent;color:#facb8d;font-size:15px;cursor:pointer">{{ dn.checkLabel }}</button>
+            <a href="#contact" onClick="{{ enquireSupport }}" style="color:#facb8d;font-size:14px;border-bottom:1px solid rgba(225,173,102,.5)">Contact the Trust</a>
+          </div>
+        </div>
+      </sc-if>
     </div>
   </div>
 </section>
@@ -342,7 +422,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
               </sc-for>
             </div>
           </fieldset>
-            <p style="margin:0;font-size:13px;line-height:1.6;color:#55534e;font-style:italic">This sends a support enquiry, not a donation. Online contributions will be enabled soon; no payment is taken here, and the Trust will respond directly about how you can give.</p>
+            <p style="margin:0;font-size:13px;line-height:1.6;color:#55534e;font-style:italic">This sends a support enquiry, not a donation, and no payment is taken here. To give online, use the <a href="#donate" style="color:#163D12;border-bottom:1px solid #b68235">donation form</a>; otherwise the Trust will respond directly about how you can give.</p>
           </div>
         </sc-if>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
@@ -432,13 +512,37 @@ const GIVE = [
   ['Support a learner', "Help make one learner's musical journey possible."],
   ['Instruments & resources', 'Contribute instruments, materials or spaces.']
 ];
-// Suggested contribution amounts (illustrative; online payment is not enabled yet). Value = ?amount= param.
+// Intended-contribution choices for the support enquiry form (not the donation form).
 const AMOUNTS = [['1', '₹1', 'Start with a small contribution'], ['100', '₹100', 'Make a contribution to the Trust'], ['500', '₹500', 'Provide additional support'], ['1000+', '₹1,000+', 'Make a larger contribution']];
 const CSR_LABEL = 'Corporate partnership / CSR enquiry';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Online donations (Razorpay Standard Checkout). The serverless endpoints in /api create the order and verify
+// the payment; the amount limits below are repeated there, and the server is what enforces them.
+const MIN_AMOUNT = 1, MAX_AMOUNT = 500000; // whole INR
+const PRESETS = [500, 1000, 2500, 5000];
+const CHECKOUT_SRC = 'https://checkout.razorpay.com/v1/checkout.js';
+const API_STATUS = '/api/razorpay/status', API_ORDER = '/api/razorpay/create-order', API_VERIFY = '/api/razorpay/verify-payment';
+const WAYS = [
+  ['Learning opportunities', 'Helping more children and learners access music education.'],
+  ['Emerging talent', 'Supporting promising musicians as they develop.'],
+  ['Instruments & resources', 'Making instruments and learning materials available.'],
+  ['Performances & gatherings', 'Creating stages where learners and artists can be heard.']
+];
+const inr = n => '₹' + Number(n).toLocaleString('en-IN');
+async function postJson(url, body) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 20000);
+  try {
+    const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: ctrl.signal });
+    return { status: res.status, data: await res.json().catch(() => null) };
+  } finally { clearTimeout(timer); }
+}
+
 class Component extends DCLogic {
-  state = { w: window.innerWidth, menuOpen: false, scrolled: false, give: -1, amount: -1, csr: false, skills: [], topic: 0, status: 'idle', errors: {}, errorText: '', sentTopic: 0, sentSupport: '', ready: !!window.BMT };
+  state = { w: window.innerWidth, menuOpen: false, scrolled: false, give: -1, amount: -1, csr: false, skills: [], topic: 0, status: 'idle', errors: {}, errorText: '', sentTopic: 0, sentSupport: '', ready: !!window.BMT,
+    dPreset: -1, dCustom: '', dStatus: 'idle', dErrors: {}, dMessage: '', dGateway: 'checking', dMode: 'test', dPaymentId: '', dPaidAmount: 0, dChecking: false };
+  order = null; lastVerify = null; lastFailure = null; donating = false; settled = false; checkoutId = 0; handled = new Set();
   componentDidMount() {
     this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
     this.onResize = () => this.setState({ w: window.innerWidth });
@@ -446,13 +550,20 @@ class Component extends DCLogic {
     window.addEventListener('resize', this.onResize);
     this.onKey = e => { if (e.key === 'Escape') this.closeMenu(); };
     window.addEventListener('keydown', this.onKey);
-    // Links to #support (e.g. from the homepage) open the form with Support preselected.
-    this.onHash = () => { if (window.location.hash === '#support') this.setState({ topic: 1, csr: false }); };
+    // The donation section used to be #support; keep old links and bookmarks working.
+    this.onHash = () => {
+      if (window.location.hash === '#support') { try { history.replaceState(null, '', window.location.pathname + window.location.search + '#donate'); } catch (e) {} this.scrollToHash(); }
+    };
     window.addEventListener('hashchange', this.onHash);
     this.onHash();
-    // ?amount=500 (from the homepage donation section) preselects that amount in the support enquiry.
-    const amt = AMOUNTS.findIndex(([v]) => v === new URLSearchParams(window.location.search).get('amount'));
-    if (amt >= 0) this.setState({ topic: 1, amount: amt, csr: false });
+    // The page template renders after load, so the browser's own jump to a #hash can miss. Scroll once it exists.
+    this.hashTimer = setTimeout(() => this.scrollToHash(), 150);
+    this.onLoad = () => { if (window.scrollY < 5) this.scrollToHash(); };
+    if (document.readyState !== 'complete') window.addEventListener('load', this.onLoad);
+    // ?amount=500 preselects that donation amount.
+    const qa = parseInt(new URLSearchParams(window.location.search).get('amount'), 10);
+    if (qa >= MIN_AMOUNT && qa <= MAX_AMOUNT) this.setState(PRESETS.includes(qa) ? { dPreset: PRESETS.indexOf(qa) } : { dCustom: String(qa) });
+    this.loadGateway();
     if (!window.BMT) this.poll = setInterval(() => { if (window.BMT) { clearInterval(this.poll); this.setState({ ready: true }); } }, 50);
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(() => this.setupReveal(), 80);
     this.onScroll();
@@ -462,8 +573,180 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('keydown', this.onKey);
     window.removeEventListener('hashchange', this.onHash);
+    window.removeEventListener('load', this.onLoad);
+    clearTimeout(this.hashTimer);
     clearInterval(this.poll);
     if (this.io) this.io.disconnect();
+  }
+  scrollToHash() {
+    let id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) {}
+    const el = id && document.getElementById(id);
+    if (el) el.scrollIntoView();
+  }
+  // ---- Donations ----
+  // Asks the server whether Razorpay is configured, so the form can say so up front instead of failing at checkout.
+  async loadGateway() {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    try {
+      const res = await fetch(API_STATUS, { signal: ctrl.signal });
+      const out = res.ok ? await res.json().catch(() => null) : null;
+      if (out && out.configured === true) this.setState({ dGateway: 'ready', dMode: out.mode === 'live' ? 'live' : 'test' });
+      else if ((out && out.configured === false) || res.status === 404) this.setState({ dGateway: 'unconfigured' });
+      else this.setState({ dGateway: 'unreachable' });
+    } catch (e) {
+      this.setState({ dGateway: 'unreachable' });
+    } finally { clearTimeout(timer); }
+  }
+  // The chosen amount in whole rupees: { value } when usable, { error } while a typed amount is invalid.
+  currentAmount() {
+    const { dPreset, dCustom } = this.state;
+    if (dCustom.trim() !== '') {
+      const s = dCustom.replace(/[\s,₹]/g, '');
+      if (!/^\d+$/.test(s)) return { value: null, error: 'Please enter a whole-rupee amount, using digits only.' };
+      const n = s.length > 7 ? Infinity : parseInt(s, 10);
+      if (n < MIN_AMOUNT) return { value: null, error: 'The minimum donation is ' + inr(MIN_AMOUNT) + '.' };
+      if (n > MAX_AMOUNT) return { value: null, error: 'Online donations are limited to ' + inr(MAX_AMOUNT) + '. Please contact the Trust for larger gifts.' };
+      return { value: n };
+    }
+    return dPreset >= 0 ? { value: PRESETS[dPreset] } : { value: null };
+  }
+  focusResult() { const el = document.getElementById('donate-result'); if (el) el.focus(); }
+  setResult(next) { this.setState(next, () => this.focusResult()); }
+  loadCheckout() {
+    if (window.Razorpay) return Promise.resolve();
+    if (!this.checkoutLoading) {
+      this.checkoutLoading = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = CHECKOUT_SRC; s.async = true;
+        s.onload = () => (window.Razorpay ? resolve() : reject({ userMessage: "We couldn't open the secure payment window. Please try again." }));
+        s.onerror = () => { s.remove(); this.checkoutLoading = null; reject({ userMessage: "We couldn't load the secure payment window. Please check your connection and try again." }); };
+        document.head.appendChild(s);
+      });
+    }
+    return this.checkoutLoading;
+  }
+  // One order per distinct amount + donor details: a cancelled or failed payment retries on the same order
+  // instead of creating another, and repeat clicks never create duplicates.
+  async getOrder(amount, donor) {
+    const key = [amount, donor.name, donor.email, donor.phone].join('|');
+    if (this.order && this.order.key === key) return this.order.data;
+    let out;
+    try {
+      out = await postJson(API_ORDER, { amount: String(amount), name: donor.name, email: donor.email, phone: donor.phone });
+    } catch (e) {
+      throw { userMessage: e && e.name === 'AbortError' ? 'The request took too long. Please try again.' : "We couldn't reach the payment service. Please check your connection and try again." };
+    }
+    const { status, data } = out;
+    if (status === 200 && data && data.orderId) { this.order = { key, data }; return data; }
+    if (data && data.error === 'not_configured') throw { code: 'not_configured' };
+    if (data && data.fields) throw { fields: data.fields };
+    throw { userMessage: (data && data.message) || "We couldn't start the payment. Please try again." };
+  }
+  async startDonation(form) {
+    if (this.donating || this.state.dGateway === 'unconfigured') return;
+    const f = new FormData(form);
+    const val = k => String(f.get(k) || '').trim();
+    const donor = { name: val('name').replace(/\s+/g, ' '), email: val('email'), phone: val('phone') };
+    const amt = this.currentAmount();
+    const errors = {};
+    if (amt.error) errors.amount = amt.error; else if (!amt.value) errors.amount = 'Please choose or enter an amount.';
+    if (!donor.name) errors.name = 'Please enter your name.';
+    if (!donor.email) errors.email = 'Please enter your email address.';
+    else if (!EMAIL_RE.test(donor.email)) errors.email = 'Please enter a valid email address.';
+    if (donor.phone && !/^\+?\d{10,15}$/.test(donor.phone.replace(/[\s().-]/g, ''))) errors.phone = 'Please enter a valid phone number, or leave it blank.';
+    const bad = Object.keys(errors);
+    if (bad.length) {
+      this.setState({ dErrors: errors, dStatus: 'idle', dMessage: '' });
+      setTimeout(() => { const el = form.querySelector('[name="' + (bad[0] === 'amount' ? 'customAmount' : bad[0]) + '"]'); if (el) el.focus(); }, 0);
+      return;
+    }
+    this.donating = true;
+    this.setState({ dStatus: 'preparing', dErrors: {}, dMessage: '', dPaymentId: '' });
+    try {
+      const order = await this.getOrder(amt.value, donor);
+      await this.loadCheckout();
+      this.openCheckout(order, donor);
+    } catch (err) {
+      this.donating = false;
+      if (err && err.code === 'not_configured') this.setState({ dGateway: 'unconfigured', dStatus: 'idle' });
+      else if (err && err.fields) this.setState({ dErrors: err.fields, dStatus: 'idle' });
+      else this.setResult({ dStatus: 'error', dMessage: (err && err.userMessage) || "We couldn't start the payment. Please try again." });
+    }
+  }
+  openCheckout(order, donor) {
+    const id = ++this.checkoutId;
+    this.lastFailure = null; this.settled = false;
+    const options = {
+      key: order.keyId, amount: order.amount, currency: order.currency, order_id: order.orderId,
+      name: 'Bangalore Music Trust', description: 'Donation',
+      prefill: { name: donor.name, email: donor.email, contact: donor.phone },
+      theme: { color: '#163D12' },
+      modal: { confirm_close: true, ondismiss: () => { if (id === this.checkoutId) this.onDismiss(); } },
+      handler: resp => { if (id === this.checkoutId) this.onPaid(order, resp); }
+    };
+    if (window.location.protocol === 'https:') options.image = new URL('assets/logo-mark-green.png', window.location.href).href;
+    let rzp;
+    try {
+      rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', r => { if (id === this.checkoutId) this.onCheckoutFailed(r); });
+      this.setState({ dStatus: 'checkout' });
+      rzp.open();
+    } catch (e) {
+      this.donating = false;
+      this.setResult({ dStatus: 'error', dMessage: "We couldn't open the secure payment window. Please try again." });
+    }
+  }
+  // Checkout keeps its window open after a failed attempt so the donor can retry inside it; we only remember why.
+  onCheckoutFailed(r) {
+    const e = (r && r.error) || {};
+    this.lastFailure = { text: String(e.description || '').slice(0, 200), paymentId: String((e.metadata && e.metadata.payment_id) || '') };
+  }
+  onDismiss() {
+    if (this.settled) return;
+    this.donating = false;
+    const f = this.lastFailure;
+    if (f) this.setResult({ dStatus: 'failed', dMessage: 'Your payment could not be completed' + (f.text ? ': ' + f.text.replace(/\.$/, '') + '.' : '.') + ' No donation has been recorded. You can try again.', dPaymentId: f.paymentId });
+    else this.setResult({ dStatus: 'cancelled', dMessage: '', dPaymentId: '' });
+  }
+  // Checkout's success callback is only a claim: the payment is confirmed by the server (signature + payment status).
+  onPaid(order, resp) {
+    const orderId = resp && resp.razorpay_order_id, paymentId = resp && resp.razorpay_payment_id, signature = resp && resp.razorpay_signature;
+    if (paymentId && this.handled.has(paymentId)) return; // duplicate callback
+    this.settled = true;
+    if (!paymentId || !signature || orderId !== order.orderId) {
+      this.donating = false;
+      this.setResult({ dStatus: 'error', dMessage: 'The payment response did not match this donation, so it has not been confirmed. If you were charged, please contact the Trust.', dPaymentId: paymentId || '' });
+      return;
+    }
+    this.handled.add(paymentId);
+    this.lastVerify = { orderId, paymentId, signature };
+    this.verify(false);
+  }
+  async verify(fromPending) {
+    const v = this.lastVerify;
+    if (!v) return;
+    if (fromPending) this.setState({ dChecking: true }); else this.setState({ dStatus: 'verifying', dPaymentId: v.paymentId });
+    let out = null;
+    try { out = await postJson(API_VERIFY, v); } catch (e) { out = null; }
+    const { status, data } = out || { status: 0, data: null };
+    this.donating = false;
+    const done = next => this.setResult(Object.assign({ dChecking: false, dPaymentId: v.paymentId }, next));
+    if (status === 200 && data && data.verified === true) {
+      const paid = Number(data.amount) / 100 || 0;
+      if (data.status === 'paid') { this.order = null; return done({ dStatus: 'paid', dPaidAmount: paid }); }
+      if (data.status === 'authorized') { this.order = null; return done({ dStatus: 'authorized', dPaidAmount: paid }); }
+      if (data.status === 'failed') return done({ dStatus: 'failed', dMessage: 'Razorpay reports that this payment did not complete. No donation has been recorded. You can try again.' });
+      if (data.status === 'refunded') return done({ dStatus: 'failed', dMessage: 'This payment was refunded, so no donation has been recorded.' });
+      return done({ dStatus: 'pending' });
+    }
+    if (status === 400 && data && data.verified === false) return done({ dStatus: 'failed', dMessage: 'We could not verify this payment, so it has not been counted as a donation. If your account was debited, please contact the Trust and quote the reference below.' });
+    return done({ dStatus: 'pending' }); // network trouble, 202 or a server error: not confirmed yet, never shown as success
+  }
+  resetDonation() {
+    this.order = null; this.lastVerify = null; this.donating = false;
+    this.setState({ dStatus: 'idle', dPreset: -1, dCustom: '', dErrors: {}, dMessage: '', dPaymentId: '', dPaidAmount: 0, dChecking: false });
   }
   openMenu() {
     this.setState({ menuOpen: true });
@@ -563,16 +846,60 @@ class Component extends DCLogic {
       menuOpen: this.state.menuOpen,
       openMenu: () => this.openMenu(),
       closeMenu: () => this.closeMenu(),
-      menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Donate', '#support'], ['Volunteer', '#volunteer'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Donate', '#donate'], ['Volunteer', '#volunteer'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      giveWays: WAYS.map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
+      dn: (() => {
+        const { dPreset, dCustom, dStatus, dErrors, dMessage, dGateway, dMode, dPaymentId, dPaidAmount, dChecking } = this.state;
+        const amt = this.currentAmount();
+        const busy = dStatus === 'preparing' || dStatus === 'checkout' || dStatus === 'verifying';
+        const unconf = dGateway === 'unconfigured';
+        const blocked = busy || unconf;
+        const amtErr = dErrors.amount || amt.error || '';
+        const red = '#f6b3aa', gold = '#facb8d';
+        const alerts = {
+          checkout: ['Secure payment window open.', "Complete your payment in the Razorpay window. If you can't see it, check that your browser isn't blocking pop-ups.", 'status', gold, 'rgba(225,173,102,.08)'],
+          verifying: ['Confirming your payment…', 'Please wait and keep this page open.', 'status', gold, 'rgba(225,173,102,.08)'],
+          cancelled: ['Payment cancelled.', 'You closed the payment window before completing payment. No donation has been recorded. You can try again whenever you are ready.', 'status', gold, 'rgba(225,173,102,.08)'],
+          failed: ['Payment failed.', dMessage || 'Your payment could not be completed. No donation has been recorded. You can try again.', 'alert', red, 'rgba(229,125,112,.1)'],
+          error: ["We couldn't complete your donation.", dMessage, 'alert', red, 'rgba(229,125,112,.1)']
+        };
+        const al = alerts[dStatus] || ['', '', 'status', gold, 'transparent'];
+        const fieldErr = k => ({ [k]: dErrors[k] || '', [k + 'On']: !!dErrors[k], [k + 'Border']: dErrors[k] ? '#e57d70' : 'rgba(243,242,242,.3)' });
+        const view = dStatus === 'paid' || dStatus === 'authorized' || dStatus === 'pending' ? dStatus : 'form';
+        const clearAlert = dStatus === 'failed' || dStatus === 'cancelled' || dStatus === 'error' ? 'idle' : dStatus;
+        const typed = dCustom.trim() !== '';
+        return {
+          formOn: view === 'form', paidOn: view === 'paid', authOn: view === 'authorized', pendingOn: view === 'pending',
+          setupNoticeOn: unconf, testNoticeOn: dGateway === 'ready' && dMode === 'test',
+          presets: PRESETS.map((n, i) => { const on = !typed && dPreset === i; return { label: inr(n), on, border: on ? '#e1ad66' : 'rgba(243,242,242,.3)', bg: on ? 'rgba(225,173,102,.16)' : 'transparent', fg: on ? gold : '#f3f2f2', select: () => this.setState({ dPreset: i, dCustom: '', dStatus: clearAlert, dErrors: Object.assign({}, dErrors, { amount: '' }) }) }; }),
+          customValue: dCustom, customBorder: amtErr && typed ? '#e57d70' : 'rgba(243,242,242,.3)',
+          onCustom: e => this.setState({ dCustom: e.target.value, dPreset: -1, dStatus: clearAlert, dErrors: Object.assign({}, dErrors, { amount: '' }) }),
+          totalInvalid: !!amtErr,
+          totalColor: amtErr ? red : gold,
+          totalText: amtErr || (amt.value ? 'Your donation: ' + inr(amt.value) + ' (INR)' : 'Choose or enter an amount to continue.'),
+          err: Object.assign({}, fieldErr('name'), fieldErr('email'), fieldErr('phone')),
+          clearErrors: e => { const n = e.target && e.target.name; if (n && dErrors[n]) this.setState({ dErrors: Object.assign({}, dErrors, { [n]: '' }) }); },
+          submit: e => { e.preventDefault(); this.startDonation(e.currentTarget); },
+          alertOn: !!al[0], alertTitle: al[0], alertText: al[1], alertRole: al[2], alertColor: al[3], alertBg: al[4],
+          refOn: !!dPaymentId && (dStatus === "failed" || dStatus === "error"), reference: dPaymentId,
+          blocked, cursor: busy ? 'progress' : unconf ? 'not-allowed' : 'pointer', opacity: blocked ? 0.6 : 1,
+          buttonLabel: dStatus === 'preparing' ? 'Preparing secure checkout…' : dStatus === 'checkout' ? 'Payment window open…' : dStatus === 'verifying' ? 'Confirming payment…' : 'Donate Securely',
+          paidText: 'Your donation of ' + inr(dPaidAmount) + ' was received and verified. Thank you for supporting music education in Bengaluru.',
+          authText: 'Your bank has authorised a payment of ' + inr(dPaidAmount) + ', but it has not been completed yet, so it is not confirmed as a donation. Please keep the reference below and contact the Trust if you have any questions.',
+          pendingText: "We couldn't confirm the result of your payment yet. Please don't pay again straight away. If the amount was taken from your account, keep the reference below and contact the Trust.",
+          checking: dChecking, checkLabel: dChecking ? 'Checking…' : 'Check again',
+          checkAgain: () => { if (!dChecking) this.verify(true); },
+          reset: () => this.resetDonation()
+        };
+      })(),
       img: { hero: img('giHero'), vol: img('giVolunteer', 1000) },
-      paths: [['Learn', '#learn'], ['Support', '#support'], ['Volunteer', '#volunteer'], ['Collaborate', '#collaborate']].map(([title, href], i) => ({ title, href, n: '0' + (i + 1) })),
+      paths: [['Learn', '#learn'], ['Support', '#donate'], ['Volunteer', '#volunteer'], ['Collaborate', '#collaborate']].map(([title, href], i) => ({ title, href, n: '0' + (i + 1) })),
       giveOpts: GIVE.map(([title, text], i) => ({ title, text, on: give === i, border: give === i ? '#b68235' : 'rgba(32,31,29,.2)', bg: give === i ? 'rgba(182,130,53,.08)' : 'transparent', dot: give === i ? 1 : 0, select: () => this.setState({ give: give === i ? -1 : i }) })),
       enquireVol: () => this.setState({ topic: 2, csr: false, status: 'idle' }),
       enquireSupport: () => this.setState({ topic: 1, csr: false, status: 'idle' }),
       enquireCsr: () => this.setState({ topic: 3, csr: true, status: 'idle' }),
       clearCsr: () => this.setState({ csr: false }),
       showCsr: topic === 3 && csr,
-      amountCards: AMOUNTS.map(([, label, text], i) => ({ label, text, select: () => this.setState({ topic: 1, amount: i, csr: false, status: 'idle' }) })),
       amountOpts: AMOUNTS.map(([, label], i) => ({ label, on: amount === i, border: amount === i ? '#163D12' : 'rgba(32,31,29,.25)', bg: amount === i ? '#163D12' : 'transparent', fg: amount === i ? '#f3f2f2' : '#201f1d', select: () => this.setState({ amount: amount === i ? -1 : i }) })),
       volSteps: ['Choose the areas where you would like to help.', 'Send a short note using the form below, or message the Trust on WhatsApp.', 'The Trust will get in touch to talk about opportunities that suit your time and skills.'].map((text, i) => ({ n: '0' + (i + 1), text })),
       csrWays: ['Sponsor learners, instruments or performances', 'Partner on music education programmes and events', 'Bring music education to schools and communities', 'Explore employee volunteering with the Trust'],
@@ -608,7 +935,7 @@ class Component extends DCLogic {
         : 'Your message about ' + TOPICS[sentTopic].toLowerCase() + ' has been sent. The Trust will respond soon.',
       reset: () => this.setState({ status: 'idle', errors: {}, give: -1, amount: -1 }),
       ct: B ? B.contactVars : {},
-      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', H + '#events'], ['Volunteer', '#volunteer'], ['Donate', '#support'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
+      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', H + '#events'], ['Volunteer', '#volunteer'], ['Donate', '#donate'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
     };
   }
 }
