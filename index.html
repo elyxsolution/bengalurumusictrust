@@ -228,30 +228,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="why-music" aria-labelledby="q-title" data-screen-label="02 The Question" style="padding:clamp(96px,13vw,190px) clamp(20px,5vw,72px) clamp(80px,10vw,150px)">
-  <div style="max-width:1440px;margin:0 auto">
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px 80px;align-items:end">
-      <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411;font-variant-numeric:tabular-nums"><span style="width:40px;height:1px;background:currentColor"></span><span>The Question</span></div>
-        <h2 id="q-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(46px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Why Music Education <em>Matters?</em></h2>
-      </div>
-      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,30px);line-height:1.35;max-width:620px;text-wrap:pretty">Music gives children more than the ability to perform. It teaches listening, discipline, patience, expression and collaboration. Yet access to meaningful music education can often depend on circumstance.</p>
-    </div>
-    <div style="margin-top:clamp(72px,9vw,130px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:56px 40px">
-      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="4">
-        <article data-reveal="" style="display:flex;flex-direction:column;gap:20px">
-          <div aria-hidden="true" style="display:grid;gap:5px">
-            <span style="height:1px;background:#163D12"></span><span style="height:1px;background:rgba(32,31,29,.16)"></span><span style="height:1px;background:rgba(32,31,29,.16)"></span><span style="height:1px;background:rgba(32,31,29,.16)"></span><span style="height:1px;background:rgba(32,31,29,.16)"></span>
-          </div>
-          <span style="font-size:11px;letter-spacing:.2em;color:#7d5411;font-variant-numeric:tabular-nums">{{ q.n }}</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(44px,4.2vw,66px);line-height:1;color:#163D12">{{ q.title }}</h3>
-          <p style="margin:0;font-size:15px;line-height:1.7;color:#44423d;max-width:300px;text-align:justify;hyphens:auto" class="m-left">{{ q.text }}</p>
-        </article>
-      </sc-for>
-    </div>
-  </div>
-</section>
-
 <section id="mission" aria-labelledby="m-title" data-screen-label="03 Why We Exist" style="position:relative;min-height:112vh;overflow:hidden;background:#0f1d0c;color:#f3f2f2;display:flex;align-items:center">
   <div aria-hidden="true" style="position:absolute;inset:-12% 0;overflow:hidden">
     <img data-parallax="0.18" src="https://images.unsplash.com/photo-1591998304708-0ada5d7e0385?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.mission.set }}" sizes="100vw" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ img.mission.pos }};filter:sepia(.22) saturate(.82) contrast(1.05)">
@@ -331,55 +307,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           </span>
         </a>
       </sc-for>
-    </div>
-  </div>
-</section>
-
-<section id="education" aria-labelledby="edu-title" data-screen-label="06 Music Education" style="padding:clamp(96px,12vw,180px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto">
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:36px 80px;align-items:end">
-      <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Our Core Focus</span></div>
-        <h2 id="edu-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">Music Education</h2>
-      </div>
-      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,30px);line-height:1.35;max-width:600px;text-wrap:pretty">Music is learned over years, not hours. We think of it as a journey with distinct stages, each building on the last, rather than simply a class.</p>
-    </div>
-    <div data-reveal="" style="margin-top:clamp(64px,8vw,110px);position:relative">
-      <div aria-hidden="true" style="position:absolute;left:0;right:0;top:20px;display:grid;gap:4px">
-        <span style="height:1px;background:rgba(32,31,29,.14)"></span><span style="height:1px;background:rgba(32,31,29,.14)"></span><span style="height:1px;background:rgba(32,31,29,.14)"></span><span style="height:1px;background:rgba(32,31,29,.14)"></span><span style="height:1px;background:rgba(32,31,29,.14)"></span>
-      </div>
-      <div role="tablist" aria-label="Stages of the music education journey" class="m-2col" style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:24px">
-        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
-          <button type="button" role="tab" aria-selected="{{ s.active }}" onClick="{{ s.select }}" onMouseEnter="{{ s.select }}" style="text-align:left;background:transparent;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;gap:18px;color:#201f1d">
-            <span style="width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:{{ s.dotBg }};color:{{ s.dotFg }};border:1px solid #163D12;font-size:12px;letter-spacing:.06em;font-variant-numeric:tabular-nums;transition:background .4s,color .4s">{{ s.n }}</span>
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,2.6vw,40px);line-height:1;color:{{ s.titleColor }};font-style:{{ s.titleStyle }};transition:color .4s">{{ s.title }}</span>
-            <span style="font-size:14px;line-height:1.6;color:#55534e;max-width:230px">{{ s.text }}</span>
-          </button>
-        </sc-for>
-      </div>
-    </div>
-    <div data-reveal="" style="margin-top:clamp(56px,6vw,90px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px 80px;align-items:start">
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="aspect-ratio:16/11;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16);background:#eae9e9">
-          <img src="{{ activeStep.img }}" alt="{{ activeStep.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(.82) contrast(1.05)">
-        </div>
-        <figcaption style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7d5411">{{ activeStep.n }} — {{ activeStep.title }}</figcaption>
-      </figure>
-      <div style="display:flex;flex-direction:column">
-        <h3 style="margin:0 0 6px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px;color:#163D12">Areas of Study</h3>
-        <p style="margin:0 0 18px;font-size:14.5px;line-height:1.6;color:#55534e">Areas the Trust intends to explore with learners and educators.</p>
-        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(32,31,29,.16)">
-          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="7">
-            <li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(32,31,29,.16)">
-              <span style="font-size:11px;letter-spacing:.14em;color:#7d5411;font-variant-numeric:tabular-nums">{{ a.n }}</span>
-              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,1.9vw,28px);line-height:1.15;color:#201f1d">{{ a.title }}</span>
-            </li>
-          </sc-for>
-        </ul>
-        <a href="Music%20Education.dc.html" style="align-self:flex-start;margin-top:28px;display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px;transition:background .3s" style-hover="background:rgba(22,61,18,.07)">Explore Music Education
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-        </a>
-      </div>
     </div>
   </div>
 </section>
@@ -471,45 +398,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div aria-hidden="true" style="position:absolute;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);bottom:clamp(24px,5vh,48px);height:1px;background:rgba(243,242,242,.16)">
       <div ref="{{ barRef }}" style="height:1px;width:0%;background:#e1ad66"></div>
     </div>
-  </div>
-</section>
-
-<section id="impact" aria-labelledby="impact-title" data-screen-label="08 Impact" style="padding:clamp(96px,12vw,180px) clamp(20px,5vw,72px) clamp(80px,9vw,140px)">
-  <div style="max-width:1440px;margin:0 auto">
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:36px 80px;align-items:end">
-      <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Impact</span></div>
-        <h2 id="impact-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6.2vw,100px);line-height:.95;letter-spacing:-.02em;color:#163D12">The Power <em>of Music</em></h2>
-      </div>
-      <p style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,30px);line-height:1.35;max-width:600px;text-wrap:pretty">The change music makes is often quiet: a child who listens more closely, practises a little longer, and stands a little taller in front of others.</p>
-    </div>
-    <sc-if value="{{ showQualitative }}" hint-placeholder-val="{{ true }}">
-      <div style="margin-top:clamp(64px,7vw,100px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));column-gap:32px;border-top:1px solid #163D12">
-        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="4">
-          <div data-reveal="" style="padding:34px 0 38px;border-bottom:1px solid rgba(32,31,29,.16);display:flex;flex-direction:column;gap:14px">
-            <span style="font-size:11px;letter-spacing:.2em;color:#7d5411;font-variant-numeric:tabular-nums">{{ o.n }}</span>
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,4.4vw,72px);line-height:.95;color:#163D12;letter-spacing:-.01em">{{ o.title }}</span>
-            <span style="font-size:15px;line-height:1.65;color:#44423d;max-width:300px">{{ o.text }}</span>
-          </div>
-        </sc-for>
-      </div>
-    </sc-if>
-    <sc-if value="{{ showFigures }}" hint-placeholder-val="{{ false }}">
-      <div style="margin-top:clamp(64px,7vw,100px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));column-gap:32px;border-top:1px solid #163D12">
-        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
-          <div style="padding:34px 0 38px;border-bottom:1px solid rgba(32,31,29,.16);display:flex;flex-direction:column;gap:12px">
-            <span style="align-self:flex-start;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(64px,6vw,100px);line-height:.9;color:#163D12;border-bottom:1px dashed #b68235;font-variant-numeric:tabular-nums">{{ s.value }}</span>
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:#201f1d">{{ s.label }}</span>
-            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7d5411">Editable figure · awaiting verified data</span>
-          </div>
-        </sc-for>
-      </div>
-    </sc-if>
-    <figure data-reveal="" style="margin:clamp(64px,7vw,100px) 0 0;position:relative;height:clamp(320px,44vw,600px);overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16)">
-      <img data-parallax="0.1" src="https://images.unsplash.com/photo-1509782642997-4befdc4b21c9?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.impact.set }}" sizes="100vw" alt="{{ img.impact.alt }}" loading="lazy" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;object-position:{{ img.impact.pos }};filter:sepia(.22) saturate(.82) contrast(1.05)">
-      <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,29,12,.88),rgba(15,29,12,0) 62%)"></span>
-      <figcaption style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:clamp(24px,4vw,52px);margin:0;color:#f3f2f2;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,3.3vw,52px);line-height:1.05;max-width:900px">When a learner performs, a whole room <em>learns to listen.</em></figcaption>
-    </figure>
   </div>
 </section>
 
@@ -743,7 +631,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <a href="https://wa.me/918971168006">WhatsApp</a> · <a href="https://www.instagram.com/bangalore_music_trust/">Instagram</a></p>
   </div>
 </noscript>
-<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Supporting Talent. Inspiring Generations.&quot;,&quot;Where Music Finds Its Voice.&quot;,&quot;Shaping Lives Through Music.&quot;],&quot;default&quot;:&quot;Supporting Talent. Inspiring Generations.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showImpactFigures&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Supporting Talent. Inspiring Generations.&quot;,&quot;Where Music Finds Its Voice.&quot;,&quot;Shaping Lives Through Music.&quot;],&quot;default&quot;:&quot;Supporting Talent. Inspiring Generations.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
 const IMG0 = { src: '', set: '', alt: '', pos: '50% 50%' };
 const HEADLINES = {
   'Supporting Talent. Inspiring Generations.': [['Supporting Talent.', 'normal'], ['Inspiring Generations.', 'italic']],
@@ -752,7 +640,7 @@ const HEADLINES = {
 };
 
 class Component extends DCLogic {
-  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, step: 0, stHover: -1, eHover: -1, giHover: -1, ready: !!window.BMT };
+  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, stHover: -1, eHover: -1, giHover: -1, ready: !!window.BMT };
   heroImgRef = React.createRef();
   staffRef = React.createRef();
   journeyRef = React.createRef();
@@ -846,11 +734,10 @@ class Component extends DCLogic {
   renderVals() {
     const B = window.BMT;
     const img = (k, w) => (B ? B.img(k, w) : IMG0);
-    const { w, scrolled, wHover, step, stHover, eHover, giHover } = this.state;
+    const { w, scrolled, wHover, stHover, eHover, giHover } = this.state;
     const mobile = w < 1180;
     const phone = w < 640;
     const headline = this.props.heroHeadline ?? 'Supporting Talent. Inspiring Generations.';
-    const figures = this.props.showImpactFigures ?? false;
     const P = B ? B.pages : { education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' };
     const enc = s => s.replace(/ /g, '%20');
     const edu = enc(P.education), inv = enc(P.involved);
@@ -858,23 +745,13 @@ class Component extends DCLogic {
     const work = [
       ['01', 'Music Education', 'Creating environments and opportunities for learners of all ages to discover, learn and grow through music.', 'wEducation', edu],
       ['02', 'Talent Development', 'Nurturing emerging musicians and helping promising talent find opportunities to develop their abilities.', 'wTalent', '#journey'],
-      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#impact'],
+      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#stories'],
       ['04', 'Community & Access', 'Bringing people together through music, learning, cultural values and shared experiences.', 'wCommunity', '#events']
     ].map(([n, title, text, k, href], i) => {
       const on = mobile || wHover === i;
       const im = img(k, 1200);
       return { n, title, text, href, img: im.src, alt: im.alt, flex: mobile ? '0 0 auto' : (wHover === i ? '2.3 1 0' : '1 1 0'), scale: wHover === i && !mobile ? 1.06 : 1, descOp: on ? 1 : 0, descY: on ? '0px' : '12px', arrowX: wHover === i ? '3px' : '0px', arrowBorder: wHover === i ? '#e1ad66' : 'rgba(243,242,242,.55)', arrowFg: wHover === i ? '#facb8d' : '#f3f2f2', enter: () => this.setState({ wHover: i }) };
     });
-
-    const stepData = [
-      ['Discover', 'Listening widely and finding the sound that draws you in.', 'sDiscover'],
-      ['Learn', 'Guided teaching that builds technique, theory and a musical vocabulary.', 'sLearn'],
-      ['Practice', 'The daily discipline where real progress quietly happens.', 'sPractice'],
-      ['Perform', 'Sharing music with others, on stage and in the community.', 'sPerform'],
-      ['Grow', 'Deepening skills over years, and in time, teaching others.', 'sGrow']
-    ];
-    const steps = stepData.map(([title, text], i) => ({ n: '0' + (i + 1), title, text, active: step === i, dotBg: step === i ? '#163D12' : '#f3f2f2', dotFg: step === i ? '#f3f2f2' : '#163D12', titleColor: step === i ? '#163D12' : '#605d5d', titleStyle: step === i ? 'italic' : 'normal', select: () => this.setState({ step: i }) }));
-    const as = img(stepData[step][2], 1400);
 
     const jd = [
       ['First Note', 'A sound made on purpose for the first time. Curiosity turns into attention.', 'jNote'],
@@ -952,14 +829,8 @@ class Component extends DCLogic {
       heroLines: (HEADLINES[headline] || HEADLINES['Supporting Talent. Inspiring Generations.']).map(([text, style]) => ({ text, style })),
       img: {
         hero: img('hero'), mission: img('mission'), who: img('who', 1000), whoDetail: img('whoDetail', 600),
-        impact: img('impact'), support: img('support', 1600), final: img('final')
+        support: img('support', 1600), final: img('final')
       },
-      questions: [
-        ['Access', 'Meaningful music education should not depend on circumstance, neighbourhood or means.'],
-        ['Opportunity', 'Talent needs teachers, instruments, time and a place to be heard.'],
-        ['Expression', 'Music gives young people a language for what words alone cannot hold.'],
-        ['Continuity', 'Traditions survive when each generation learns, practises and passes them on.']
-      ].map(([title, text], i) => ({ n: 'i ii iii iv'.split(' ')[i], title, text })),
       community: [
         ['Learners', 'Children, young people and adults beginning or deepening their skills and understanding of music.'],
         ['Educators', 'Teachers and gurus who carry knowledge from one generation to the next.'],
@@ -967,19 +838,7 @@ class Component extends DCLogic {
         ['Supporters', 'Patrons, families and institutions who make learning possible.']
       ].map(([t, d]) => ({ t, d })),
       work,
-      steps,
-      activeStep: { img: as.src, alt: as.alt, n: '0' + (step + 1), title: stepData[step][0] },
-      areas: ['Hindustani Classical Music', 'Western Vocals', 'Western Instruments', 'Contemporary Music', 'Music Appreciation', 'Performance & Stage Experience', 'Workshops & Masterclasses'].map((title, i) => ({ n: '0' + (i + 1), title })),
       journey,
-      showQualitative: !figures,
-      showFigures: figures,
-      outcomes: [
-        ['Listening', 'Learning to hear closely, and to respond with care.'],
-        ['Discipline', 'The patience and focus of daily practice.'],
-        ['Confidence', 'Finding a voice, and the courage to use it in front of others.'],
-        ['Belonging', 'Being part of something larger: an ensemble, a tradition, a community.']
-      ].map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
-      stats: ['Students Reached', 'Learning Experiences', 'Educators / Artists Engaged', 'Programs / Events'].map(label => ({ value: '[XX]+', label })),
       stories,
       classes,
       joinSteps: [
@@ -1002,7 +861,7 @@ class Component extends DCLogic {
         ['Instruments & resources', 'Making instruments and learning materials available.'],
         ['Performances & gatherings', 'Creating stages where learners and artists can be heard.']
       ].map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
-      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Impact', '#impact'], ['Stories', '#stories'], ['Events', '#events']].map(([label, href]) => ({ label, href })),
+      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Stories', '#stories'], ['Events', '#events']].map(([label, href]) => ({ label, href })),
       footerB: [['Get Involved', inv], ['Volunteer', inv + '#volunteer'], ['Donate', '#support'], ['Corporate & CSR', '#csr'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
       instagram,
       ct: B ? B.contactVars : {},
