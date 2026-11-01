@@ -127,7 +127,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <a href="index.html#who" style="color:inherit">About</a>
       <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
       <a href="index.html#work" style="color:inherit">Our Work</a>
-      <a href="index.html#events" style="color:inherit">Events</a>
+      <a href="events/" style="color:inherit">Events</a>
       <a href="#donate" style="color:inherit">Donate</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
@@ -935,7 +935,7 @@ class Component extends DCLogic {
         : 'Your message about ' + TOPICS[sentTopic].toLowerCase() + ' has been sent. The Trust will respond soon.',
       reset: () => this.setState({ status: 'idle', errors: {}, give: -1, amount: -1 }),
       ct: B ? B.contactVars : {},
-      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', H + '#events'], ['Volunteer', '#volunteer'], ['Donate', '#donate'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
+      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', 'events/'], ['Volunteer', '#volunteer'], ['Donate', '#donate'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
     };
   }
 }

@@ -160,7 +160,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <a href="#who" style="color:inherit">About</a>
       <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
       <a href="#work" style="color:inherit">Our Work</a>
-      <a href="#events" style="color:inherit">Events</a>
+      <a href="events/" style="color:inherit">Events</a>
       <a href="Get%20Involved.dc.html#donate" style="color:inherit">Donate</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
@@ -683,7 +683,7 @@ class Component extends DCLogic {
         desk: mobile ? 'none' : 'flex', mob: mobile ? 'flex' : 'none',
         wdDir: mobile ? 'column' : 'row', wdH: phone ? '380px' : mobile ? '440px' : '600px',
       },
-      menuLinks: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Our Work', '#work'], ['Events', '#events'], ['Get Involved', inv], ['Donate', inv + '#donate'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      menuLinks: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Our Work', '#work'], ['Events', 'events/'], ['Get Involved', inv], ['Donate', inv + '#donate'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       heroLines: (HEADLINES[headline] || HEADLINES['Supporting Talent. Inspiring Generations.']).map(([text, style]) => ({ text, style })),
       img: {
         hero: img('hero'), mission: img('mission'), who: img('who', 1000), whoDetail: img('whoDetail', 600),
@@ -710,7 +710,7 @@ class Component extends DCLogic {
       ].map(([title, text], i) => ({ n: 'i ii iii iv'.split(' ')[i], title, text })),
       events,
       pathways,
-      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Events', '#events']].map(([label, href]) => ({ label, href })),
+      footerA: [['About', '#who'], ['Music Education', edu], ['What We Teach', '#classes'], ['Events', 'events/']].map(([label, href]) => ({ label, href })),
       footerB: [['Get Involved', inv], ['Volunteer', inv + '#volunteer'], ['Donate', inv + '#donate'], ['Corporate & CSR', '#csr'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
       instagram,
       ct: B ? B.contactVars : {},
