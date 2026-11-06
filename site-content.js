@@ -6,7 +6,7 @@
   // Illustrative photography from Unsplash (free Unsplash License; no Unsplash+ images). Each id is used once per page.
   // Ages are deliberately mixed: children, teenagers and young adults learning alongside teachers and mentors.
   var images = {
-    hero:        { src: 'assets/hero.jpg', alt: 'Children singing into microphones during a music class while a teacher plays drums', pos: '50% 40%' },
+    hero:        { src: 'assets/hero-choir.jpg', alt: 'Young Indian choir members singing together on stage, one girl holding a microphone', pos: '50% 40%' },
     mission:     { id: '1591998304708-0ada5d7e0385', alt: 'Two smiling boys sitting beside a dholak drum', pos: '58% 35%' },
     who:         { id: '1577877777751-3f1ec20a0715', alt: 'A little girl in headphones smiling as she plays a piano', pos: '30% 40%' },
     whoDetail:   { id: '1646765566496-8744ce5e7738', alt: 'Close-up of a hand on the strings of a sitar' },
