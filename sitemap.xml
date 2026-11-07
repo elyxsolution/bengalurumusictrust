@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.bangaloremusictrust.com/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://www.bangaloremusictrust.com/classes/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://www.bangaloremusictrust.com/events/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://www.bangaloremusictrust.com/support/</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://www.bangaloremusictrust.com/contact/</loc><lastmod>2026-11-07</lastmod></url>
+  <url>
+    <loc>https://www.bangaloremusictrust.com/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bangaloremusictrust.com/Music%20Education.dc.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bangaloremusictrust.com/Get%20Involved.dc.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
 </urlset>
