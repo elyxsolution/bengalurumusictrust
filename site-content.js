@@ -1,87 +1,14 @@
-/* Bangalore Music Trust — central content config.
-   Swap any photo by replacing its `id` (Unsplash photo id) or setting `src` to your own file path.
-   Fields set to null are rendered as non-linked / "to be added" placeholders — never as fake data. */
+/* Bangalore Music Trust: shared site config.
+   Contact details, the enquiry-form endpoint, social links and the floating WhatsApp button live here;
+   every page picks them up. */
 (function () {
-  var U = 'https://images.unsplash.com/photo-';
-  // Illustrative photography from Unsplash (free Unsplash License; no Unsplash+ images). Each id is used once per page.
-  // Ages are deliberately mixed: children, teenagers and young adults learning alongside teachers and mentors.
-  var images = {
-    hero:        { src: 'assets/hero-choir.jpg', alt: 'Young Indian choir members singing together on stage, one girl holding a microphone', pos: '50% 40%' },
-    mission:     { id: '1591998304708-0ada5d7e0385', alt: 'Two smiling boys sitting beside a dholak drum', pos: '58% 35%' },
-    who:         { id: '1577877777751-3f1ec20a0715', alt: 'A little girl in headphones smiling as she plays a piano', pos: '30% 40%' },
-    whoDetail:   { id: '1646765566496-8744ce5e7738', alt: 'Close-up of a hand on the strings of a sitar' },
-    wEducation:  { id: '1678027783638-345d5041b529', alt: 'Children seated together in a classroom, each learning a string instrument' },
-    wTalent:     { id: '1725673853616-30b9e9715d4d', alt: 'A young violinist performing during a workshop' },
-    wCulture:    { id: '1788283569351-b2ce17412711', alt: 'A boy in a white cap playing a traditional Indian barrel drum' },
-    wCommunity:  { id: '1780396479347-e1be36843ccc', alt: 'Young musicians singing and playing guitar for an informal community audience' },
-    sDiscover:   { id: '1711048421235-3fcb9dcf82f7', alt: 'A child and an adult playing a glockenspiel together' },
-    sLearn:      { id: '1696522732406-065ef560da8c', alt: "A teacher guiding a young child's hands on a piano keyboard" },
-    sPractice:   { id: '1698754525203-2f3296aa8ed9', alt: 'A girl practising at the piano' },
-    sPerform:    { id: '1782567530660-63985063c559', alt: 'A young girl singing into a microphone on stage' },
-    sGrow:       { id: '1777226407432-801354c2ea42', alt: 'A young trumpet player performing on stage with an ensemble' },
-    jNote:       { id: '1681977741094-5aaf88d4b2d3', alt: 'A small boy holding a guitar almost as tall as he is' },
-    jLesson:     { id: '1758525864068-44c5f189b262', alt: 'A teacher showing a teenage student how to play the guitar' },
-    jPerformance:{ id: '1745852738033-895b8d519c4c', alt: 'Children singing together on stage' },
-    jApplause:   { id: '1519682718457-c82ce8296645', alt: 'An audience seated in a concert hall' },
-    jLifelong:   { id: '1770096732027-3c8adfcafd55', alt: 'Young adults singing and playing instruments together in a studio space' },
-    impact:      { id: '1509782642997-4befdc4b21c9', alt: 'An audience watching a performance from the balcony of a hall', pos: '50% 60%' },
-    stFirstNote: { id: '1534643960519-11ad79bc19df', alt: 'A young learner wearing headphones, smiling' },
-    stVoice:     { id: '1527236102507-6e5ac2692925', alt: 'A girl singing while she plays a pink guitar' },
-    stForward:   { id: '1637257526540-43d96c33fbe7', alt: 'An older musician guiding a young child playing a wind instrument' },
-    eConcerts:   { id: '1519683109079-d5f539e1542f', alt: 'An ornate concert hall during a performance' },
-    eWorkshops:  { id: '1722166677110-f7043f6239c6', alt: 'Young children gathered around a piano while a teacher plays' },
-    eMaster:     { id: '1771718968046-6b8cee870812', alt: 'A tabla player performing outdoors' },
-    eStudents:   { id: '1789421305583-702220940563', alt: 'A child playing classical guitar from a music stand for other children' },
-    eCultural:   { id: '1681731030357-829645dd55b1', alt: 'A folk musician in traditional dress playing a string instrument' },
-    eCommunity:  { id: '1759659335001-57b23abcfd6e', alt: 'A young drummer and an adult musician at an outdoor community music event' },
-    support:     { id: '1507838153414-b4b713384a76', alt: 'Pages of sheet music' },
-    final:       { id: '1646765495885-8a61595cb9cf', alt: 'A sitar and tabla performance on stage', pos: '50% 50%' },
-    // What We Teach: Hindustani classical, Western vocals, Western instruments
-    classical:   { id: '1764176269321-6d14f4af09c7', alt: 'Young women in traditional dress singing together on stage', pos: '50% 40%' },
-    clFlute:     { id: '1579102072861-c31d565c0903', alt: 'A young girl playing a bansuri flute' },
-    clHarmonium: { id: '1643287928605-b8e1190615fa', alt: 'Hands playing a harmonium' },
-    clTabla:     { id: '1633411988188-6e63354a9019', alt: 'Hands playing a pair of tabla' },
-    westernVocal:{ id: '1745852737476-c4fa7b99839a', alt: 'A young girl singing into a microphone on stage' },
-    wvStudio:    { id: '1453738773917-9c3eff1db985', alt: 'A boy singing towards a studio microphone' },
-    wvChoir:     { id: '1790342034579-3241995987ff', alt: "A children's choir singing together" },
-    wvTeen:      { id: '1774274549653-7db2974acf3d', alt: 'A teenager singing into a microphone while playing guitar' },
-    westernInstr:{ id: '1587794032575-de0040fe9186', alt: 'Two boys smiling as they play violins from sheet music' },
-    wiPiano:     { id: '1575314113965-c6672a42b99c', alt: 'A young boy playing a grand piano' },
-    wiGuitar:    { id: '1758612897785-f6354d462789', alt: 'A boy learning the acoustic guitar with help from an older relative' },
-    wiDrums:     { id: '1761144841975-1879e5c62913', alt: 'A young drummer playing a drum kit' },
-    // Music Education page
-    eduHero:     { id: '1577877777751-3f1ec20a0715', alt: 'A little girl in headphones smiling as she plays a piano', pos: '30% 40%' },
-    vocal:       { id: '1790342034579-3241995987ff', alt: "A children's choir singing together" },
-    instrumental:{ id: '1678027783638-345d5041b529', alt: 'Children seated together in a classroom, each learning a string instrument' },
-    contemporary:{ id: '1780396479347-e1be36843ccc', alt: 'Young musicians singing and playing guitar for an informal audience' },
-    appreciation:{ id: '1534643960519-11ad79bc19df', alt: 'A young learner listening on headphones' },
-    stage:       { id: '1745852738033-895b8d519c4c', alt: 'Children singing together on stage' },
-    workshops:   { id: '1722166677110-f7043f6239c6', alt: 'Young children gathered around a piano while a teacher plays' },
-    // Get Involved page
-    giHero:      { id: '1762415845024-694f45017f31', alt: 'Musicians performing for a crowd of seated children outdoors', pos: '50% 45%' },
-    giVolunteer: { id: '1758524944402-1903b38f848f', alt: 'A guitar teacher showing a young student a chord' }
-  };
-  function src(key, w) {
-    var im = images[key]; if (!im) return '';
-    if (im.src) return im.src;
-    return U + im.id + '?auto=format&fit=crop&q=72&w=' + (w || 1200);
-  }
-  function set(key) {
-    var im = images[key]; if (!im || im.src) return '';
-    return [640, 1080, 1600, 2200].map(function (w) { return src(key, w) + ' ' + w + 'w'; }).join(', ');
-  }
-  function get(key, w) {
-    var im = images[key] || {};
-    return { src: src(key, w), set: set(key), alt: im.alt || '', pos: im.pos || '50% 50%' };
-  }
   window.BMT = {
     brand: {
       name: 'Bangalore Music Trust',
       tagline: 'Supporting Talent • Inspiring Generations',
-      markGreen: 'assets/logo-mark-green.png',
-      markIvory: 'assets/logo-mark-ivory.png'
+      markGreen: '/assets/logo-mark-green.png',
+      markIvory: '/assets/logo-mark-ivory.png'
     },
-    pages: { home: 'index.html', education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' },
     // Instagram is the Trust's only social account; the homepage footer shows it as an icon.
     socials: [
       { label: 'Instagram', url: 'https://www.instagram.com/bangalore_music_trust/' }
@@ -98,9 +25,7 @@
     // (Deploy > Manage deployments; "Who has access" must be "Anyone"). The script replies
     // with JSON {"success": true|false, "message": "..."}. null = the form reports that online enquiries are not
     // connected yet, rather than pretending to send.
-    forms: { enquiry: 'https://script.google.com/macros/s/AKfycbxHN4Wb_owJBQMxAaB9dIJ1qGF3CUOFpNngLF0gjWFVdVenqB8f9rdXPxnTxuuxrqjNBw/exec' },
-    images: images,
-    img: get
+    forms: { enquiry: 'https://script.google.com/macros/s/AKfycbxHN4Wb_owJBQMxAaB9dIJ1qGF3CUOFpNngLF0gjWFVdVenqB8f9rdXPxnTxuuxrqjNBw/exec' }
   };
   var C = window.BMT.contact;
   C.mapsHref = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(C.address);
