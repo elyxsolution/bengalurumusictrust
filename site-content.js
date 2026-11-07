@@ -81,7 +81,7 @@
       markGreen: 'assets/logo-mark-green.png',
       markIvory: 'assets/logo-mark-ivory.png'
     },
-    pages: { home: 'index.html', education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' },
+    pages: { home: 'index.html', involved: 'Get Involved.dc.html' },
     // Instagram is the Trust's only social account; the homepage footer shows it as an icon.
     socials: [
       { label: 'Instagram', url: 'https://www.instagram.com/bangalore_music_trust/' }

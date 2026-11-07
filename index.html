@@ -158,9 +158,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     </a>
     <div style="display:{{ layout.desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
       <a href="#who" style="color:inherit">About</a>
-      <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
       <a href="classes/" style="color:inherit">Classes</a>
-      <a href="#work" style="color:inherit">Our Work</a>
       <a href="events/" style="color:inherit">Events</a>
       <a href="Get%20Involved.dc.html#donate" style="color:inherit">Donate</a>
     </div>
@@ -257,7 +255,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           </div>
         </sc-for>
       </dl>
-      <a href="#work" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;font-size:15px;color:#163D12;border-bottom:1px solid #b68235;padding-bottom:6px">See what we do
+      <a href="#classes" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;font-size:15px;color:#163D12;border-bottom:1px solid #b68235;padding-bottom:6px">See what we do
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
       </a>
     </div>
@@ -277,38 +275,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     </div>
   </div>
   <p aria-hidden="true" class="m-cap" style="position:absolute;right:clamp(20px,5vw,72px);bottom:28px;margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,242,.55)">From learning → to expression → to confidence → to culture → to generations</p>
-</section>
-
-<section id="work" aria-labelledby="work-title" data-screen-label="05 What We Do" style="background:#163D12;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto">
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(48px,6vw,80px)">
-      <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#e1ad66"><span style="width:40px;height:1px;background:currentColor"></span><span>Our Work</span></div>
-        <h2 id="work-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(48px,6.2vw,100px);line-height:.95;letter-spacing:-.02em">What We Do</h2>
-      </div>
-      <p style="margin:0;max-width:420px;font-size:16px;line-height:1.7;color:rgba(243,242,242,.85)">Four connected areas of work, from a child's first lesson to the traditions that hold a community together.</p>
-    </div>
-    <div style="display:flex;flex-direction:{{ layout.wdDir }};gap:14px">
-      <sc-for list="{{ work }}" as="w" hint-placeholder-count="4">
-        <a href="{{ w.href }}" onMouseEnter="{{ w.enter }}" onFocus="{{ w.enter }}" style="position:relative;display:block;flex:{{ w.flex }};min-width:0;height:{{ layout.wdH }};overflow:hidden;color:#f3f2f2;border:1px solid rgba(243,242,242,.2);border-radius:4px;transition:flex .8s cubic-bezier(.2,.7,.2,1)">
-          <img src="{{ w.img }}" alt="{{ w.alt }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale({{ w.scale }});filter:sepia(.22) saturate(.82) contrast(1.05);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)">
-          <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,29,12,.2) 0%,rgba(15,29,12,.25) 40%,rgba(15,29,12,.93) 100%)"></span>
-          <span style="position:absolute;inset:0;padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;justify-content:space-between">
-            <span style="display:flex;justify-content:space-between;align-items:center">
-              <span style="font-size:12px;letter-spacing:.2em;color:#facb8d;font-variant-numeric:tabular-nums">{{ w.n }}</span>
-              <span style="width:46px;height:46px;border-radius:4px;border:1px solid {{ w.arrowBorder }};display:grid;place-items:center;color:{{ w.arrowFg }};transition:border-color .5s,color .5s">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="transform:translateX({{ w.arrowX }});transition:transform .6s cubic-bezier(.2,.7,.2,1)"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-              </span>
-            </span>
-            <span style="display:flex;flex-direction:column;gap:14px">
-              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,2.6vw,42px);line-height:1;letter-spacing:-.01em">{{ w.title }}</span>
-              <span style="font-size:15px;line-height:1.6;color:rgba(243,242,242,.92);max-width:380px;opacity:{{ w.descOp }};transform:translateY({{ w.descY }});transition:opacity .6s ease,transform .6s ease">{{ w.text }}</span>
-            </span>
-          </span>
-        </a>
-      </sc-for>
-    </div>
-  </div>
 </section>
 
 <section id="classes" aria-labelledby="classes-title" data-screen-label="06b What We Teach" style="background:#eae9e9;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
@@ -362,7 +328,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </sc-for>
       </ol>
       <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-        <a href="Music%20Education.dc.html#interest" style="display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;background:#163D12;color:#f3f2f2;font-size:15px;transition:background .3s" style-hover="background:#315A29;color:#f3f2f2">Enquire about classes
+        <a href="Get%20Involved.dc.html#contact" style="display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;background:#163D12;color:#f3f2f2;font-size:15px;transition:background .3s" style-hover="background:#315A29;color:#f3f2f2">Enquire about classes
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
         <a href="{{ ct.phoneHref }}" style="display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px;transition:background .3s" style-hover="background:rgba(22,61,18,.07)">Call {{ ct.phone }}</a>
@@ -523,7 +489,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <noscript>
   <div style="max-width:720px;margin:0 auto;padding:40px 20px;font-family:Georgia,serif;color:#201f1d">
     <p><strong>Bangalore Music Trust</strong> — Supporting Talent • Inspiring Generations. Music education, talent development and cultural continuity in Bengaluru.</p>
-    <p><a href="/">Home</a> · <a href="/Music%20Education.dc.html">Music Education</a> · <a href="/Get%20Involved.dc.html">Get Involved</a></p>
+    <p><a href="/">Home</a> · <a href="/classes/">Classes</a> · <a href="/Get%20Involved.dc.html">Get Involved</a></p>
     <p>Address: 59/6, 1st Floor, Deepika Layout (Gubbalala Main Road / 80 Feet Road), Banashankari 6th Stage, Gubbalala, Subramanyapura, Bengaluru, Karnataka 560061<br>
     Phone: <a href="tel:+918971168006">+91 89711 68006</a> · Email: <a href="mailto:bangaloremusictrust@gmail.com">bangaloremusictrust@gmail.com</a><br>
     <a href="https://wa.me/918971168006">WhatsApp</a> · <a href="https://www.instagram.com/bangalore_music_trust/">Instagram</a></p>
@@ -538,7 +504,7 @@ const HEADLINES = {
 };
 
 class Component extends DCLogic {
-  state = { scrolled: false, w: window.innerWidth, menuOpen: false, wHover: 0, eHover: -1, giHover: -1, ready: !!window.BMT };
+  state = { scrolled: false, w: window.innerWidth, menuOpen: false, eHover: -1, giHover: -1, ready: !!window.BMT };
   heroImgRef = React.createRef();
   staffRef = React.createRef();
 
@@ -621,24 +587,13 @@ class Component extends DCLogic {
   renderVals() {
     const B = window.BMT;
     const img = (k, w) => (B ? B.img(k, w) : IMG0);
-    const { w, scrolled, wHover, eHover, giHover } = this.state;
+    const { w, scrolled, eHover, giHover } = this.state;
     const mobile = w < 1180;
     const phone = w < 640;
     const headline = this.props.heroHeadline ?? 'Supporting Talent. Inspiring Generations.';
-    const P = B ? B.pages : { education: 'Music Education.dc.html', involved: 'Get Involved.dc.html' };
+    const P = B ? B.pages : { involved: 'Get Involved.dc.html' };
     const enc = s => s.replace(/ /g, '%20');
-    const edu = enc(P.education), inv = enc(P.involved);
-
-    const work = [
-      ['01', 'Music Education', 'Creating environments and opportunities for learners of all ages to discover, learn and grow through music.', 'wEducation', edu],
-      ['02', 'Talent Development', 'Nurturing emerging musicians and helping promising talent find opportunities to develop their abilities.', 'wTalent', '#classes'],
-      ['03', 'Cultural Preservation', 'Understanding and supporting the continued learning, practice and appreciation of musical traditions.', 'wCulture', '#mission'],
-      ['04', 'Community & Access', 'Bringing people together through music, learning, cultural values and shared experiences.', 'wCommunity', '#events']
-    ].map(([n, title, text, k, href], i) => {
-      const on = mobile || wHover === i;
-      const im = img(k, 1200);
-      return { n, title, text, href, img: im.src, alt: im.alt, flex: mobile ? '0 0 auto' : (wHover === i ? '2.3 1 0' : '1 1 0'), scale: wHover === i && !mobile ? 1.06 : 1, descOp: on ? 1 : 0, descY: on ? '0px' : '12px', arrowX: wHover === i ? '3px' : '0px', arrowBorder: wHover === i ? '#e1ad66' : 'rgba(243,242,242,.55)', arrowFg: wHover === i ? '#facb8d' : '#f3f2f2', enter: () => this.setState({ wHover: i }) };
-    });
+    const inv = enc(P.involved);
 
     const events = [
       ['Concerts', 'Evenings of performance by established and emerging artists.', 'eConcerts'],
@@ -650,7 +605,7 @@ class Component extends DCLogic {
     ].map(([title, text, k], i) => { const im = img(k, 900); return { n: '0' + (i + 1), title, text, img: im.src, alt: im.alt, scale: eHover === i ? 1.06 : 1, arrowX: eHover === i ? '4px' : '0px', enter: () => this.setState({ eHover: i }), leave: () => this.setState({ eHover: -1 }) }; });
 
     const pathways = [
-      ['Learn', 'Hindustani classical, Western vocals and Western instruments, for children, young people and adults.', 'Explore learning', edu],
+      ['Learn', 'Hindustani classical, Western vocals and Western instruments, for children, young people and adults.', 'Explore learning', 'classes/'],
       ['Support', 'Contribute from ₹1 and help create opportunities for learners and emerging talent.', 'Support the Trust', inv + '#donate'],
       ['Volunteer', 'Share your time, musical skills or professional expertise with the Trust.', 'Volunteer with us', inv + '#volunteer'],
       ['Collaborate', 'Partner with the Trust as an artist, educator, institution or company, including CSR collaborations.', 'Start a conversation', inv + '#collaborate']
@@ -684,7 +639,7 @@ class Component extends DCLogic {
         desk: mobile ? 'none' : 'flex', mob: mobile ? 'flex' : 'none',
         wdDir: mobile ? 'column' : 'row', wdH: phone ? '380px' : mobile ? '440px' : '600px',
       },
-      menuLinks: [['About', '#who'], ['Music Education', edu], ['Classes', 'classes/'], ['What We Teach', '#classes'], ['Our Work', '#work'], ['Events', 'events/'], ['Get Involved', inv], ['Donate', inv + '#donate'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      menuLinks: [['About', '#who'], ['Classes', 'classes/'], ['What We Teach', '#classes'], ['Events', 'events/'], ['Get Involved', inv], ['Donate', inv + '#donate'], ['Contact', inv + '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       heroLines: (HEADLINES[headline] || HEADLINES['Supporting Talent. Inspiring Generations.']).map(([text, style]) => ({ text, style })),
       img: {
         hero: img('hero'), mission: img('mission'), who: img('who', 1000), whoDetail: img('whoDetail', 600),
@@ -696,7 +651,6 @@ class Component extends DCLogic {
         ['Artists', 'Performing musicians who inspire, mentor and share the stage.'],
         ['Supporters', 'Patrons, families and institutions who make learning possible.']
       ].map(([t, d]) => ({ t, d })),
-      work,
       classes,
       joinSteps: [
         ['Enquire', 'Register your interest online, call the Trust or send a message on WhatsApp.'],
@@ -711,7 +665,7 @@ class Component extends DCLogic {
       ].map(([title, text], i) => ({ n: 'i ii iii iv'.split(' ')[i], title, text })),
       events,
       pathways,
-      footerA: [['About', '#who'], ['Music Education', edu], ['Classes', 'classes/'], ['What We Teach', '#classes'], ['Events', 'events/']].map(([label, href]) => ({ label, href })),
+      footerA: [['About', '#who'], ['Classes', 'classes/'], ['What We Teach', '#classes'], ['Events', 'events/']].map(([label, href]) => ({ label, href })),
       footerB: [['Get Involved', inv], ['Volunteer', inv + '#volunteer'], ['Donate', inv + '#donate'], ['Corporate & CSR', '#csr'], ['Contact', inv + '#contact']].map(([label, href]) => ({ label, href })),
       instagram,
       ct: B ? B.contactVars : {},
