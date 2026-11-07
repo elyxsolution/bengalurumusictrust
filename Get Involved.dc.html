@@ -126,6 +126,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div style="display:{{ desk }};align-items:center;gap:32px;font-size:14px;white-space:nowrap">
       <a href="index.html#who" style="color:inherit">About</a>
       <a href="Music%20Education.dc.html" style="color:inherit">Music Education</a>
+      <a href="classes/" style="color:inherit">Classes</a>
       <a href="index.html#work" style="color:inherit">Our Work</a>
       <a href="events/" style="color:inherit">Events</a>
       <a href="#donate" style="color:inherit">Donate</a>
@@ -846,7 +847,7 @@ class Component extends DCLogic {
       menuOpen: this.state.menuOpen,
       openMenu: () => this.openMenu(),
       closeMenu: () => this.closeMenu(),
-      menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Donate', '#donate'], ['Volunteer', '#volunteer'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
+      menuLinks: [['Home', H], ['About', H + '#who'], ['Music Education', E], ['Classes', 'classes/'], ['Donate', '#donate'], ['Volunteer', '#volunteer'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href], i) => ({ label, href, n: '0' + (i + 1) })),
       giveWays: WAYS.map(([title, text], i) => ({ n: '0' + (i + 1), title, text })),
       dn: (() => {
         const { dPreset, dCustom, dStatus, dErrors, dMessage, dGateway, dMode, dPaymentId, dPaidAmount, dChecking } = this.state;
@@ -935,7 +936,7 @@ class Component extends DCLogic {
         : 'Your message about ' + TOPICS[sentTopic].toLowerCase() + ' has been sent. The Trust will respond soon.',
       reset: () => this.setState({ status: 'idle', errors: {}, give: -1, amount: -1 }),
       ct: B ? B.contactVars : {},
-      footerLinks: [['About', H + '#who'], ['Music Education', E], ['What We Teach', H + '#classes'], ['Events', 'events/'], ['Volunteer', '#volunteer'], ['Donate', '#donate'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
+      footerLinks: [['About', H + '#who'], ['Music Education', E], ['Classes', 'classes/'], ['What We Teach', H + '#classes'], ['Events', 'events/'], ['Volunteer', '#volunteer'], ['Donate', '#donate'], ['Corporate & CSR', '#csr'], ['Contact', '#contact']].map(([label, href]) => ({ label, href }))
     };
   }
 }
