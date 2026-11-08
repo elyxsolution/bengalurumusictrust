@@ -17,7 +17,7 @@ button,input,textarea,select{font-family:inherit}
 ::selection{background:rgba(49,90,41,.25)}
 :focus{outline:none}
 :focus-visible{outline:2px solid var(--green-2);outline-offset:2px}
-.on-dark :focus-visible,.site-footer :focus-visible,#site-menu :focus-visible{outline-color:var(--accent-dark)}
+.on-dark :focus-visible,.site-footer :focus-visible{outline-color:var(--accent-dark)}
 [id]{scroll-margin-top:92px}
 .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--green);color:#fff;padding:10px 16px;border-radius:var(--radius)}
 .skip:focus{top:12px;color:#fff}
@@ -52,23 +52,16 @@ button,input,textarea,select{font-family:inherit}
 .nav-links a[aria-current="page"]{color:var(--green);border-bottom-color:var(--green)}
 .nav-end{display:flex;align-items:center;gap:12px}
 .nav-donate{display:none}
-.burger{display:flex;flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;padding:0 12px;border:1px solid currentColor;border-radius:var(--radius);background:transparent;color:inherit;cursor:pointer}
-.burger span{display:block;height:1px;background:currentColor}
-.burger span:last-child{width:60%}
-@media (min-width:1000px){.nav-links{display:flex}.nav-donate{display:inline-flex}.burger{display:none}}
-
-/* Mobile menu */
-#site-menu{position:fixed;inset:0;z-index:60;background:var(--green);color:var(--on-dark);display:flex;flex-direction:column;padding:22px var(--pad) 40px;overflow:auto}
-#site-menu[hidden]{display:none}
-#site-menu.is-open{animation:menu-in .3s ease both}
-@keyframes menu-in{from{opacity:0}to{opacity:1}}
-.menu-top{display:flex;justify-content:space-between;align-items:center}
-.menu-top img{height:44px;width:auto}
-.menu-close{width:46px;height:46px;border:1px solid rgba(243,242,242,.5);border-radius:var(--radius);background:transparent;color:var(--on-dark);font-size:22px;cursor:pointer}
-.menu-list{display:flex;flex-direction:column;margin-top:auto;padding-top:40px}
-.menu-list a{display:flex;align-items:baseline;gap:18px;color:var(--on-dark);font-family:var(--serif);font-size:clamp(34px,9vw,60px);line-height:1.15;border-bottom:1px solid var(--on-dark-hair);padding:8px 0}
-.menu-list a span{font-family:var(--text);font-size:11px;letter-spacing:.18em;color:var(--accent-dark)}
-.menu-tag{margin:28px 0 0;font-style:italic;font-size:14px;color:var(--accent-dark)}
+@media (min-width:1000px){.nav-links{display:flex}.nav-donate{display:inline-flex}}
+/* Below 1000px the links sit in the header itself (brand on the first row, links wrapping underneath), with no overlay menu. */
+@media (max-width:999px){
+  .site-header{position:relative}
+  .site-nav{flex-wrap:wrap;justify-content:flex-start;gap:2px 22px;padding-top:14px;padding-bottom:10px}
+  .brand{flex:0 0 100%;margin-bottom:6px}
+  .nav-links,.nav-end{display:contents}
+  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0;font-size:15px}
+  .nav-donate{display:inline-flex}
+}
 
 /* Footer */
 .site-footer{background:var(--green-3);color:var(--on-dark);padding:clamp(64px,7vw,100px) var(--pad) 32px}
@@ -101,7 +94,6 @@ button,input,textarea,select{font-family:inherit}
   .js .reveal,.js .reveal.is-in{opacity:1;transform:none;transition:none}
   [data-parallax]{transform:none!important;will-change:auto}
   .btn,.btn svg,.card img{transition:none}
-  #site-menu.is-open{animation:none}
 }
 
 /* ===== Home ===== */
@@ -197,5 +189,6 @@ h2.title em{font-style:italic}
   .btn{white-space:normal;text-align:center}
   .hero{border-radius:16px;min-height:480px}
   .hero__media img{object-position:46% 40%}
-  .hero__actions .btn{flex:1 1 auto}
+  .hero__actions{flex-direction:column;align-items:stretch}
+  .hero__actions .btn{width:100%}
 }

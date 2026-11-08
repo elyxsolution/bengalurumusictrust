@@ -10,28 +10,6 @@
   var header = $('site-header');
   function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 10); }
 
-  // Mobile menu.
-  var menu = $('site-menu'), openBtn = $('menu-open'), closeBtn = $('menu-close');
-  function setMenu(open) {
-    if (!menu || !openBtn) return;
-    menu.hidden = !open;
-    menu.classList.toggle('is-open', open);
-    openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    root.style.overflow = open ? 'hidden' : '';
-    (open ? closeBtn : openBtn).focus();
-  }
-  if (menu && openBtn && closeBtn) {
-    openBtn.addEventListener('click', function () { setMenu(true); });
-    closeBtn.addEventListener('click', function () { setMenu(false); });
-    menu.addEventListener('click', function (e) {
-      if (e.target.closest && e.target.closest('a')) { menu.hidden = true; root.style.overflow = ''; openBtn.setAttribute('aria-expanded', 'false'); }
-    });
-    window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
-    window.addEventListener('resize', function () {
-      if (!menu.hidden && window.innerWidth >= 1000) { menu.hidden = true; root.style.overflow = ''; openBtn.setAttribute('aria-expanded', 'false'); }
-    });
-  }
-
   // Contact details: site-content.js (window.BMT) is the single source when it is available; the HTML holds the same values as a fallback.
   var B = window.BMT;
   if (B && B.contactVars) {
