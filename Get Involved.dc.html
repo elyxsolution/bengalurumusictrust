@@ -172,21 +172,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<section id="learn" aria-labelledby="learn-title" data-screen-label="02 Learn" style="padding:clamp(88px,10vw,150px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px clamp(48px,7vw,120px);align-items:end">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Learn</span></div>
-      <h2 id="learn-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Discover Music <em>Education Opportunities</em></h2>
-    </div>
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <p style="margin:0;font-size:17px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto" class="m-left">For children, young people and adults who want to begin or deepen a relationship with music, in Hindustani classical music, Western vocals or Western instruments. Explore the stages of learning and register your interest.</p>
-      <a href="classes/" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px" style-hover="background:rgba(22,61,18,.07)">Explore Classes
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="donate" aria-labelledby="donate-title" data-screen-label="03 Donate" style="scroll-margin-top:96px;background:#1d1c1a;color:#f3f2f2;padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
   <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:start">
     <div data-reveal="" style="min-width:0;display:flex;flex-direction:column;gap:26px">
@@ -290,32 +275,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           </div>
         </div>
       </sc-if>
-    </div>
-  </div>
-</section>
-
-<section id="volunteer" aria-labelledby="vol-title" data-screen-label="04 Volunteer" style="border-top:1px solid rgba(32,31,29,.12);padding:clamp(96px,11vw,170px) clamp(20px,5vw,72px)">
-  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(48px,7vw,120px);align-items:center">
-    <figure data-reveal="" style="margin:0;aspect-ratio:4/5;max-height:720px;overflow:hidden;border:6px solid #eae9e9;outline:1px solid rgba(32,31,29,.16)">
-      <img src="https://images.unsplash.com/photo-1758524944402-1903b38f848f?auto=format&amp;fit=crop&amp;q=72&amp;w=1600" srcset="{{ img.vol.set }}" alt="{{ img.vol.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ img.vol.pos }};filter:sepia(.22) saturate(.82) contrast(1.05)">
-    </figure>
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
-      <div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d5411"><span style="width:40px;height:1px;background:currentColor"></span><span>Volunteer</span></div>
-      <h2 id="vol-title" style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;color:#163D12">Share Your Time, <em>Knowledge or Expertise</em></h2>
-      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#33312d;max-width:520px;text-align:justify;hyphens:auto" class="m-left">Musicians, educators and professionals from every field can help the Trust grow: supporting music education initiatives, helping at community events, or contributing musical and professional skills.</p>
-      <ol style="list-style:none;margin:0;padding:0;max-width:560px;border-top:1px solid rgba(32,31,29,.16)">
-        <sc-for list="{{ volSteps }}" as="v" hint-placeholder-count="3">
-          <li style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid rgba(32,31,29,.16);font-size:15px;line-height:1.55;color:#44423d"><span style="font-size:11px;letter-spacing:.14em;color:#7d5411;padding-top:3px;font-variant-numeric:tabular-nums">{{ v.n }}</span><span>{{ v.text }}</span></li>
-        </sc-for>
-      </ol>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;max-width:560px">
-        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="8">
-          <button type="button" aria-pressed="{{ s.on }}" onClick="{{ s.toggle }}" style="padding:10px 16px;border-radius:4px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-size:14px;cursor:pointer;transition:background .3s,color .3s">{{ s.label }}</button>
-        </sc-for>
-      </div>
-      <a href="#contact" onClick="{{ enquireVol }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:4px;border:1px solid #163D12;color:#163D12;font-size:15px" style-hover="background:rgba(22,61,18,.07)">Volunteer with us
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-      </a>
     </div>
   </div>
 </section>
