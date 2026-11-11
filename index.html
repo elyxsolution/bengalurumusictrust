@@ -123,7 +123,7 @@
         <span class="brand-tag">Supporting Talent • Inspiring Generations</span>
       </span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="classes/">Classes</a></li>
       <li><a href="events/">Events</a></li>
@@ -132,6 +132,7 @@
     </ul>
     <div class="nav-end">
       <a class="btn btn--sm nav-donate" href="Get%20Involved.dc.html#donate">Donate</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle__bars" aria-hidden="true"></span></button>
     </div>
   </nav>
 </header>
@@ -141,31 +142,27 @@
 
 <section class="wrap hero-wrap" aria-labelledby="hero-title">
   <div class="hero">
-    <div class="hero__media" data-parallax="0.1">
-      <img src="assets/home/hero-class-1429.webp" srcset="assets/home/hero-class-900.webp 900w, assets/home/hero-class-1429.webp 1429w" sizes="(max-width:1440px) 100vw, 1440px" width="1429" height="715" alt="Illustration of a music class: a teacher guiding a girl at a keyboard while two boys practise nearby" fetchpriority="high" decoding="async">
-    </div>
-    <div class="hero__veil" aria-hidden="true"></div>
     <div class="hero__copy">
-      <h1 id="hero-title">Supporting Talent. Inspiring Generations.</h1>
-      <p class="hero__sub">Bangalore Music Trust works to nurture musical talent and expand access to music education in Bengaluru, across Indian classical and Western music, for learners of every age.</p>
+      <h1 id="hero-title">Expanding access to music education in Bengaluru.</h1>
+      <p class="hero__sub">Bangalore Music Trust nurtures musical talent across Indian classical and Western music, for learners of every age.</p>
       <div class="hero__actions">
-        <a class="btn btn--light" href="Get%20Involved.dc.html#donate">Support the Trust</a>
-        <a class="btn btn--ghost" href="contact/">Enquire about classes</a>
+        <a class="btn" href="Get%20Involved.dc.html#donate">Support the Trust</a>
+        <a class="btn btn--line" href="contact/">Enquire about classes</a>
       </div>
     </div>
+    <div class="hero__media">
+      <img src="assets/home/hero-class-1429.webp" srcset="assets/home/hero-class-900.webp 900w, assets/home/hero-class-1429.webp 1429w" sizes="(max-width:900px) 100vw, 740px" width="1429" height="715" alt="Illustration of a music class: a teacher guiding a girl at a keyboard while two boys practise nearby" fetchpriority="high" decoding="async">
+    </div>
   </div>
-  <p class="img-cap">Music Night, 20 June 2026. Photograph supplied by Bangalore Music Trust.</p>
 </section>
 
-<section id="who" class="section" aria-labelledby="who-title">
+<section id="who" class="section section--tight" aria-labelledby="who-title">
   <div class="wrap who">
-    <div class="section-head reveal" style="margin:0">
+    <div class="section-head reveal who__title" style="margin:0">
       <h2 id="who-title" class="title">Who We <em>Are</em></h2>
     </div>
-    <div class="reveal" style="--d:.1s">
-      <p>Bangalore Music Trust is envisioned as a platform that brings together learners, educators, artists and supporters of music, across Indian classical and Western traditions, to create meaningful opportunities for musical education and expression.</p>
-      <ul class="chips" aria-label="Who the Trust brings together"><li>Learners</li><li>Educators</li><li>Artists</li><li>Supporters</li></ul>
-    </div>
+    <p class="who__text reveal" style="--d:.1s">Bangalore Music Trust is envisioned as a platform that brings together learners, educators, artists and supporters of music, across Indian classical and Western traditions, to create meaningful opportunities for musical education and expression.</p>
+    <ul class="chips reveal who__chips" style="--d:.15s" aria-label="Who the Trust brings together"><li>Learners</li><li>Educators</li><li>Artists</li><li>Supporters</li></ul>
   </div>
 </section>
 
@@ -256,11 +253,14 @@
       <h2 id="events-title" class="title">Events &amp; Cultural <em>Experiences</em></h2>
       <p class="lede">Music brings us together. See photographs from Music Night, and find upcoming events and concerts as they are announced.</p>
     </div>
-    <div class="band reveal">
-      <p>Upcoming events and concerts will be announced with dates and booking details. Follow the Trust on Instagram for updates.</p>
+    <div class="band band--events reveal">
+      <div class="band__text">
+        <h3>Upcoming events, announced as they are confirmed</h3>
+        <p>Follow @bangalore_music_trust on Instagram for updates on upcoming events and concerts.</p>
+      </div>
       <div class="band__actions">
-        <a class="btn" href="events/">See events</a>
-        <a class="btn btn--line" data-bmt="instagram" href="https://www.instagram.com/bangalore_music_trust/" target="_blank" rel="noopener">Follow on Instagram</a>
+        <a class="btn" data-bmt="instagram" href="https://www.instagram.com/bangalore_music_trust/" target="_blank" rel="noopener">Follow on Instagram</a>
+        <a class="btn btn--line" href="events/">See events</a>
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <p class="lede">Companies and institutions can help bring music education to more learners in Bengaluru. The Trust is exploring corporate partnerships and CSR collaborations, and welcomes early conversations.</p>
     </div>
     <div class="band reveal">
-      <p>The Trust's registration, tax-exemption and CSR eligibility details will be published here once confirmed, so your team can verify eligibility before committing support.</p>
+      <p>Our tax-exemption documents are being processed. Donations made now are not eligible for tax exemption. We will update this website once the relevant approval is confirmed.</p>
       <div class="band__actions">
         <a class="btn" href="Get%20Involved.dc.html#collaborate">Start a partnership conversation</a>
         <a class="btn btn--line" data-bmt="email" href="mailto:bangaloremusictrust@gmail.com">Email the Trust</a>
@@ -299,7 +299,7 @@
 
 <section class="closing" aria-labelledby="closing-title">
   <div class="wrap closing__in">
-    <div class="reveal">
+    <div class="reveal closing__text">
       <h2 id="closing-title">Let Music Shape the Next Generation.</h2>
       <p>Supporting talent. Inspiring generations.</p>
     </div>

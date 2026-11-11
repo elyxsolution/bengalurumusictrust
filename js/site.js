@@ -10,6 +10,20 @@
   var header = $('site-header');
   function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 10); }
 
+  // Mobile menu: the hamburger button opens and closes the link list (below 1000px only; the desktop nav is unchanged).
+  var toggle = $('nav-toggle');
+  if (header && toggle) {
+    var setMenu = function (open) {
+      header.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    toggle.addEventListener('click', function () { setMenu(!header.classList.contains('nav-open')); });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); toggle.focus(); } });
+    doc.addEventListener('click', function (e) { if (header.classList.contains('nav-open') && !header.contains(e.target)) setMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 1000) setMenu(false); });
+  }
+
   // Contact details: site-content.js (window.BMT) is the single source when it is available; the HTML holds the same values as a fallback.
   var B = window.BMT;
   if (B && B.contactVars) {
